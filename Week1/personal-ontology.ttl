@@ -1,0 +1,751 @@
+@prefix : <http://www.example.org/personal-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.example.org/personal-ontology#> .
+
+<http://www.example.org/personal-ontology> rdf:type owl:Ontology ;
+                                            rdfs:comment "Ontology of Art Haxholli" .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.example.org/personal-ontology#atOrganization
+:atOrganization rdf:type owl:ObjectProperty ;
+                owl:inverseOf :offersEmployment ;
+                rdfs:domain :Employment ;
+                rdfs:range :Institution .
+
+
+###  http://www.example.org/personal-ontology#completedProgram
+:completedProgram rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :hasGraduate ;
+                  rdfs:domain :Person ;
+                  rdfs:range :AcademicProgram .
+
+
+###  http://www.example.org/personal-ontology#contributedTo
+:contributedTo rdf:type owl:ObjectProperty ;
+               owl:inverseOf :hasContributor ;
+               rdfs:domain :Person ;
+               rdfs:range :Project .
+
+
+###  http://www.example.org/personal-ontology#grants
+:grants rdf:type owl:ObjectProperty ;
+        owl:inverseOf :isGrantedBy ;
+        rdfs:domain :University ;
+        rdfs:range :Bachelors .
+
+
+###  http://www.example.org/personal-ontology#hasAcademicProject
+:hasAcademicProject rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :partOfCourse ;
+                    rdfs:domain :Course ;
+                    rdfs:range :AcademicProject .
+
+
+###  http://www.example.org/personal-ontology#hasBrother
+:hasBrother rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasSibling ;
+            owl:inverseOf :isBrotherOf ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasCity
+:hasCity rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :isLocationOf ;
+         owl:inverseOf :locatedInCountry ;
+         rdfs:domain :Country ;
+         rdfs:range :City .
+
+
+###  http://www.example.org/personal-ontology#hasContributor
+:hasContributor rdf:type owl:ObjectProperty ;
+                rdfs:domain :Project ;
+                rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasEmployment
+:hasEmployment rdf:type owl:ObjectProperty ;
+               owl:inverseOf :isEmploymentOf ;
+               rdfs:domain :Person ;
+               rdfs:range :Employment .
+
+
+###  http://www.example.org/personal-ontology#hasFather
+:hasFather rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasParent ;
+           owl:inverseOf :isFatherOf ;
+           rdfs:domain :Person ;
+           rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasGraduate
+:hasGraduate rdf:type owl:ObjectProperty ;
+             rdfs:domain :AcademicProgram ;
+             rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasHobby
+:hasHobby rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isHobbyOf ;
+          rdfs:domain :Person ;
+          rdfs:range :Activity .
+
+
+###  http://www.example.org/personal-ontology#hasLanguageProficiency
+:hasLanguageProficiency rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :hasProficiency ;
+                        owl:inverseOf :isLanguageProficiencyOf ;
+                        rdfs:domain :Person ;
+                        rdfs:range :LanguageProficiency .
+
+
+###  http://www.example.org/personal-ontology#hasMother
+:hasMother rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasParent ;
+           owl:inverseOf :isMotherOf ;
+           rdfs:domain :Person ;
+           rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasParent
+:hasParent rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isParentOf ;
+           rdfs:domain :Person ;
+           rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasProficiency
+:hasProficiency rdf:type owl:ObjectProperty ;
+                owl:inverseOf :isProficiencyOf ;
+                rdfs:domain :Person .
+
+
+###  http://www.example.org/personal-ontology#hasProficiencyRecord
+:hasProficiencyRecord rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :ofLanguage ;
+                      rdfs:domain :Language ;
+                      rdfs:range :LanguageProficiency .
+
+
+###  http://www.example.org/personal-ontology#hasRole
+:hasRole rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isRoleOf ;
+         rdfs:domain :Employment ;
+         rdfs:range :Role .
+
+
+###  http://www.example.org/personal-ontology#hasSibling
+:hasSibling rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasSister
+:hasSister rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasSibling ;
+           owl:inverseOf :isSisterOf ;
+           rdfs:domain :Person ;
+           rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#hasSkillProficiency
+:hasSkillProficiency rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :hasProficiency ;
+                     owl:inverseOf :isSkillProficiencyOf ;
+                     rdfs:domain :Person ;
+                     rdfs:range :SkillProficiency .
+
+
+###  http://www.example.org/personal-ontology#hasSkillProficiencyRecord
+:hasSkillProficiencyRecord rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :ofSkill ;
+                           rdfs:domain :Skill ;
+                           rdfs:range :SkillProficiency .
+
+
+###  http://www.example.org/personal-ontology#includesCourse
+:includesCourse rdf:type owl:ObjectProperty ;
+                owl:inverseOf :isPartOfProgram ;
+                rdfs:domain :AcademicProgram ;
+                rdfs:range :Course .
+
+
+###  http://www.example.org/personal-ontology#isBrotherOf
+:isBrotherOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasSibling ;
+             rdfs:domain :Person ;
+             rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isEmploymentOf
+:isEmploymentOf rdf:type owl:ObjectProperty ;
+                rdfs:domain :Employment ;
+                rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isFatherOf
+:isFatherOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isParentOf ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isGrantedBy
+:isGrantedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Bachelors ;
+             rdfs:range :University .
+
+
+###  http://www.example.org/personal-ontology#isHobbyOf
+:isHobbyOf rdf:type owl:ObjectProperty ;
+           rdfs:domain :Activity ;
+           rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isLanguageProficiencyOf
+:isLanguageProficiencyOf rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :isProficiencyOf ;
+                         rdfs:domain :LanguageProficiency ;
+                         rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isLocationOf ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( :Institution
+                                         :Person
+                                       )
+                         ] ;
+             rdfs:range :Location .
+
+
+###  http://www.example.org/personal-ontology#isLocationOf
+:isLocationOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :Location ;
+              rdfs:range [ rdf:type owl:Class ;
+                           owl:unionOf ( :Institution
+                                         :Person
+                                       )
+                         ] .
+
+
+###  http://www.example.org/personal-ontology#isMotherOf
+:isMotherOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isParentOf ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isParentOf
+:isParentOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isPartOfProgram
+:isPartOfProgram rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Course ;
+                 rdfs:range :AcademicProgram .
+
+
+###  http://www.example.org/personal-ontology#isProficiencyOf
+:isProficiencyOf rdf:type owl:ObjectProperty ;
+                 rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isRoleOf
+:isRoleOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Role ;
+          rdfs:range :Employment .
+
+
+###  http://www.example.org/personal-ontology#isSisterOf
+:isSisterOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasSibling ;
+            rdfs:domain :Person ;
+            rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isSkillProficiencyOf
+:isSkillProficiencyOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :isProficiencyOf ;
+                      rdfs:domain :SkillProficiency ;
+                      rdfs:range :Person .
+
+
+###  http://www.example.org/personal-ontology#isTaughtInCourse
+:isTaughtInCourse rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :teachesSkill ;
+                  rdfs:domain :Skill ;
+                  rdfs:range :Course .
+
+
+###  http://www.example.org/personal-ontology#isUsedInProject
+:isUsedInProject rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :usesSkill ;
+                 rdfs:domain :Skill ;
+                 rdfs:range :Project .
+
+
+###  http://www.example.org/personal-ontology#locatedInCountry
+:locatedInCountry rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :isLocatedIn ;
+                  rdfs:domain :City ;
+                  rdfs:range :Country .
+
+
+###  http://www.example.org/personal-ontology#ofLanguage
+:ofLanguage rdf:type owl:ObjectProperty ;
+            rdfs:domain :LanguageProficiency ;
+            rdfs:range :Language .
+
+
+###  http://www.example.org/personal-ontology#ofSkill
+:ofSkill rdf:type owl:ObjectProperty ;
+         rdfs:domain :SkillProficiency ;
+         rdfs:range :Skill .
+
+
+###  http://www.example.org/personal-ontology#offersEmployment
+:offersEmployment rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Institution ;
+                  rdfs:range :Employment .
+
+
+###  http://www.example.org/personal-ontology#partOfCourse
+:partOfCourse rdf:type owl:ObjectProperty ;
+              rdfs:domain :AcademicProject ;
+              rdfs:range :Course .
+
+
+###  http://www.example.org/personal-ontology#speaksLanguage
+:speaksLanguage rdf:type owl:ObjectProperty ;
+                rdfs:domain :Person ;
+                rdfs:range :Language .
+
+
+###  http://www.example.org/personal-ontology#teachesSkill
+:teachesSkill rdf:type owl:ObjectProperty ;
+              rdfs:domain :Course ;
+              rdfs:range :Skill .
+
+
+###  http://www.example.org/personal-ontology#usesSkill
+:usesSkill rdf:type owl:ObjectProperty ;
+           rdfs:domain :Project ;
+           rdfs:range :Skill .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.example.org/personal-ontology#hasBirthDate
+:hasBirthDate rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Person ;
+              rdfs:range xsd:date .
+
+
+###  http://www.example.org/personal-ontology#hasDepartment
+:hasDepartment rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Employment ;
+               rdfs:range xsd:string .
+
+
+###  http://www.example.org/personal-ontology#hasEndDate
+:hasEndDate rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Employment ;
+            rdfs:range xsd:date .
+
+
+###  http://www.example.org/personal-ontology#hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:domain [ rdf:type owl:Class ;
+                       owl:unionOf ( :Course
+                                     :Institution
+                                     :Person
+                                     :Project
+                                     :Role
+                                   )
+                     ] ;
+         rdfs:range xsd:string .
+
+
+###  http://www.example.org/personal-ontology#hasStartDate
+:hasStartDate rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Employment ;
+              rdfs:range xsd:date .
+
+
+###  http://www.example.org/personal-ontology#ofLevel
+:ofLevel rdf:type owl:DatatypeProperty ;
+         rdfs:domain [ rdf:type owl:Class ;
+                       owl:unionOf ( :LanguageProficiency
+                                     :SkillProficiency
+                                   )
+                     ] ;
+         rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.invalid/ontologies/ont.owl#CreativeSkill
+<http://example.invalid/ontologies/ont.owl#CreativeSkill> rdf:type owl:Class ;
+                                                          rdfs:subClassOf :Skill .
+
+
+###  http://www.example.org/personal-ontology#AcademicInstitution
+:AcademicInstitution rdf:type owl:Class ;
+                     rdfs:subClassOf :Institution ;
+                     owl:disjointWith :Organization .
+
+
+###  http://www.example.org/personal-ontology#AcademicProgram
+:AcademicProgram rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#AcademicProject
+:AcademicProject rdf:type owl:Class ;
+                 rdfs:subClassOf :Project ;
+                 owl:disjointWith :PersonalProject .
+
+
+###  http://www.example.org/personal-ontology#Activity
+:Activity rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#Bachelors
+:Bachelors rdf:type owl:Class ;
+           rdfs:subClassOf :AcademicProgram ;
+           owl:disjointWith :ExchangeSemester .
+
+
+###  http://www.example.org/personal-ontology#City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf :Location ;
+      owl:disjointWith :Country .
+
+
+###  http://www.example.org/personal-ontology#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Location .
+
+
+###  http://www.example.org/personal-ontology#Course
+:Course rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#Employment
+:Employment rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#ExchangeSemester
+:ExchangeSemester rdf:type owl:Class ;
+                  rdfs:subClassOf :AcademicProgram .
+
+
+###  http://www.example.org/personal-ontology#Institution
+:Institution rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#Language
+:Language rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#LanguageProficiency
+:LanguageProficiency rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#Location
+:Location rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf :Institution .
+
+
+###  http://www.example.org/personal-ontology#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#PersonalProject
+:PersonalProject rdf:type owl:Class ;
+                 rdfs:subClassOf :Project .
+
+
+###  http://www.example.org/personal-ontology#ProgrammingLanguage
+:ProgrammingLanguage rdf:type owl:Class ;
+                     rdfs:subClassOf :TechnicalSkill .
+
+
+###  http://www.example.org/personal-ontology#Project
+:Project rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#Role
+:Role rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#Skill
+:Skill rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#SkillProficiency
+:SkillProficiency rdf:type owl:Class .
+
+
+###  http://www.example.org/personal-ontology#SoftSkill
+:SoftSkill rdf:type owl:Class ;
+           rdfs:subClassOf :Skill .
+
+
+###  http://www.example.org/personal-ontology#TechnicalSkill
+:TechnicalSkill rdf:type owl:Class ;
+                rdfs:subClassOf :Skill .
+
+
+###  http://www.example.org/personal-ontology#University
+:University rdf:type owl:Class ;
+            rdfs:subClassOf :AcademicInstitution .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.invalid/ontologies/ont.owl#Albanian
+<http://example.invalid/ontologies/ont.owl#Albanian> rdf:type owl:NamedIndividual ,
+                                                              :Language .
+
+
+###  http://example.invalid/ontologies/ont.owl#ArtHaxholli
+<http://example.invalid/ontologies/ont.owl#ArtHaxholli> rdf:type owl:NamedIndividual ,
+                                                                 :Person ;
+                                                        :completedProgram <http://example.invalid/ontologies/ont.owl#BachelorsComputerScience> ;
+                                                        :hasFather <http://example.invalid/ontologies/ont.owl#ArtsFather> ;
+                                                        :hasLanguageProficiency <http://example.invalid/ontologies/ont.owl#NativeAlbanianProficiency> ;
+                                                        :hasMother <http://example.invalid/ontologies/ont.owl#ArtsMother> ;
+                                                        :hasSister <http://example.invalid/ontologies/ont.owl#ArtsSister> ;
+                                                        :hasName "Art Haxholli" .
+
+
+###  http://example.invalid/ontologies/ont.owl#ArtsFather
+<http://example.invalid/ontologies/ont.owl#ArtsFather> rdf:type owl:NamedIndividual ,
+                                                                :Person .
+
+
+###  http://example.invalid/ontologies/ont.owl#ArtsMother
+<http://example.invalid/ontologies/ont.owl#ArtsMother> rdf:type owl:NamedIndividual ,
+                                                                :Person .
+
+
+###  http://example.invalid/ontologies/ont.owl#ArtsSister
+<http://example.invalid/ontologies/ont.owl#ArtsSister> rdf:type owl:NamedIndividual ,
+                                                                :Person .
+
+
+###  http://example.invalid/ontologies/ont.owl#BachelorsComputerScience
+<http://example.invalid/ontologies/ont.owl#BachelorsComputerScience> rdf:type owl:NamedIndividual ,
+                                                                              :Bachelors .
+
+
+###  http://example.invalid/ontologies/ont.owl#C
+<http://example.invalid/ontologies/ont.owl#C> rdf:type owl:NamedIndividual ,
+                                                       :ProgrammingLanguage .
+
+
+###  http://example.invalid/ontologies/ont.owl#CHIP8Emulator
+<http://example.invalid/ontologies/ont.owl#CHIP8Emulator> rdf:type owl:NamedIndividual ,
+                                                                   :PersonalProject .
+
+
+###  http://example.invalid/ontologies/ont.owl#CSkillProficiency
+<http://example.invalid/ontologies/ont.owl#CSkillProficiency> rdf:type owl:NamedIndividual ,
+                                                                       :SkillProficiency .
+
+
+###  http://example.invalid/ontologies/ont.owl#DiscreteMathematics
+<http://example.invalid/ontologies/ont.owl#DiscreteMathematics> rdf:type owl:NamedIndividual ,
+                                                                         :Course .
+
+
+###  http://example.invalid/ontologies/ont.owl#English
+<http://example.invalid/ontologies/ont.owl#English> rdf:type owl:NamedIndividual ,
+                                                             :Language .
+
+
+###  http://example.invalid/ontologies/ont.owl#Erasmus
+<http://example.invalid/ontologies/ont.owl#Erasmus> rdf:type owl:NamedIndividual ,
+                                                             :ExchangeSemester .
+
+
+###  http://example.invalid/ontologies/ont.owl#FluentEnglishProficiency
+<http://example.invalid/ontologies/ont.owl#FluentEnglishProficiency> rdf:type owl:NamedIndividual ,
+                                                                              :LanguageProficiency ;
+                                                                     :ofLanguage <http://example.invalid/ontologies/ont.owl#English> ;
+                                                                     :ofLevel "Fluent" .
+
+
+###  http://example.invalid/ontologies/ont.owl#Guitar
+<http://example.invalid/ontologies/ont.owl#Guitar> rdf:type owl:NamedIndividual ,
+                                                            <http://example.invalid/ontologies/ont.owl#CreativeSkill> .
+
+
+###  http://example.invalid/ontologies/ont.owl#HotelKey
+<http://example.invalid/ontologies/ont.owl#HotelKey> rdf:type owl:NamedIndividual ,
+                                                              :Organization .
+
+
+###  http://example.invalid/ontologies/ont.owl#HotelKeyJuniorFrontendDeveloper
+<http://example.invalid/ontologies/ont.owl#HotelKeyJuniorFrontendDeveloper> rdf:type owl:NamedIndividual ,
+                                                                                     :Employment .
+
+
+###  http://example.invalid/ontologies/ont.owl#Java
+<http://example.invalid/ontologies/ont.owl#Java> rdf:type owl:NamedIndividual ,
+                                                          :ProgrammingLanguage .
+
+
+###  http://example.invalid/ontologies/ont.owl#JavaSkillProficiency
+<http://example.invalid/ontologies/ont.owl#JavaSkillProficiency> rdf:type owl:NamedIndividual ,
+                                                                          :SkillProficiency .
+
+
+###  http://example.invalid/ontologies/ont.owl#JuniorFrontendDeveloper
+<http://example.invalid/ontologies/ont.owl#JuniorFrontendDeveloper> rdf:type owl:NamedIndividual ,
+                                                                             :Role .
+
+
+###  http://example.invalid/ontologies/ont.owl#Kosovo
+<http://example.invalid/ontologies/ont.owl#Kosovo> rdf:type owl:NamedIndividual ,
+                                                            :Country .
+
+
+###  http://example.invalid/ontologies/ont.owl#LinnaeusUniversity
+<http://example.invalid/ontologies/ont.owl#LinnaeusUniversity> rdf:type owl:NamedIndividual ,
+                                                                        :University .
+
+
+###  http://example.invalid/ontologies/ont.owl#MMP
+<http://example.invalid/ontologies/ont.owl#MMP> rdf:type owl:NamedIndividual ,
+                                                         :PersonalProject .
+
+
+###  http://example.invalid/ontologies/ont.owl#MusicListening
+<http://example.invalid/ontologies/ont.owl#MusicListening> rdf:type owl:NamedIndividual ,
+                                                                    :Activity .
+
+
+###  http://example.invalid/ontologies/ont.owl#NativeAlbanianProficiency
+<http://example.invalid/ontologies/ont.owl#NativeAlbanianProficiency> rdf:type owl:NamedIndividual ,
+                                                                               :LanguageProficiency ;
+                                                                      :ofLanguage <http://example.invalid/ontologies/ont.owl#Albanian> ;
+                                                                      :ofLevel "Native" .
+
+
+###  http://example.invalid/ontologies/ont.owl#OCRLiteratureReview
+<http://example.invalid/ontologies/ont.owl#OCRLiteratureReview> rdf:type owl:NamedIndividual ,
+                                                                         :AcademicProject .
+
+
+###  http://example.invalid/ontologies/ont.owl#ParallelProgramming
+<http://example.invalid/ontologies/ont.owl#ParallelProgramming> rdf:type owl:NamedIndividual ,
+                                                                         :Course .
+
+
+###  http://example.invalid/ontologies/ont.owl#Presentation
+<http://example.invalid/ontologies/ont.owl#Presentation> rdf:type owl:NamedIndividual ,
+                                                                  :SoftSkill .
+
+
+###  http://example.invalid/ontologies/ont.owl#PresentationSkillProficiency
+<http://example.invalid/ontologies/ont.owl#PresentationSkillProficiency> rdf:type owl:NamedIndividual ,
+                                                                                  :SkillProficiency .
+
+
+###  http://example.invalid/ontologies/ont.owl#Prishtina
+<http://example.invalid/ontologies/ont.owl#Prishtina> rdf:type owl:NamedIndividual ,
+                                                               :City .
+
+
+###  http://example.invalid/ontologies/ont.owl#ProbabilityTheory
+<http://example.invalid/ontologies/ont.owl#ProbabilityTheory> rdf:type owl:NamedIndividual ,
+                                                                       :Course .
+
+
+###  http://example.invalid/ontologies/ont.owl#Python
+<http://example.invalid/ontologies/ont.owl#Python> rdf:type owl:NamedIndividual ,
+                                                            :ProgrammingLanguage .
+
+
+###  http://example.invalid/ontologies/ont.owl#PythonSkillProficiency
+<http://example.invalid/ontologies/ont.owl#PythonSkillProficiency> rdf:type owl:NamedIndividual ,
+                                                                            :SkillProficiency .
+
+
+###  http://example.invalid/ontologies/ont.owl#Sweden
+<http://example.invalid/ontologies/ont.owl#Sweden> rdf:type owl:NamedIndividual ,
+                                                            :Country .
+
+
+###  http://example.invalid/ontologies/ont.owl#UniversityOfPrishtina
+<http://example.invalid/ontologies/ont.owl#UniversityOfPrishtina> rdf:type owl:NamedIndividual ,
+                                                                           :University .
+
+
+###  http://example.invalid/ontologies/ont.owl#Växjö
+<http://example.invalid/ontologies/ont.owl#Växjö> rdf:type owl:NamedIndividual ,
+                                                           :City .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://example.invalid/ontologies/ont.owl#CreativeSkill>
+                :SoftSkill
+                :TechnicalSkill
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AcademicProgram
+                :Activity
+                :Course
+                :Employment
+                :Institution
+                :Language
+                :LanguageProficiency
+                :Location
+                :Person
+                :Project
+                :Role
+                :Skill
+                :SkillProficiency
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
