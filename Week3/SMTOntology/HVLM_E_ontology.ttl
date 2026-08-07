@@ -1,0 +1,736 @@
+@prefix : <http://www.semanticweb.org/ontologies/hvlm_e#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/hvlm_e#> .
+
+<http://www.semanticweb.org/ontologies/hvlm_e> rdf:type owl:Ontology ;
+                                                rdfs:comment """SMT2020_Model_Data_HVLM_E semiconductor manufacturing ontology.
+
+All the updates from the original drOWLing have been documented in the corresponding classes and properties.""" ;
+                                                rdfs:label "HVLM-E Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#fromLocation
+:fromLocation rdf:type owl:ObjectProperty ;
+              rdfs:domain :Transport ;
+              rdfs:range :Location ;
+              rdfs:label "fromLocation"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasBreakdownEvent
+:hasBreakdownEvent rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Equipment_Group ;
+                   rdfs:range :Breakdown_Event ;
+                   rdfs:label "hasBreakdownEvent"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasCurrentSetup
+:hasCurrentSetup rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Setup ;
+                 rdfs:range :Setup ;
+                 rdfs:label "hasCurrentSetup"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasEquipment
+:hasEquipment rdf:type owl:ObjectProperty ;
+              rdfs:domain :Equipment_Group ;
+              rdfs:range :Equipment ;
+              rdfs:comment "Renamed from hasTool." ;
+              rdfs:label "hasEquipment"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasEquipmentGroup
+:hasEquipmentGroup rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Operation ;
+                   rdfs:range :Equipment_Group ;
+                   rdfs:comment "Renamed from hasToolGroup." ;
+                   rdfs:label "hasEquipmentGroup"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasFab
+:hasFab rdf:type owl:ObjectProperty ;
+        rdfs:domain :Equipment_Group ;
+        rdfs:range :Fab ;
+        rdfs:comment "Renamed from hasArea." ;
+        rdfs:label "hasFab"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasNewSetup
+:hasNewSetup rdf:type owl:ObjectProperty ;
+             rdfs:domain :Setup_Group ;
+             rdfs:range :Setup ;
+             rdfs:label "hasNewSetup"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasOperation
+:hasOperation rdf:type owl:ObjectProperty ;
+              rdfs:domain :Route ;
+              rdfs:range :Operation ;
+              rdfs:comment "Renamed from hasStep. Direction retained as Route -> Operation (composition), consistent with hasProduct and hasRoute, rather than reversed." ;
+              rdfs:label "hasOperation"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasPMEvent
+:hasPMEvent rdf:type owl:ObjectProperty ;
+            rdfs:domain :Equipment_Group ;
+            rdfs:range :PM_Event ;
+            rdfs:label "hasPMEvent"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasProduct
+:hasProduct rdf:type owl:ObjectProperty ;
+            rdfs:domain :Lot ;
+            rdfs:range :Product ;
+            rdfs:label "hasProduct"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasRoute
+:hasRoute rdf:type owl:ObjectProperty ;
+          rdfs:domain :Product ;
+          rdfs:range :Route ;
+          rdfs:label "hasRoute"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#hasSetup
+:hasSetup rdf:type owl:ObjectProperty ;
+          rdfs:domain :Equipment ;
+          rdfs:range :Setup ;
+          rdfs:comment "Expresses an Equipment's current Setup. Digital Reference's definition of Setup as tool-scoped rather than step-scoped." ;
+          rdfs:label "hasSetup"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#requiresSetup
+:requiresSetup rdf:type owl:ObjectProperty ;
+               rdfs:domain :Operation ;
+               rdfs:range :Setup ;
+               rdfs:comment "Expresses which Setup an Operation requires. Retained alongside the new Equipment hasSetup property because the two express distinct facts: what an operation needs vs. what a tool currently has. This distinction is required to support the WHEN logic and Ranking-2 setup-time tie-breaking described in SMT2020 section 2.4/2.1, which compare requirement against current state." ;
+               rdfs:label "requiresSetup"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#toLocation
+:toLocation rdf:type owl:ObjectProperty ;
+            rdfs:domain :Transport ;
+            rdfs:range :Location ;
+            rdfs:label "toLocation"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#batchCriterion
+:batchCriterion rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Equipment_Group ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Criterion to form batches from wafers." ;
+                rdfs:label "batchCriterion"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#batchMaximum
+:batchMaximum rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Operation ;
+              rdfs:range xsd:integer ;
+              rdfs:comment "Maximum number of wafers to build a batch." ;
+              rdfs:label "batchMaximum"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#batchMinimum
+:batchMinimum rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Operation ;
+              rdfs:range xsd:integer ;
+              rdfs:comment "Minimum number of wafers to build a batch." ;
+              rdfs:label "batchMinimum"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#breakdownTtrDistribution
+:breakdownTtrDistribution rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Breakdown_Event ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "Split from the originally shared 'ttrDistribution' name. SMT2020 spec defines this as the distribution of time to repair for a Breakdown_Event, exponential, distinct from PM_Event's continuous-uniform TTR distribution (see pmTtrDistribution)." ;
+                          rdfs:label "breakdownTtrDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#cascadingInterval
+:cascadingInterval rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Operation ;
+                   rdfs:range xsd:float ;
+                   rdfs:comment "Time between two consecutive finished wafers or lots on a cascading tool." ;
+                   rdfs:label "cascadingInterval"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#criticalQueueTime
+:criticalQueueTime rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Operation ;
+                   rdfs:range xsd:float ;
+                   rdfs:comment "Critical queue time (CQT) from the end of the current step (process on tool) until the begin of the step defined in the previous line (process on tool)." ;
+                   rdfs:label "criticalQueueTime"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#dispatchingStrategy
+:dispatchingStrategy rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Equipment_Group ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Used dispatching strategy considering Ranking 1-3. The superhotlot strategy prefers superhotlots, a tool for the next step will be reserved for a certain period of time. The setupavoidance rule ensures a prescribed number of lots in a run for the setups of the implant_gas setup group." ;
+                     rdfs:label "dispatchingStrategy"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#downEventName
+:downEventName rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Breakdown_Event ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Name of a defined down distribution." ;
+               rdfs:label "downEventName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#downEventType
+:downEventType rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Breakdown_Event ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Type of the tool breakdown, i.e. time-based." ;
+               rdfs:label "downEventType"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#downEventTypeName
+:downEventTypeName rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Breakdown_Event ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Name of the specific area for which the down event is valid." ;
+                   rdfs:label "downEventTypeName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#downEventValidForType
+:downEventValidForType rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Breakdown_Event ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Definition for which tools the down event is valid, e.g. for all tools of an area." ;
+                       rdfs:label "downEventValidForType"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#dueDate
+:dueDate rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Lot ;
+         rdfs:range xsd:dateTime ;
+         rdfs:comment "Due date of the first lot." ;
+         rdfs:label "dueDate"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#equipmentGroupName
+:equipmentGroupName rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Equipment_Group ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Renamed from toolGroupName." ;
+                    rdfs:label "equipmentGroupName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#firstOneAt
+:firstOneAt rdf:type owl:DatatypeProperty ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :Breakdown_Event
+                                        :PM_Event
+                                      )
+                        ] ;
+            rdfs:range xsd:float ;
+            rdfs:comment "Shared across Breakdown_Event and PM_Event: both SMT2020 spec sections (2.2, 2.3) define this identically as the timing of the first occurrence of the event, so one property is reused with domain expressed as a union of the two classes." ;
+            rdfs:label "firstOneAt"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#foaDistribution
+:foaDistribution rdf:type owl:DatatypeProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :Breakdown_Event
+                                             :PM_Event
+                                           )
+                             ] ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Shared across Breakdown_Event and PM_Event, same rationale as firstOneAt." ;
+                 rdfs:label "foaDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#isSuperHotLot
+:isSuperHotLot rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Lot ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment "Information whether the lot type is superhotlot or not, information for the superhotlot rule to reserve a tool for the next step." ;
+               rdfs:label "isSuperHotLot"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#loadingTime
+:loadingTime rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Equipment_Group ;
+             rdfs:range xsd:float ;
+             rdfs:comment "Time for loading a lot/batch on the tool." ;
+             rdfs:label "loadingTime"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#lotName
+:lotName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Lot ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Name or the type of a lot." ;
+         rdfs:label "lotName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#lotsPerRelease
+:lotsPerRelease rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Lot ;
+                rdfs:range xsd:integer ;
+                rdfs:comment "Number of lots started each time interval." ;
+                rdfs:label "lotsPerRelease"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#mean
+:mean rdf:type owl:DatatypeProperty ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( :PM_Event
+                                  :Transport
+                                )
+                  ] ;
+      rdfs:range xsd:float ;
+      rdfs:comment "Shared across PM_Event and Transport: both represent the first parameter of a probability distribution per the SMT2020 spec ('Value of the first parameter (mean) of the distribution'), domain expressed as a union of the two classes. NOT applicable to Breakdown_Event: the SMT2020 Breakdown table (2.3) has no generic MEAN column -- it defines MTTF and MTTR as their own named values instead (see mttf, mttr above)." ;
+      rdfs:label "mean"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#minimalNumberOfRuns
+:minimalNumberOfRuns rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Setup ;
+                     rdfs:range xsd:integer ;
+                     rdfs:comment "Minimum number of processed lots required after a tool has changed its setup (before a new setup), enforced by the setupavoidance rule." ;
+                     rdfs:label "minimalNumberOfRuns"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#mtBeforePm
+:mtBeforePm rdf:type owl:DatatypeProperty ;
+            rdfs:domain :PM_Event ;
+            rdfs:range xsd:float ;
+            rdfs:comment "Mean time before a PM (MTBPM) or the number of processed wafers for a tool (constant distribution)." ;
+            rdfs:label "mtBeforePm"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#mttf
+:mttf rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Breakdown_Event ;
+      rdfs:range xsd:float ;
+      rdfs:comment "Mean TTF (MTTF)." ;
+      rdfs:label "mttf"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#mttr
+:mttr rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Breakdown_Event ;
+      rdfs:range xsd:float ;
+      rdfs:comment "Mean TTR (MTTR)." ;
+      rdfs:label "mttr"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#numberOfTools
+:numberOfTools rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Equipment_Group ;
+               rdfs:range xsd:integer ;
+               rdfs:comment "Number of tools of the tool group." ;
+               rdfs:label "numberOfTools"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#offset
+:offset rdf:type owl:DatatypeProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :PM_Event
+                                    :Setup
+                                    :Transport
+                                  )
+                    ] ;
+        rdfs:range xsd:float ;
+        rdfs:comment "Shared across Setup, PM_Event, and Transport: all three represent the second parameter of a probability distribution per the SMT2020 spec definition ('Value of the second parameter (offset) of the distribution'), so one property is reused rather than three separately-named copies, with domain expressed as a union of the three classes. Not applicable to Breakdown_Event, which has no corresponding spec column." ;
+        rdfs:label "offset"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#operationDescription
+:operationDescription rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Operation ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Renamed from stepDescription." ;
+                      rdfs:label "operationDescription"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#operationForCriticalQueueTime
+:operationForCriticalQueueTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Operation ;
+                               rdfs:range xsd:integer ;
+                               rdfs:comment "Renamed from stepForCriticalQueueTime." ;
+                               rdfs:label "operationForCriticalQueueTime"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#operationForRework
+:operationForRework rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Operation ;
+                    rdfs:range xsd:integer ;
+                    rdfs:comment "Renamed from stepForRework." ;
+                    rdfs:label "operationForRework"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#pmEventName
+:pmEventName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PM_Event ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Name of a defined PM probability distribution." ;
+             rdfs:label "pmEventName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#pmEventType
+:pmEventType rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PM_Event ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Type of the PM, i.e. time-based or counter-based." ;
+             rdfs:label "pmEventType"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#pmEventTypeName
+:pmEventTypeName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :PM_Event ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Name of the specific area or tool group for which the PM event is valid." ;
+                 rdfs:label "pmEventTypeName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#pmEventValidForType
+:pmEventValidForType rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :PM_Event ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Definition for which tools the PM event is valid, e.g. for all tools of an area or a tool group." ;
+                     rdfs:label "pmEventValidForType"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#pmTtrDistribution
+:pmTtrDistribution rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :PM_Event ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Split from the originally shared 'ttrDistribution' name. SMT2020 spec defines this as the distribution of time to repair (PM duration) for a PM_Event, continuous uniform, distinct from Breakdown_Event's exponential TTR distribution (see breakdownTtrDistribution)." ;
+                   rdfs:label "pmTtrDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#priority
+:priority rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Lot ;
+          rdfs:range xsd:integer ;
+          rdfs:comment "Priority of the lot type, lots with a higher priority are preferred (Ranking 1)." ;
+          rdfs:label "priority"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#processingProbability
+:processingProbability rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Operation ;
+                       rdfs:range xsd:float ;
+                       rdfs:comment "Corresponds to the single SMT2020 spec column PROCESSING PROBABILITY in % (Sampling). The original sketch showed two identically-labeled boxes in this cluster; resolved to one property, matching the single corresponding spec column." ;
+                       rdfs:label "processingProbability"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#processingTimeDistribution
+:processingTimeDistribution rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Operation ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Probability distribution of the processing time per processing unit, here continuous uniform." ;
+                            rdfs:label "processingTimeDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#processingTimeMean
+:processingTimeMean rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Operation ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Value of the first parameter (mean) of the processing time distribution." ;
+                    rdfs:label "processingTimeMean"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#processingTimeOffset
+:processingTimeOffset rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Operation ;
+                      rdfs:range xsd:float ;
+                      rdfs:comment "Value of the second parameter (offset) of the processing time distribution." ;
+                      rdfs:label "processingTimeOffset"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#processingUnit
+:processingUnit rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Operation ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Processing unit, i.e. wafer/lot/batch." ;
+                rdfs:label "processingUnit"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#productName
+:productName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Product ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Name of the product." ;
+             rdfs:label "productName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#ranking1
+:ranking1 rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Equipment_Group ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Lots with a higher priority are chosen first." ;
+          rdfs:label "ranking1"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#ranking2
+:ranking2 rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Equipment_Group ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Given lots with the same priority: the lot with the least required setup time is the tie-breaker." ;
+          rdfs:label "ranking2"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#ranking3
+:ranking3 rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Equipment_Group ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Given lots with the same priority and the same setup time: First come first serve (FIFO) (dataset 1) or Critical Ratio (dataset 2) are the tie-breakers." ;
+          rdfs:label "ranking3"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#releaseDistribution
+:releaseDistribution rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Lot ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Distribution of the time interval between lot starts, here constant." ;
+                     rdfs:label "releaseDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#releaseInterval
+:releaseInterval rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Lot ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "Mean of the time interval between lot starts." ;
+                 rdfs:label "releaseInterval"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#reworkProbability
+:reworkProbability rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Operation ;
+                   rdfs:range xsd:float ;
+                   rdfs:comment "Probability to be sent for rework." ;
+                   rdfs:label "reworkProbability"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#routeName
+:routeName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Route ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Name of the corresponding route of the product." ;
+           rdfs:label "routeName"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#setupDistribution
+:setupDistribution rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Setup ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Distribution of the setup times." ;
+                   rdfs:label "setupDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#setupTime
+:setupTime rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Setup ;
+           rdfs:range xsd:float ;
+           rdfs:comment "Setup time for constant distribution or mean setup time for uniform distribution." ;
+           rdfs:label "setupTime"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#startDate
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Lot ;
+           rdfs:range xsd:dateTime ;
+           rdfs:comment "Release date of the first lot." ;
+           rdfs:label "startDate"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#transportTimeDistribution
+:transportTimeDistribution rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Transport ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Probability distribution of the transport time, here continuous uniform." ;
+                           rdfs:label "transportTimeDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#transportTimeUnit
+:transportTimeUnit rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Transport ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Time units for transportation time." ;
+                   rdfs:label "transportTimeUnit"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#ttfDistribution
+:ttfDistribution rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Breakdown_Event ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Distribution of the time to failure (TTF), here exponential." ;
+                 rdfs:label "ttfDistribution"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#unloadingTime
+:unloadingTime rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Equipment_Group ;
+               rdfs:range xsd:float ;
+               rdfs:comment "Time for unloading a lot/batch on the tool." ;
+               rdfs:label "unloadingTime"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#wafersPerLot
+:wafersPerLot rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Lot ;
+              rdfs:range xsd:integer ;
+              rdfs:comment "Number of wafers per lot." ;
+              rdfs:label "wafersPerLot"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#when
+:when rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Setup ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Information whether the setup will be always executed or only if the tool does not have already this setup, i.e., a setup is needed." ;
+      rdfs:label "when"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Batch_Equipment_Group
+:Batch_Equipment_Group rdf:type owl:Class ;
+                       rdfs:subClassOf :Equipment_Group ;
+                       rdfs:comment "An Equipment_Group whose tools process wafers/lots in batches." ,
+                                    "Renamed from 'Batch_Tool_Group'. Corresponds to the BATCHINGTOOL flag in the SMT2020 Toolgroups table, modeled here as a subclass rather than a boolean flag." ;
+                       rdfs:label "Batch_Equipment_Group"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Breakdown_Event
+:Breakdown_Event rdf:type owl:Class ;
+                 rdfs:comment "An unplanned tool failure event with associated time-to-failure and time-to-repair statistics. Corresponds to the SMT2020 Breakdown table (2.3).." ,
+                              "DR alignment note: Calendar_Event, Maintenance, and Equipment_State were considered as candidate DR superclasses/equivalents. Calendar_Event covers MTTF/MTTF-distribution/MTTR/MTTR-distribution but has no equivalent for firstOneAt/foaDistribution (first-occurrence timing) or the area/equipment-group validity-scoping pattern used here, and its definition was too general for the case of Breakdown_Event, so it was judged a partial fit only. Maintenance and Equipment_State did not match the statistical/distribution-oriented semantics of this class. No DR class was reused and Breakdown_Event is retained as a dataset-native class" ;
+                 rdfs:label "Breakdown_Event"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Cascading_Equipment_Group
+:Cascading_Equipment_Group rdf:type owl:Class ;
+                           rdfs:subClassOf :Equipment_Group ;
+                           rdfs:comment "An Equipment_Group whose tools process wafers/lots in a cascading manner." ,
+                                        "Renamed from 'Cascading_Tool_Group'. Corresponds to the CASCADINGTOOL flag in the SMT2020 Toolgroups table, modeled here as a subclass rather than a boolean flag so cascading-specific properties (e.g. cascadingInterval) can be attached directly." ;
+                           rdfs:label "Cascading_Equipment_Group"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Equipment
+:Equipment rdf:type owl:Class ;
+           rdfs:comment "DR definition: Machine of one equipment type that can execute certain production (or measurement) steps." ,
+                        "Renamed from 'Tool' to align with Digital Reference terminology. As in DR's definition of Setup as tool-scoped, Equipment holds the current Setup via hasSetup." ;
+           rdfs:label "Equipment"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Equipment_Group
+:Equipment_Group rdf:type owl:Class ;
+                 rdfs:comment "DR definition: Group of same type of machines for production of certain production steps." ,
+                              "Renamed from 'Tool_Group' (SMT2020 Toolgroups table) to align with Digital Reference terminology." ,
+                              "Subclasses Batch_Equipment_Group and Cascading_Equipment_Group haven't been set as disjoint since there isn't enough evidence to do so." ;
+                 rdfs:label "Equipment_Group"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Fab
+:Fab rdf:type owl:Class ;
+     rdfs:comment "DR definition: The name of the fab producing the product. Production Area." ,
+                  "Renamed from 'Area' (SMT2020 Toolgroups table, column AREA) to align with Digital Reference terminology. Also used as the validity scope referenced by Breakdown_Event and PM_Event (SMT2020: 'valid for type' = area or equipment group)." ;
+     rdfs:label "Fab"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Location
+:Location rdf:type owl:Class ;
+          rdfs:comment """DR definition:
+Location refers to a physical or virtual place where an action, process, or activity occurs, playing a critical role in the execution of tasks within the supply chain, production, and planning systems.
+
+• Logistics perspective: A location signifies the point where responsibility, ownership, or risk transitions between parties during the transfer of goods or services.
+• Demand Fulfillment Perspective: A location represents the origin or destination of demand-related processes, such as the point of product dispatch, delivery to customers, or storage of inventory to meet customer needs.
+• Planning Perspective: Locations are key inputs for planning activities, representing the physical sites or nodes in the supply chain (e.g., factories, warehouses, or distribution centers) where resources, capacity, or inventory must be allocated.
+• Semiconductor Production Perspective: In manufacturing, a location indicates a specific site where production steps take place, such as fabrication, assembly, or testing.
+
+LOCATIONS are fundamental to managing supply chain efficiency, tracking material flow, coordinating production processes, and ensuring timely fulfillment of customer orders.""" ;
+          rdfs:label "Location"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Lot
+:Lot rdf:type owl:Class ;
+     rdfs:comment "DR definition: A lot is a set of wafers, substrates or modules that travel together through the FE or BE fab in order to fulfill a certain order." ;
+     rdfs:label "Lot"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Operation
+:Operation rdf:type owl:Class ;
+           rdfs:comment "DR definition: The master entity \"Operation\" depicts the generic behavior of a single process step. Each operation has a foreign key relation to equipment and to route which means that the operation is reqiured by the specific routes and requires a specific equipment." ,
+                        "Renamed from 'Step' (SMT2020 Route_Product_i table) to align with DR terminology, where a Route's steps are called Operations." ;
+           rdfs:label "Operation"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#PM_Event
+:PM_Event rdf:type owl:Class ;
+          rdfs:comment "A planned preventive-maintenance event with associated timing and duration statistics. Corresponds to the SMT2020 PM table (2.2)." ,
+                       "The DR classes Calendar_Event, Maintenance, and Equipment_State were considered as alternatives to PM_Event, but none provided a PM-specific concept (mean-time-before-PM, time-based vs. counter-based PM type) close enough to reuse. No DR class was reused." ;
+          rdfs:label "PM_Event"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Product
+:Product rdf:type owl:Class ;
+         rdfs:comment "DR definition: A product is any tangible output or service that is a result of a process and that is intended for delivery to a customer or end user. A product is something that is produced with effort (e.g. by mechanical or industrial processes) and sold to a customer. A product is either tangible (physical product) or intangible (service). A solution is a combination of products which is sold to a customer. Thereby, a solution solves a problem or fulfills a customer need." ;
+         rdfs:label "Product"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Route
+:Route rdf:type owl:Class ;
+       rdfs:comment "DR definition: The master entity \"Route\" describes the structure of a workflow out of operations. Every product uses a specific route in its value stream, i.e. the complete sequence of operations with all mandatory and optional operations necessary to complete the product. A route makes use of the single operations." ;
+       rdfs:label "Route"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Setup
+:Setup rdf:type owl:Class ;
+       rdfs:comment "DR definition: Tool status for preparing for the next lot." ;
+       rdfs:label "Setup"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Setup_Group
+:Setup_Group rdf:type owl:Class ;
+             rdfs:comment "A named group of related Setups, used to express current-to-new setup transitions. Corresponds to SMT2020 Setups table (2.6)." ;
+             rdfs:label "Setup_Group"@en .
+
+
+###  http://www.semanticweb.org/ontologies/hvlm_e#Transport
+:Transport rdf:type owl:Class ;
+           rdfs:comment "No class in DR which expressed Transport." ,
+                        "Transportation time information between two Locations. Corresponds to the SMT2020 Transport table (2.7)." ;
+           rdfs:label "Transport"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Breakdown_Event
+                :Equipment
+                :Equipment_Group
+                :Fab
+                :Location
+                :Lot
+                :Operation
+                :PM_Event
+                :Product
+                :Route
+                :Setup
+                :Setup_Group
+                :Transport
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
