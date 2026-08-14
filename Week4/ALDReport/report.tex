@@ -1,0 +1,923 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage{feram-style}
+\graphicspath{{images/}}
+\addbibresource{references.bib}
+
+\begin{document}
+
+%% ── Title page ───────────────────────────────────────────────────────────────
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+  \noindent
+  \includegraphics[height=2.2cm]{university_of_prishtina_logo}\hfill
+  \includegraphics[height=2.2cm]{infineon_logo}
+
+  \centering
+  \vspace*{0.9cm}
+  {\color{ifxblue}\Huge\bfseries HfO$_2$ FeRAM Production System\par}
+  \vspace{0.5cm}
+  {\LARGE Master Report\par}
+  \vspace{1.5cm}
+  {\large University of Pristina $\times$ Infineon Collaboration\par}
+  \vspace{0.8cm}
+  {\large Ontologies Development Workstream\par}
+  \vfill
+  {\normalsize Project GitHub: \url{https://github.com/OPXHS/Ontologies-Development}\par}
+  \vspace{0.4cm}
+  {\small\today\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+
+%% ── Abstract ─────────────────────────────────────────────────────────────────
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+%% ── Process ownership ────────────────────────────────────────────────────────
+\chapter*{Process Ownership}
+\addcontentsline{toc}{chapter}{Process Ownership}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{@{}W{0.72}W{1.02}W{1.26}@{}}
+\toprule
+\textbf{Student} & \textbf{Assigned chapter} & \textbf{Position in the manufacturing flow} \\
+\midrule
+Olti Krasniqi  & CMOS steps               & Front end of line: access transistor, peripheral CMOS, and preparation for the high-$k$ module \\
+Art Haxholli   & ALD HfO$_2$-based capacitor integration & High-$k$ thin-film module within FEOL or memory-cell formation \\
+Fatos Rama     & Backend / BEOL integration & Contacts, multilevel interconnect, passivation, pads, and wafer-test handoff \\
+\bottomrule
+\end{tabularx}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+%% ── Chapter 1 ────────────────────────────────────────────────────────────────
+\chapter{Project Context and Research Question}
+
+%% ── Chapter 2: CMOS Steps (owner: Olti Krasniqi) ────────────────────────────
+\setstudentheader{Olti Krasniqi}{CMOS Steps}
+
+\chapter{CMOS Steps}
+\label{chap:cmos}
+
+\section{Module Purpose}
+
+\section{Input Condition}
+
+\section{Step-by-Step Flow}
+\subsection{Starting Wafer and Cleaning}
+\subsection{Isolation Definition}
+\subsection{Well and Channel Formation}
+\subsection{Gate Dielectric and Gate Electrode}
+\subsection{Gate Patterning and Etch}
+\subsection{Source/Drain Engineering}
+\subsection{Spacers and Dopant Activation}
+\subsection{Silicide and Contact Formation}
+\subsection{Repeated Patterning Cycle}
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{1.20cm}P{2.80cm}P{2.26cm}P{2.23cm}P{2.68cm}P{3.40cm}@{}}
+\caption{Ordered CMOS process steps}\label{tab:cmos-steps}\\
+\toprule
+\textbf{Order} & \textbf{Process step} & \textbf{Purpose} & \textbf{Method} & \textbf{Equipment type} & \textbf{Output \slash next input} \\
+\midrule
+\endfirsthead
+\caption[]{Ordered CMOS process steps \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Order} & \textbf{Process step} & \textbf{Purpose} & \textbf{Method} & \textbf{Equipment type} & \textbf{Output \slash next input} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  &  &  \\
+\end{longtable}
+\endgroup
+
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{CMOS process-flow visualization}
+  \caption{CMOS module process flow}
+  \label{fig:cmos-flow}
+\end{figure}
+
+\section{Key Materials and Equipment}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.35cm}P{3.93cm}P{4.41cm}P{4.47cm}@{}}
+\caption{CMOS materials and equipment}\label{tab:cmos-materials}\\
+\toprule
+\textbf{Step} & \textbf{Material or chemical} & \textbf{Equipment or capability} & \textbf{Role in the module} \\
+\midrule
+\endfirsthead
+\caption[]{CMOS materials and equipment \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Step} & \textbf{Material or chemical} & \textbf{Equipment or capability} & \textbf{Role in the module} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\section{Critical Parameters}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.40cm}P{2.65cm}P{1.66cm}P{3.03cm}P{5.12cm}@{}}
+\caption{CMOS critical parameters}\label{tab:cmos-params}\\
+\toprule
+\textbf{Step} & \textbf{Parameter} & \textbf{Unit} & \textbf{Value or range} & \textbf{Evidence status \slash source} \\
+\midrule
+\endfirsthead
+\caption[]{CMOS critical parameters \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Step} & \textbf{Parameter} & \textbf{Unit} & \textbf{Value or range} & \textbf{Evidence status \slash source} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  &  \\
+\end{longtable}
+\endgroup
+
+\section{Metrology and Electrical Tests}
+\subsection{Critical-Dimension Measurement}
+\subsection{Overlay Metrology}
+\subsection{Film-Thickness Measurement}
+\subsection{Sheet-Resistance Measurement}
+\subsection{Electrical Parametric Tests}
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.37cm}P{3.57cm}P{3.37cm}P{4.84cm}@{}}
+\caption{CMOS metrology and electrical tests}\label{tab:cmos-tests}\\
+\toprule
+\textbf{Step or checkpoint} & \textbf{Measurement or test} & \textbf{Acceptance measure} & \textbf{Decision or process response} \\
+\midrule
+\endfirsthead
+\caption[]{CMOS metrology and electrical tests \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Step or checkpoint} & \textbf{Measurement or test} & \textbf{Acceptance measure} & \textbf{Decision or process response} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\section{Ontology Model and Communication}
+\subsection{Prot\'eg\'e Ontology Design}
+\subsection{Classes and Properties}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.79cm}P{2.87cm}P{3.68cm}P{4.81cm}@{}}
+\caption{CMOS ontology classes and properties}\label{tab:cmos-ontology}\\
+\toprule
+\textbf{Ontology element} & \textbf{Element type} & \textbf{Domain \slash parent} & \textbf{Range \slash definition} \\
+\midrule
+\endfirsthead
+\caption[]{CMOS ontology classes and properties \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Ontology element} & \textbf{Element type} & \textbf{Domain \slash parent} & \textbf{Range \slash definition} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\subsection{Individuals and Example Records}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.51cm}P{2.77cm}P{4.35cm}P{4.52cm}@{}}
+\caption{CMOS ontology individuals}\label{tab:cmos-individuals}\\
+\toprule
+\textbf{Individual} & \textbf{Class} & \textbf{Key assertions} & \textbf{Source record} \\
+\midrule
+\endfirsthead
+\caption[]{CMOS ontology individuals \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Individual} & \textbf{Class} & \textbf{Key assertions} & \textbf{Source record} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{Prot\'eg\'e / WebVOWL ontology visualization}
+  \caption{CMOS ontology visualization}
+  \label{fig:cmos-ontology}
+\end{figure}
+
+\subsection{Digital Reference Mapping}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.13cm}P{4.04cm}P{3.09cm}P{4.88cm}@{}}
+\caption{CMOS Digital Reference mappings}\label{tab:cmos-dr}\\
+\toprule
+\textbf{Local concept} & \textbf{Digital Reference IRI} & \textbf{Mapping relation} & \textbf{Evidence and rationale} \\
+\midrule
+\endfirsthead
+\caption[]{CMOS Digital Reference mappings \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Local concept} & \textbf{Digital Reference IRI} & \textbf{Mapping relation} & \textbf{Evidence and rationale} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\subsection{Reasoner and Validation Results}
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{Reasoner output or competency-test results}
+  \caption{CMOS ontology validation results}
+  \label{fig:cmos-validation}
+\end{figure}
+
+\subsection{Ontology Limitations}
+
+\setstudentheader{Art Haxholli}{ALD HfO$_2$ Process Integration}
+
+\chapter{ALD HfO$_2$ Deposition}
+\label{chap:ald}
+
+\section{Starting Conditions and Predeposition Preparation}
+\subsection{Starting Film, Substrate, and Device Conditions}
+
+Starting conditions are bounded by the reported HZO composition, deposited thickness, wafer temperature, and capacitor diameter, so comparisons remain configuration-specific rather than sharing a universal baseline \cite{kim2020tin,kim2014inductive}. One study defines a single equimolar Hf:Zr deposition condition and device-size range, while another contributes only a thicker-film condition \cite{kim2020tin,kim2014inductive}. The five-row evidence base spans just these two sources; it does not support broader claims about substrate material, device architecture, or alternative starting films \cite{kim2020tin,kim2014inductive}.
+\subsection{Surface Cleaning and Exposure Control}
+
+Reported surface preparation is not a single interchangeable clean: one substrate flow uses SPM followed by RCA SC-1/SC-2, while another uses sequential ultrasonic acetone, ethanol, and DI-water steps \cite{park2022chamber,park2023seed}. Vacuum-break exposure is separately associated with increased carbon and tetragonal-phase stabilization, making exposure history part of the starting condition \cite{schroeder2023road}. Other documented wet-chemical steps occur after electrode formation and therefore cannot define a common predeposition protocol \cite{choi2025purge,kim2020tin,neuber2022peald}.
+\subsection{Interface and Seed-Layer Engineering}
+
+Interface preparation is an explicit design variable: reported interlayers are introduced to alter crystallization, limit interlayer formation or defect migration, interrupt HZO grain-boundary paths, and buffer oxygen exchange \cite{schroeder2023road,liao2023postmoore}. Al$_2$O$_3$ can serve as an internal dielectric or diffusion barrier, but the reported tradeoff includes voltage division and an added depolarization field; Pt insertion instead targets metal/oxide interfacial-layer suppression and a higher interface barrier \cite{schroeder2023road,liao2023postmoore,kashir2021wake}. The seed-layer study retains top, bottom, dual, and unseeded configurations as distinct specimens rather than pooling them, with the dual ZrO$_2$ layers directly resolved near the interfaces \cite{park2023seed}. Likewise, HfO$_2$/ZrO$_2$ superlattices remain sensitive to the starting layer and sublayer thickness, while a Zr-rich middle layer defines a separate trilayer architecture \cite{schroeder2023road,liu2025zrrich}. For Si-doped stacks, the slightly thicker PEALD SiO$_2$ monolayer relative to thermal ALD shifts the doping concentration, so nominal cycle ratios do not guarantee equivalent composition \cite{neuber2022peald}.
+
+\section{ALD Film-Formation Sequence}
+\subsection{Hf-Precursor Delivery and First Half-Cycle}
+
+Precursor delivery is represented as a set of process-specific first half-cycles, not as one transferable Hf dose \cite{song2021ferro,choi2025purge,kaatranen2026unif}. The supported routes span cyclopentadienyl, alkylamide, TEMA-, and TDMA-based precursors; the alkylamide routes are reported for thermal and plasma-enhanced ALD with limited thermal stability, while organometallic Hf precursors bearing organic ligands are associated with residual impurities \cite{song2021ferro,schroeder2023road}. Process-specific delivery detail is concentrated in the TEMA-based PEALD study, where source and manifold conditioning, Ar-assisted dosing at fixed chamber pressure, and unequal Hf and Zr pulse lengths form one coupled recipe \cite{choi2025purge}. Those delivery values therefore remain attached to that reactor and chemistry rather than serving as defaults for the other precursor families \cite{choi2025purge}. The remaining temperature observations are likewise conditional: thermal and plasma-enhanced studies pair their substrate settings with particular reactors, films, and precursor systems \cite{choi2025purge,park2023seed,kim2014inductive,neuber2022peald,kaatranen2026unif,liu2025zrrich,kashir2021wake}. Accordingly, precursor identity, delivery conditioning, reactor mode, and the surrounding film specification are treated as one first-half-cycle definition \cite{song2021ferro,choi2025purge}.
+\subsection{Purge and Co-Reactant Half-Cycle}
+
+After the metal dose, first-purge evidence is confined to one HZO PEALD study \cite{choi2025purge}. That flow uses Ar at the same reported chamber pressure as precursor dosing and varies the precursor-purge duration as an experimental series; it does not establish a purge recipe for the other reactor or precursor variants \cite{choi2025purge}. Co-reactant coverage is broader but remains route-specific \cite{song2021ferro,schroeder2023road}. Water is reported in thermal ALD flows, ozone appears at study-specific concentrations and pulse lengths, and plasma-enhanced routes use oxygen-based exposures \cite{kim2020tin,kim2014inductive,neuber2022peald,kaatranen2026unif,choi2025purge,park2023seed,liu2025zrrich,kashir2021wake}. In one PEALD sequence, the Hf and Zr oxygen-plasma steps receive different power--duration pairs, whereas the silicon-doping PEALD flow couples oxygen with a capacitively coupled Ar plasma \cite{choi2025purge,neuber2022peald}. The oxidant step therefore remains paired with the relevant metal or dopant subcycle \cite{choi2025purge,neuber2022peald}. Second-purge coverage is limited to one entry identifying nitrogen as purge and carrier gas for thermal HZO ALD; no supported second-purge duration, pressure, or broader mechanism is available \cite{kim2014inductive}.
+\subsection{Cycle Architecture and Repetition}
+
+Cycle repetition is configured around the intended composition and thickness rather than one fixed template \cite{park2022chamber,choi2025purge,park2023seed,kaatranen2026unif}. In one thermal HZO series, the supercycle count changes with chamber temperature while the deposited thickness remains 10~nm, so the count is not temperature-independent \cite{park2022chamber}. A PEALD route instead uses a defined Hf:Zr dose ratio and supercycle total to approach the same thickness \cite{choi2025purge}. Another nanolaminate series holds the combined HfO$_2$ and ZrO$_2$ count at 120 cycles while changing the block length, separating sequence architecture from total cycle count \cite{park2023seed}. The SS/SL comparison similarly reaches a common thickness target through alternating single cycles or grouped symmetric blocks \cite{kaatranen2026unif}. Discrete-feeding ALD adds another conditional architecture by repeating the precursor half-cycle before the reactant half-cycle \cite{schroeder2023road}. Repetition count, block size, half-cycle duplication, and deposition condition therefore remain jointly specified \cite{schroeder2023road,park2022chamber,park2023seed}.
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.16cm}P{2.55cm}P{1.91cm}P{3.03cm}P{1.80cm}P{3.13cm}@{}}
+\caption{Documented ALD cycle chemistries and operating windows}\label{tab:ald-cycle-windows}\\
+\toprule
+\textbf{Film\slash stack} & \textbf{Hf precursor} & \textbf{Co-reactant} & \textbf{Cycle\slash timing} & \textbf{T\slash P window} & \textbf{Source\slash condition} \\
+\midrule
+\endfirsthead
+\caption[]{Documented ALD cycle chemistries and operating windows \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Film\slash stack} & \textbf{Hf precursor} & \textbf{Co-reactant} & \textbf{Cycle\slash timing} & \textbf{T\slash P window} & \textbf{Source\slash condition} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+HfO$_2$ & Cp$_2$HfMe$_2$; (MeCp)$_2$HfMe$_2$; (MeCp)$_2$Hf(OMe)Me; Hf(NEtMe)$_4$; Hf(NMe$_2$)$_4$ & H$_2$O, O$_2$ plasma, O$_3$ & \nc & 250--300 $^\circ$C stability & Precursor and oxidant survey \cite{song2021ferro} \\
+HfO$_2$\slash ZrO$_2$ & TEMAHf & H$_2$O, O$_3$, O$_2$ plasma, H$_2$O$_2$ & DF-ALD repeats precursor half-cycle & \nc & DF-ALD review \cite{schroeder2023road} \\
+TiN\slash 10 nm Hf$_{0.5}$Zr$_{0.5}$O$_2$\slash TiN & \nc & H$_2$O & 56--68 supercycles & 120--250 $^\circ$C & Thermal ALD chamber study \cite{park2022chamber} \\
+10 nm Hf$_{0.5}$Zr$_{0.5}$O$_2$ & TEMA-Hf & O$_2$ plasma, 3--6 s & 1.0\slash 1.5 s doses; 3--90 s Ar purge & 260 $^\circ$C; 80 mTorr & 3:2, 17-supercycle PEALD study \cite{choi2025purge} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$ & TDMA-Hf & O$_3$, 400 g m$^{-3}$ & \nc & \nc & High-concentration O$_3$ ALD \cite{kim2020tin} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$ nanolaminate & TEMA-Hf & O$_2$ plasma, 200 W & $(5,5)\times12$--$(60,60)\times1$; 120 cycles & 250 $^\circ$C & Seed-layer PEALD study \cite{park2023seed} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$ & \nc & H$_2$O & N$_2$ second purge & 200 $^\circ$C & Thermal ALD study \cite{kim2014inductive} \\
+10 nm HfO$_2$\slash SiO$_2$ & HfCl$_4$ & H$_2$O & 10:1--27:1 HfO$_2$:SiO$_2$ cycles & 300 $^\circ$C & Thermal HSO process \cite{neuber2022peald} \\
+Hybrid HfO$_2$\slash SiO$_2$ & \nc & O$_2$, Ar plasma & 1 SiO$_2$:16--32 HfO$_2$ cycles & 50 $^\circ$C SiO$_2$ PEALD & Hybrid HSO process \cite{neuber2022peald} \\
+5.5 nm SS-\slash SL-Hf$_{0.5}$Zr$_{0.5}$O$_2$ & TDMAHf & H$_2$O & SS $(1+1)\times27$; SL $5(5+6)+5$ & 200 $^\circ$C & Thermal superlattice ALD \cite{kaatranen2026unif} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$\slash ZrO$_2$\slash Hf$_{0.5}$Zr$_{0.5}$O$_2$ & TEMAH & Oxygen plasma & \nc & 250 $^\circ$C & Zr-rich stack PEALD \cite{liu2025zrrich} \\
+10 nm Hf$_{0.5}$Zr$_{0.5}$O$_2$ on W & \nc & O$_3$, 276 g Nm$^{-3}$ & 1:1 Hf:Zr; 2--15 s O$_3$ pulse & 250 $^\circ$C; 90 $^\circ$C precursors & O$_3$-pulse ALD study \cite{kashir2021wake} \\
+\end{longtable}
+\endgroup
+
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{ALD HfO$_2$ process-flow visualization}
+  \caption{ALD HfO$_2$ module process flow}
+  \label{fig:ald-flow}
+\end{figure}
+
+\section{Post-Deposition Processing}
+\subsection{Post-Deposition Thermal Treatment}
+
+Post-deposition treatment is defined by the state of the stack at heating, not by an anneal label alone. PDA denotes uncapped RTA, whereas PMA follows TiN capping; elsewhere, PDA precedes upper-electrode deposition and PMA follows the top electrode \cite{song2021ferro,park2022chamber,park2023seed}. The anneal sequence and electrode boundary condition are therefore coupled \cite{song2021ferro,park2023seed}. A direct capped--uncapped comparison likewise places RTP after Ni formation for the capped MIM structure and before top-electrode deposition for the uncapped sample, so the two cases cannot share one recipe description \cite{kim2014inductive}.
+
+Reported sequences impose still narrower placement constraints. One flow anneals after TiN top-electrode patterning but before bottom-electrode localization to minimize interface damage, whereas another performs RTA after bottom-TiN deposition and before HZO deposition specifically to isolate stress from the top electrode \cite{kaatranen2026unif,kim2020tin}. Nitrogen RTA series, hydrogen-containing furnace treatment, high-pressure oxygen annealing, and NH$_3$ plasma pretreatment belong to different configurations or stated objectives; ambient therefore cannot be detached from sequence and purpose \cite{park2022chamber,kim2020tin,liao2023postmoore}. The BEOL-constrained route additionally requires the entire process, including thermal treatment, to remain below 400~$^\circ$C, making higher-temperature crystallization flows inapplicable to that stated constraint \cite{schroeder2023road,neuber2022peald}.
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.31cm}P{2.79cm}P{2.06cm}P{1.70cm}P{2.22cm}P{3.50cm}@{}}
+\caption{Reported post-deposition treatment conditions}\label{tab:ald-post-deposition}\\
+\toprule
+\textbf{Film\slash stack} & \textbf{Anneal sequence} & \textbf{Temperature} & \textbf{Time} & \textbf{Ambient} & \textbf{Source\slash condition} \\
+\midrule
+\endfirsthead
+\caption[]{Reported post-deposition treatment conditions \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Film\slash stack} & \textbf{Anneal sequence} & \textbf{Temperature} & \textbf{Time} & \textbf{Ambient} & \textbf{Source\slash condition} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+HfO$_2$ & PDA; uncapped RTA & \nc & \nc & \nc & PDA definition \cite{song2021ferro} \\
+HfO$_2$ & PMA after TiN capping & \nc & \nc & \nc & PMA definition \cite{song2021ferro} \\
+HfO$_2$--ZrO$_2$ & Low-temperature crystallization & $<400\,^{\circ}\mathrm{C}$ & \nc & \nc & BEOL compatibility \cite{schroeder2023road} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$ & PMA by RTA & $400$--$700\,^{\circ}$C & 30~s & N$_2$ & Temperature series \cite{park2022chamber} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$ & RTA; $50\,^{\circ}$C\slash s ramp & $600\,^{\circ}$C & 30~s & N$_2$, 1~atm & PEALD capacitor stack \cite{choi2025purge} \\
+TiN\slash Hf$_{0.5}$Zr$_{0.5}$O$_2$\slash TiN & PMA by RTA & $400\,^{\circ}$C & 60~s & N$_2$ & Top-electrode anneal \cite{kim2020tin} \\
+TiN\slash Hf$_{0.5}$Zr$_{0.5}$O$_2$\slash TiN & Forming-gas furnace anneal & $400\,^{\circ}$C & 30~min & 5\% H$_2$ + 95\% N$_2$ & Hydrogen treatment \cite{kim2020tin} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$ & PDA before upper electrode & $450$--$650\,^{\circ}$C & 30~s & N$_2$ & Seed-layer study \cite{park2023seed} \\
+Ni-capped Hf$_{0.5}$Zr$_{0.5}$O$_2$ MIM & RTP after top-electrode deposition & 823~K & 30~s & N$_2$ & Capped structure \cite{kim2014inductive} \\
+Uncapped Hf$_{0.5}$Zr$_{0.5}$O$_2$ MIM & RTP before top-electrode deposition & \nc & \nc & \nc & Uncapped comparison \cite{kim2014inductive} \\
+Si:HfO$_2$ & Anneal after stack formation & $800\,^{\circ}$C & 20~s & N$_2$ & Polar-phase formation \cite{neuber2022peald} \\
+TiN\slash HfO$_2$\slash ZrO$_2$\slash TiN & After TE patterning & $470\,^{\circ}$C & 30~s & N$_2$ & Wafer-scale capacitors \cite{kaatranen2026unif} \\
+Conventional and Zr-rich Hf$_{0.5}$Zr$_{0.5}$O$_2$ & Rapid thermal annealing & $400$--$450\,^{\circ}$C & 60~s & N$_2$ & Stack comparison \cite{liu2025zrrich} \\
+W\slash Hf$_{0.5}$Zr$_{0.5}$O$_2$\slash W & Rapid annealing & $500$--$800\,^{\circ}$C & 1--30~s & N$_2$ & 15~s O$_3$ dosage \cite{kashir2021wake} \\
+HfO$_2$ capacitor & High-pressure oxygen anneal & \nc & \nc & High-pressure O$_2$ & Wake-up suppression \cite{liao2023postmoore} \\
+HfO$_2$ capacitor & NH$_3$ plasma pretreatment & \nc & \nc & NH$_3$ plasma & Endurance strategy \cite{liao2023postmoore} \\
+Hf$_{0.5}$Zr$_{0.5}$O$_2$\slash TiN & Sequential O$_2$--H$_2$ plasma oxidation & \nc & \nc & O$_2$--H$_2$ plasma & TiO$_x$N$_y$ growth \cite{schroeder2023road} \\
+\end{longtable}
+\endgroup
+
+\subsection{Electrode and Stack Integration}
+
+Electrode integration is an ordered stack-construction problem because a nominal conductor does not specify its position, deposition history, or interface exposure \cite{schroeder2023road,neuber2022peald}. The SNAP TiN/HZO/TiN route forms the electrodes and oxide in one ALD tool without a vacuum break, while another TiN stack uses ALD for the bottom electrode and PVD for the top electrode; these routes impose different interface histories \cite{schroeder2023road,neuber2022peald}.
+
+Position-specific processing also changes downstream boundary conditions \cite{schroeder2023road,kim2020tin}. For TiN, bottom-electrode oxidation promotes the ferroelectric phase through oxygen scavenging, while top-electrode microtexture depends on deposition pressure; a room-temperature top layer suppresses monoclinic-phase formation through stress-induced crystallization, whereas high-temperature top-electrode deposition is a reported limitation \cite{schroeder2023road,kim2020tin}. Top and bottom TiN designations are therefore not interchangeable \cite{kim2020tin}. In the W-based purge study, the bottom electrode, top capping layer, and Pt top contact are separate operations, with the Pt contact introduced for electrical characterization rather than serving as the W cap \cite{choi2025purge}. Likewise, Au/Pd functions as a hard mask, and Ti/Au forms contacts to TiN electrodes; neither description defines the capacitor electrode stack by itself \cite{kim2020tin,kaatranen2026unif}. Material substitutions retain their own conditions: RuO$_2$ and IrO$_2$ supply oxygen and improve endurance relative to TaN and TiN, whereas W is tied to its thermal-expansion-driven tensile-strain behavior \cite{schroeder2023road}. The hybrid W/Pt/HZO/W configuration explicitly assigns top W and bottom Pt to combine their advantages, so collapsing it to a generic W/Pt designation loses the reported stack orientation \cite{kashir2021wake}.
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.61cm}P{1.76cm}P{2.40cm}P{1.62cm}P{2.75cm}P{3.45cm}@{}}
+\caption{Electrode integration routes and stack conditions}\label{tab:ald-electrode-integration}\\
+\toprule
+\textbf{Stack position} & \textbf{Electrode} & \textbf{Integration method} & \textbf{Thickness} & \textbf{Process condition} & \textbf{Source\slash configuration} \\
+\midrule
+\endfirsthead
+\caption[]{Electrode integration routes and stack conditions \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Stack position} & \textbf{Electrode} & \textbf{Integration method} & \textbf{Thickness} & \textbf{Process condition} & \textbf{Source\slash configuration} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Three-dimensional capacitor & \nc & Conformal ALD & 10 nm & High-aspect 1T--1C FeRAM & Song configuration \cite{song2021ferro} \\
+Bottom and top & TiN & In-tool SNAP ALD & \nc & Without vacuum break & Roadmap configuration \cite{schroeder2023road} \\
+Bottom and top & TiN & DC sputtering & 50 nm & Reference capacitor & Choi configuration \cite{park2022chamber} \\
+Bottom & W & DC magnetron sputtering & \nc & 3.3 W\slash cm$^2$; 5.0 mTorr Ar & W baseline \cite{choi2025purge} \\
+Top capping & W & DC magnetron sputtering & 20 nm & Reduced deposition time & W capping configuration \cite{choi2025purge} \\
+Top contact & Pt & Shadow-mask deposition & 50 nm & Electrical characterization & Pt contact configuration \cite{choi2025purge} \\
+Bottom and top & TiN & RF sputtering & 90 nm & 250 W; Ar:N$_2$ 20:1; RT or 500$^\circ$C & TiN temperature study \cite{kim2020tin} \\
+Hard mask & Au\slash Pd & Sequential e-beam evaporation & 85\slash 3 nm & Sequential deposition & Hard-mask configuration \cite{kim2020tin} \\
+Upper & TiN & RF sputtering & 50 nm & 400 $\mu$m; 29 ohm\slash sq & Seed-layer device \cite{park2023seed} \\
+Bottom stack & TiN\slash Ru & \nc & 20\slash 100 nm & 300 nm SiO$_2$ base & Induced-crystallization capacitor \cite{kim2014inductive} \\
+Top & Ni & Sputtering & 50 nm & 50 W cluster system & Ni-top capacitor \cite{kim2014inductive} \\
+Bottom and top & TiN & Bottom ALD; top PVD & 10 nm & Silicon-doped hafnia capacitor & Neuber configuration \cite{neuber2022peald} \\
+Bottom and top & TiN & Reactive sputtering & 30 nm & Superlattice capacitor & Wafer-scale configuration \cite{kaatranen2026unif} \\
+Electrical contacts & Ti\slash Au & Evaporation and lift-off & \nc & Contacts to TiN electrodes & Wafer-scale configuration \cite{kaatranen2026unif} \\
+Bottom and top & W & Magnetron sputtering & 30 nm & Room temperature; top 80$\times$80 $\mu$m$^2$ & Zirconium-rich capacitor \cite{liu2025zrrich} \\
+Bottom and top & W & Bottom sputter; top RF sputter & 50 nm & Room temperature; 30$\times$30--100$\times$100 $\mu$m$^2$ & Wake-up-free capacitor \cite{kashir2021wake} \\
+Hybrid interfaces & Top W; bottom Pt & RTA-integrated stack & \nc & Mechanical stress with Pt interface & Hybrid capacitor \cite{kashir2021wake} \\
+Gate stack & Polysilicon\slash TiN & \nc & \nc & 28 nm CMOS FeFET stack & FeFET configuration \cite{mikolajick2018mrs} \\
+\end{longtable}
+\endgroup
+
+\section{Materials, Reactor Platforms, and Equipment}
+
+Reactor coverage is heterogeneous rather than interchangeable: the ledger records thermal ALD and PEALD, a single-wafer reactor, and a laminar-flow side-inlet reactor under different HZO growth conditions \cite{park2022chamber,park2023seed,kim2014inductive,kaatranen2026unif,liu2025zrrich}. Equipment identity is unevenly resolved: Oxford FlexAL II, iOV dx2, and TFS 200 Beneq are named for specified deposition cases, whereas the thermal-ALD, single-wafer, and laminar-flow reports provide no manufacturer or model; Savannah S100 is named without a reported condition \cite{choi2025purge,kim2020tin,park2023seed,kim2014inductive,kaatranen2026unif,liu2025zrrich}.
+
+Comparison is bounded by reported specimen formats and measurement chains. A \(6400~\mu\mathrm{m}^2\) patterned electrode area and a 150~mm wafer carrying 25--100~\(\mu\mathrm{m}\)-diameter capacitors remain distinct descriptors \cite{park2022chamber,kaatranen2026unif}. Spectroscopic ellipsometry and XPS are tied respectively to thickness control and unannealed-sample stoichiometry, while electrical measurements use a paired Radiant Workstation and Agilent B1500 \cite{kim2014inductive,liu2025zrrich}.
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.78cm}P{3.01cm}P{3.20cm}P{2.73cm}P{3.15cm}@{}}
+\caption{Materials, reactor platforms, and measurement equipment}\label{tab:ald-materials-equipment}\\
+\toprule
+\textbf{Equipment class} & \textbf{Tool\slash reactor} & \textbf{Application} & \textbf{Wafer\slash film format} & \textbf{Source\slash condition} \\
+\midrule
+\endfirsthead
+\caption[]{Materials, reactor platforms, and measurement equipment \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Equipment class} & \textbf{Tool\slash reactor} & \textbf{Application} & \textbf{Wafer\slash film format} & \textbf{Source\slash condition} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Deposition reactor & Thermal ALD reactor & HZO deposition & \nc & HZO deposition process \cite{park2022chamber} \\
+Deposition reactor & Oxford FlexAL II & PE-ALD HZO deposition & \nc & PE-ALD HZO film \cite{choi2025purge} \\
+Deposition reactor & Savannah S100 ALD & \nc & \nc & Condition unspecified \cite{kim2020tin} \\
+Deposition reactor & iOV dx2 PEALD & HZO thin-film growth & 50 nm TiN on oxide\slash silicon & iSAC growth; TiN sputtering \cite{park2023seed} \\
+Deposition reactor & Single-wafer ALD reactor & HZO thin-film growth & Single-wafer processing & HZO growth methods \cite{kim2014inductive} \\
+Deposition reactor & Laminar-flow side-inlet ALD reactor & SS- and SL-HZO growth & 6400 $\mu$m$^2$ electrodes; 150 mm wafers & Patterning; SS\slash SL comparison \cite{park2022chamber,kaatranen2026unif} \\
+Deposition reactor & TFS 200 Beneq PEALD & Stack growth & HZO\slash ZrO$_2$\slash HZO stack & 250 C substrate \cite{liu2025zrrich} \\
+Annealing equipment & Allwin21 AccuThermo AW 610 & Rapid thermal annealing & HZO film & Rapid thermal anneal \cite{choi2025purge} \\
+X-ray metrology & Rigaku SmartLab X-ray diffractometer & GIXRD and XRR & HZO film & Cu K-alpha radiation \cite{choi2025purge} \\
+Thickness\slash composition metrology & Spectroscopic ellipsometry; XPS & Thickness control; stoichiometry monitoring & ALD HZO; unannealed samples & Methods measurements \cite{kim2014inductive} \\
+Electrode deposition & PVD 75 sputtering system & Bottom and top W deposition & \nc & W-electrode sputtering \cite{liu2025zrrich} \\
+Electron microscopy & Helios G4 FIB; Talos F200x & Lamella preparation; HR-TEM\slash STEM & \nc & 30--200 kV operation \cite{liu2025zrrich} \\
+Electrical characterization & Radiant Workstation; Agilent B1500 & Ferroelectric and parameter measurements & \nc & Paired electrical instruments \cite{liu2025zrrich} \\
+\end{longtable}
+\endgroup
+
+\section{Critical Process and Device Parameters}
+\subsection{Film Thickness and Growth per Cycle}
+
+Cycle-count interpretation must retain chemistry and temperature: independent HfO$_2$/ZrO$_2$ calibrations use TEMA-Hf/TEMA-Zr in PEALD or TEMAH/TEMAZ with O$_3$ at $250\,^{\circ}\mathrm{C}$, and HZO growth per supercycle decreases as chamber temperature rises from 120 to $250\,^{\circ}\mathrm{C}$ \cite{choi2025purge,park2022chamber,park2023seed,kashir2021wake}. Consequently, the ellipsometric thickness measured on Si reference pieces and the ALD-HZO thickness series describe different specimens rather than a shared thickness window \cite{kim2014inductive,kaatranen2026unif}. For Si-containing stacks, the standard thermal-ALD SiO$_2$ doping-layer process deposits significantly more slowly than PEALD, so the rate comparison remains specific to thermal-versus-plasma SiO$_2$ layer formation \cite{neuber2022peald}.
+\subsection{Conformality and Uniformity}
+
+Conformality evidence applies to a 10 nm ferroelectric-HfO$_2$ MFM capacitor in a high-aspect-ratio 3D 1T--1C geometry; the step-coverage claim is comparative to PVD/CVD, so it does not establish blanket wafer uniformity \cite{song2021ferro}. For standard thermal and hybrid plasma-enhanced Si:HfO$_2$ processes, thickness differs across cycling ratios even though both show similar thickness standard deviations, while the absence of crossflow patterns is reported only for hybrid layers \cite{neuber2022peald}. Wafer-scale interpretation depends on sampling 140 sites of $1\times1$ cm$^2$ and separating center-area from full-wafer results at $\pm3.0$ V \cite{kaatranen2026unif}. A precursor-inlet polarization minimum coincides with thicker HZO, whereas the single failed SL site is attributed to incomplete Ti/Au removal rather than the film \cite{kaatranen2026unif}.
+\subsection{Polarization and Coercive Field}
+
+Polarization and coercive-field comparisons depend on whether the reported quantity is pristine, wake-up-conditioned, hysteresis-derived, or PUND-corrected \cite{song2021ferro,kim2020tin,kashir2021wake}. In the TiN/HZO/TiN chamber study, pristine $P_r$ changes across both deposition and anneal temperatures, and deposition at $120\,^{\circ}\mathrm{C}$ gives significantly lower $P_r$ than at 200 or $250\,^{\circ}\mathrm{C}$; anneal comparisons therefore require a matched chamber temperature \cite{park2022chamber}. Thickness adds a separate constraint because ALD HZO shows increasing $P_r$ and decreasing $E_c$ as film thickness increases \cite{kim2014inductive}. For $(20,20)\times3$ nanolaminates annealed at $550\,^{\circ}\mathrm{C}$, unseeded and top-seeded specimens form one similar P--E pair, whereas bottom-seeded and dual-seeded specimens form another; the $650\,^{\circ}\mathrm{C}$ anneal degrades ferroelectric properties through monoclinic-phase formation, and greater nanolaminate thickness trades higher remanent polarization against poorer durability \cite{park2023seed}. For W/HZO/W processed with a 15 s ozone pulse and a $700\,^{\circ}\mathrm{C}$/5 s anneal, pristine and woken values remain distinct \cite{kashir2021wake}. Under the $700\,^{\circ}\mathrm{C}$/5 s anneal, PUND-corrected $2P_r$ differs between W/HZO/W and W/Pt/HZO/W \cite{kashir2021wake}. In sub-6 nm HZO/Zr-RL/HZO at 1.0 V, the $2P_r$/coercive-voltage pair belongs to the same operating condition \cite{liu2025zrrich}. Separately, the 25--$125\,^{\circ}\mathrm{C}$ temperature series reports stable $2P_r$ without a significant coercive-voltage shift for that stack \cite{liu2025zrrich}.
+\subsection{Leakage-Current Constraints}
+
+Leakage comparisons require matched bias, conditioning, and stack \cite{park2022chamber,kaatranen2026unif}. For TiN/HZO/TiN, leakage measured at $-3$ V rises with anneal temperature at fixed chamber temperature and with chamber temperature at fixed anneal temperature \cite{park2022chamber}. The SS/SL comparison instead reports maxima after wake-up at $\pm3.0$ V, so those results do not define a common limit with the chamber/anneal series \cite{kaatranen2026unif}. The current reported at 12 V for a $1.1\times10^{-3}$ cm$^2$ electrode is identified as domain-switching current, not leakage current \cite{kim2014inductive}.
+\subsection{Defect Density, Endurance, and Reliability}
+
+Reliability outcomes remain specific to process history, stack, and electrical stress rather than defining a transferable cycle-count window \cite{park2022chamber,choi2025purge,kaatranen2026unif,liu2025zrrich}. In purge-series HZO capacitors, a 3 s precursor purge shows no fatigue or breakdown through $10^9$ cycles, whereas the 30 and 90 s variants break at $2\times10^8$ and $6\times10^7$ cycles, respectively \cite{choi2025purge}. The chamber-temperature series presents a different tradeoff: all tested chamber/anneal combinations avoid breakdown through $10^8$ cycles, yet fatigue begins earlier as chamber temperature rises; the accompanying oxygen-vacancy increase is linked to higher $P_r$ and a lower critical cycle count \cite{park2022chamber}. In SS/SL wafers, increasing cycling voltage shortens breakdown life for both architectures and SL outlasts SS at matched voltage; after $10^6$ cycles, post-wake-up retention loss remains below 4\% through $10^4$ s \cite{kaatranen2026unif}. At a saturated frequency of 100 kHz, endurance decreases by one decade for each 0.22 V increase \cite{liu2025zrrich}. For the HZO/Zr-RL/HZO stack, endurance reaches up to $10^{11}$ cycles at cycling voltages no greater than 1.5 V; the approximately $10^{11}$-cycle result at 1.0 V is explicitly breakdown-limited \cite{liu2025zrrich}. The 10-year retention result for that stack belongs to 1.0 V and $125\,^{\circ}\mathrm{C}$ \cite{liu2025zrrich}. Reported FeFET, MFM-capacitor, and FeRAM-array endurance values remain configuration-specific because their stacks, fields, frequencies, and operating temperatures differ \cite{liao2023postmoore}.
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.43cm}P{2.22cm}P{2.29cm}P{2.50cm}P{2.70cm}P{1.43cm}@{}}
+\caption{Critical process and device parameter windows}\label{tab:ald-parameter-windows}\\
+\toprule
+\textbf{Parameter} & \textbf{Range\slash result} & \textbf{Film\slash stack} & \textbf{Process condition} & \textbf{Limitation} & \textbf{Source} \\
+\midrule
+\endfirsthead
+\caption[]{Critical process and device parameter windows \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Parameter} & \textbf{Range\slash result} & \textbf{Film\slash stack} & \textbf{Process condition} & \textbf{Limitation} & \textbf{Source} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+HfO$_2$ growth rate & 1.00--1.18 \AA{}\slash cycle & Independent HfO$_2$ films & TEMA-Hf or TEMAH precursor processes & \nc & \cite{choi2025purge,park2023seed,kashir2021wake} \\
+ZrO$_2$ growth rate & 1.00--1.34 \AA{}\slash cycle & Independent ZrO$_2$ films & TEMA-Zr or TEMAZ precursor processes & \nc & \cite{choi2025purge,park2023seed,kashir2021wake} \\
+Film thickness & 5.5--25 nm & Hf$_{0.5}$Zr$_{0.5}$O$_2$ and SS\slash SL HZO & ALD; ellipsometry reference pieces & \nc & \cite{kim2014inductive,kaatranen2026unif} \\
+Si-doping-layer deposition rate & PEALD significantly exceeds thermal ALD & Hybrid versus standard HSO & PEALD versus thermal ALD & \nc & \cite{neuber2022peald} \\
+Conformal high-aspect coverage & 13:1 aspect ratio & 10 nm FE-HfO$_2$ capacitor & 3D 1T-1C FeRAM & \nc & \cite{song2021ferro} \\
+Step coverage & Excellent for high-aspect structures & ALD HfO$_2$ films & ALD versus PVD\slash CVD & Polycrystalline films include nonferroelectric phases & \cite{song2021ferro} \\
+Process-dependent thickness & 10.6--12.7 nm & Standard HSO; hybrid HSO & All tested cycling ratios & \nc & \cite{neuber2022peald} \\
+Thickness nonuniformity & 3.2--3.7\% standard deviation & Standard and hybrid HSO & Thermal ALD and hybrid PEALD & \nc & \cite{neuber2022peald} \\
+Effective sublayer thickness & 0.5 nm & SL-HZO: ZrO$_2$\slash HfO$_2$ & 5 ZrO$_2$ plus 6 HfO$_2$ cycles & \nc & \cite{kaatranen2026unif} \\
+Wafer-scale uniformity improvement & 18--53\% & SS\slash SL HZO, 150 mm wafers & 70$\times$70 mm$^2$ center; $\pm$3.0 V & One SL site failed during lift-off & \cite{kaatranen2026unif} \\
+Maximum leakage-current density & 0.04--0.08 A\slash cm$^2$ & SS\slash SL HZO capacitors & $\pm$3.0 V after wake-up & \nc & \cite{kaatranen2026unif} \\
+Leakage-current trend & Increases with chamber and anneal temperature & TiN\slash HZO\slash TiN capacitor & -3 V; chamber 120--250 $^\circ$C; anneal 400--700 $^\circ$C & \nc & \cite{park2022chamber} \\
+Domain-switching current & Up to 80 mA & Hf$_{0.5}$Zr$_{0.5}$O$_2$ capacitor & 12 V; 1.1$\times$10$^{-3}$ cm$^2$ electrode & \nc & \cite{kim2014inductive} \\
+Pristine P$_r$ & 0.28--31.8 $\mu$C\slash cm$^2$ & TiN\slash HZO\slash TiN capacitors & 120--250 $^\circ$C chamber; 400--700 $^\circ$C anneal & 120 $^\circ$C significantly degrades P$_r$ & \cite{park2022chamber} \\
+E$_c$ and 2P$_r$ & $\pm$1.5 MV\slash cm; about 40 $\mu$C\slash cm$^2$ & TiN\slash HZO\slash TiN 1T-1C capacitor & State-of-art FeRAM & \nc & \cite{schroeder2023road} \\
+E$_c$ & 0.8--2 MV\slash cm & Doped HfO$_2$ & Si, Al, Y, La dopants & \nc & \cite{mikolajick2018mrs} \\
+Switched polarization charge & 30--60 $\mu$C\slash cm$^2$ & Doped HfO$_2$ & Si, Al, Y, La dopants & \nc & \cite{mikolajick2018mrs} \\
+Residual polarization & 23.94--28.18 $\mu$C\slash cm$^2$ & HZO; none or dual ZrO$_2$ seed & 550 $^\circ$C anneal & 650 $^\circ$C forms monoclinic phase & \cite{park2023seed} \\
+2P$_r$ and coercive voltage & 43.4 $\mu$C\slash cm$^2$; 0.75 V & Sub-6 nm HZO\slash Zr-RL\slash HZO & 1.0 V operation & \nc & \cite{liu2025zrrich} \\
+Pristine and woken 2P$_r$ & 52--65 $\mu$C\slash cm$^2$ & W\slash HZO\slash W; W\slash Pt\slash HZO\slash W & 700 $^\circ$C, 5 s; 15 s O$_3$ & \nc & \cite{kashir2021wake} \\
+Purge-time endurance & $6\times10^7$ to $>10^9$ cycles & Hf$_{0.5}$Zr$_{0.5}$O$_2$ capacitors & 3--90 s precursor purge & Longer purge reduced endurance & \cite{choi2025purge} \\
+Temperature-controlled fatigue & Earlier onset at higher chamber temperature & TiN\slash HZO\slash TiN capacitors & 120--250 $^\circ$C chamber & Vacancies raise P$_r$ but reduce cycles & \cite{park2022chamber} \\
+High-field breakdown cycles & SS $10^5$; SL $4\times10^5$ & SS\slash SL HZO capacitors & $\pm$3.5 V cycling & \nc & \cite{kaatranen2026unif} \\
+Moderate-field endurance & SS about $5\times10^6$; SL $>10^7$ & SS\slash SL HZO capacitors & $\pm$3.0 V cycling & SS fails earlier & \cite{kaatranen2026unif} \\
+Retention loss & Below 4\% through $10^4$ s & SS\slash SL HZO capacitors & After $10^6$ cycles & SL loss slightly lower & \cite{kaatranen2026unif} \\
+Endurance and retention & About $10^{11}$ cycles; 82\% after 10 years & Sub-6 nm HZO\slash Zr-RL\slash HZO & 1.0--1.5 V; 125 $^\circ$C & Endurance is breakdown-limited & \cite{liu2025zrrich} \\
+\end{longtable}
+\endgroup
+
+\section{Electrical Qualification and Metrology}
+\subsection{Crystalline-Phase and Structural Characterization}
+
+GI-XRD and local imaging are paired because GI-XRD confirms the orthorhombic phase structurally, whereas STEM directly confirms its presence and can follow an interfacial monoclinic-to-orthorhombic transition during wake-up cycling \cite{song2021ferro}. An orthorhombic (111) reflection at $2\theta=30.4^\circ$ supports the diffraction assignment, but three metastable phases become indistinguishable when similar $d$-spacings, fine-crystallite peak broadening, and uncertain biaxial strain coincide \cite{song2021ferro,choi2025purge}. Instrumental resolution also limits an inference from an undetected monoclinic peak; absence in the scan therefore does not establish phase exclusion \cite{kashir2021wake}. Two-dimensional XRD supplies a processed-film stress estimate through $\sin^2\psi$ analysis, while FTIR--ATR supplies an independent absorption spectrum; the reported sharp feature at 670~cm$^{-1}$ is an artifact and cannot support structural interpretation \cite{choi2025purge}. STEM additionally establishes film thickness and continuity, but HfO$_2$/ZrO$_2$ sublayers in a 5.5-nm superlattice lamella could not be distinguished when bottom-TiN roughness approached the film scale \cite{song2021ferro,kaatranen2026unif}. Structural comparisons must therefore retain diffraction geometry, instrumental resolution, and cross-sectional specimen condition rather than equating every phase-sensitive output \cite{choi2025purge,kim2020tin,kaatranen2026unif}.
+\subsection{Film-Thickness and Uniformity Measurement}
+
+Spectroscopic ellipsometry and cross-sectional TEM provide a thickness cross-check: ellipsometry measures film and seed-layer thickness, while TEM confirms the ferroelectric-layer thickness and tests whether it changes across chamber-temperature conditions \cite{park2022chamber,park2023seed}. Multipoint ellipsometry extends the measurement to spatial uniformity by sampling 49 wafer positions with a 3-mm edge exclusion \cite{neuber2022peald}. Its interpretation remains reactor-specific: the standard HSO process shows an inlet-to-outlet thickness decrease in a crossflow reactor, whereas the hybrid process shows an edge-enhanced ring in a showerhead reactor \cite{neuber2022peald}. The similar reported thickness standard deviations therefore do not imply identical spatial behavior \cite{neuber2022peald}. In the wafer-scale SS/SL study, thickness comes from silicon reference pieces grown with the characterized wafers, so those values are not direct cross-sections of every capacitor site \cite{kaatranen2026unif}. Comparisons consequently preserve the sampling pattern, edge exclusion, reactor geometry, and reference-piece versus device-stack distinction \cite{neuber2022peald,kaatranen2026unif}.
+\subsection{Interface and Defect Characterization}
+
+Chemical profiling and cross-sectional imaging are paired to combine composition and depth profiles from spectroscopy or SIMS with interface morphology from electron microscopy \cite{park2022chamber,kim2020tin,liu2025zrrich,kashir2021wake}. O~1s XPS separates lattice-oxygen and sub-oxide components, while EDS supplies Hf, Zr, and O atomic fractions for chamber-temperature variants \cite{park2022chamber}. D-SIMS provides an oxygen depth profile and confirms bottom-TiN oxidation during deposition; ToF-SIMS tracks carbon and nitrogen impurities remaining after shortened purges \cite{kim2020tin,choi2025purge}. HRTEM then distinguishes interfacial regions at W/HZO from the sharp Pt/HZO interface, and HR-STEM supplies atomic-scale imaging of prepared lamellae \cite{liu2025zrrich,kashir2021wake}. These outputs are complementary rather than interchangeable: laboratory XPS reaches only about 5~nm and precludes a realistic top electrode, whereas HAXPES increases depth sensitivity by one to two orders of magnitude for nondestructive vacancy profiling through electrodes \cite{schroeder2023road}. Quantification also retains method-specific limits, because adventitious carbon and absorbed OH confound XPS-derived oxygen stoichiometry and ToF-SIMS does not quantify hydrogen ions \cite{choi2025purge}. Interface comparisons should therefore couple morphology with chemical depth information and stop short of treating either signal alone as a complete defect description \cite{schroeder2023road,choi2025purge,kashir2021wake}.
+\subsection{Electrical Stressing and Qualification Protocols}
+
+Qualification uses a defined conditioning block followed by a specified readout, not a cycle count alone \cite{choi2025purge,liu2025zrrich,kaatranen2026unif}. One protocol applies $5\times10^3$ square-wave wake-up cycles before and after measurement, while another applies $10^3$ square-wave cycles before PUND; their fields or amplitudes and frequencies differ \cite{choi2025purge,liu2025zrrich}. Endurance protocols likewise range from 3-V trapezoids with 1-$\mu$s ramps and holds to 2.0-MV/cm bipolar pulses at 10~kHz with 2-$\mu$s width and 20-ns edges \cite{park2022chamber,choi2025purge}. Electrode referencing is also reversed between reported setups: one biases the TiN top electrode with the bottom grounded, whereas another biases the bottom electrode with the top grounded \cite{kim2020tin,liu2025zrrich}. Qualification comparisons must therefore preserve conditioning state, waveform shape, amplitude or field, frequency, pulse timing, cycle count, and driven electrode \cite{park2022chamber,choi2025purge,kim2020tin,liu2025zrrich}.
+\subsection{Leakage and Breakdown Measurement}
+
+Leakage and breakdown tests separate sweep-based failure, spatial leakage mapping, and time-zero dielectric breakdown \cite{park2023seed,kaatranen2026unif,liu2025zrrich}. The seed-layer comparison uses a 0--15-V DC sweep in 0.5-V steps, whereas wafer mapping samples leakage at $\pm3.0$~V against radial bottom-TiN thickness \cite{park2023seed,kaatranen2026unif}. Excessive crystallization is associated with a leakage path and reduced breakdown in the anneal series, while temperatures above 720~$^\circ$C produce large leakage and short circuits in W/HZO/W capacitors \cite{park2023seed,kashir2021wake}. The reported TZDB comparison specifies stack and anneal variation but no waveform, electrode area, or stress time, so interpretation stops at time-zero comparison across those conditions \cite{liu2025zrrich}.
+\subsection{Hysteresis, Cycling, and Reliability Testing}
+
+Hysteresis and pulsed measurements are paired to distinguish a loop response from switched polarization \cite{song2021ferro,schroeder2023road}. PUND is used when leakage exceeds polarization-switching current and removes leakage and dielectric contributions from the switched-polarization result, whereas P--E or P--V loops record hysteresis under their stated waveform and frequency \cite{song2021ferro,schroeder2023road,kim2020tin,neuber2022peald}. Designed pulse trains add a switching-dynamics measurement that is distinct from loop or endurance acquisition \cite{liu2025zrrich}. Reliability evaluation then couples cycling blocks to subsequent or interleaved readout: one seed-layer study applies rectangular cycling before triangular-pulse measurement, while the wafer-scale study uses 30-$\mu$s up/down pulses with 5-$\mu$s breaks and 2--3-ms triangular PUND sweeps during or after wake-up \cite{park2023seed,kaatranen2026unif}. Wake-up and fatigue must be resolved along the cycle trajectory, because bottom- and dual-seeded devices show wake-up before fatigue after the polarization maximum, whereas unseeded and top-seeded devices fatigue without a wake-up effect \cite{park2023seed}. Retention and high-field switching also require their full setup: the reported retention test uses 12-V, 600-ns pulses on a $1.1\times10^{-3}$-cm$^2$ electrode, for which severe leakage is reported, and verification below 5~nm is described as leakage dominated \cite{kim2014inductive,mikolajick2018mrs}. Protocols differing in waveform, field, frequency, pulse width, electrode area, conditioning state, or readout method therefore support within-protocol trends, not unqualified cycle-to-cycle equivalence \cite{park2023seed,kim2014inductive,kaatranen2026unif,liu2025zrrich}.
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.05cm}P{2.63cm}P{2.21cm}P{2.63cm}P{2.67cm}P{1.39cm}@{}}
+\caption{Qualification and metrology method-to-output matrix}\label{tab:ald-qualification-metrology}\\
+\toprule
+\textbf{Test\slash technique} & \textbf{Measurand\slash output} & \textbf{Specimen\slash stack} & \textbf{Stress\slash setup} & \textbf{Limitation} & \textbf{Source} \\
+\midrule
+\endfirsthead
+\caption[]{Qualification and metrology method-to-output matrix \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Test\slash technique} & \textbf{Measurand\slash output} & \textbf{Specimen\slash stack} & \textbf{Stress\slash setup} & \textbf{Limitation} & \textbf{Source} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+GI-XRD & Orthorhombic peak at $30.4^\circ$ & HZO thin film & Grazing-incidence diffraction & Metastable phase peaks overlap & \cite{song2021ferro,choi2025purge} \\
+2D XRD & Tensile stress 3.0--3.9 GPa & Processed HZO films & $18^\circ$ incidence & \nc & \cite{choi2025purge} \\
+FTIR-ATR & Absorption from 400--900 cm$^{-1}$ & HZO purge-series films & 4 cm$^{-1}$ resolution & 670 cm$^{-1}$ peak is artifact & \cite{choi2025purge} \\
+STEM & Orthorhombic phase and wake-up transition & Ferroelectric hafnia film & Interfacial cycling observation & \nc & \cite{song2021ferro} \\
+Theta--theta XRD & Ru electrode strengthens orthorhombic peak & Ni\slash HZO\slash Ru and Ni\slash HZO\slash Si & Bottom-electrode comparison & \nc & \cite{kim2014inductive} \\
+Spectroscopic ellipsometry & Thickness 12.64--13.37 nm & Unseeded HZO nanolaminates & Elli-SE-U measurement & Thickness varies with nanolaminate period & \cite{park2023seed} \\
+Multipoint spectral ellipsometry & Mean 10.76--12.74 nm; STD 3.19--3.26\% & Standard and hybrid HSO & 49 points; 3 mm exclusion & Patterns depend on reactor geometry & \cite{neuber2022peald} \\
+Cross-sectional TEM & Thickness invariant across chamber temperatures & TiN\slash HZO\slash TiN capacitors & 120--250 $^\circ$C; 500 $^\circ$C anneal & \nc & \cite{park2022chamber} \\
+O 1s XPS & Binding peaks span 532--534 eV & HZO layer & 700 $^\circ$C anneal & \nc & \cite{park2022chamber} \\
+XPS & Hf:Zr ratios 74:100--79:100 & Bare HZO surfaces & 3--90 s purge & Surface overlayers confound stoichiometry & \cite{choi2025purge} \\
+ToF-SIMS & Carbon and nitrogen impurity profiles & PEALD HZO films & Dual-beam depth analysis & Hydrogen is not quantitative & \cite{choi2025purge} \\
+D-SIMS & Oxygen profile; bottom-TiN oxidation & TiN\slash HZO\slash TiN stack & 250 $^\circ$C deposition; Cs source & \nc & \cite{kim2020tin} \\
+HAXPES & Subsurface vacancy profile & Electroded oxide stack & Depth gain 1--2 orders & Classical XPS reaches about 5 nm & \cite{schroeder2023road} \\
+HRTEM & W-interface regions; sharp Pt interface & W\slash HZO\slash W and W\slash Pt\slash HZO\slash W & 700 $^\circ$C, 5 s anneal & \nc & \cite{kashir2021wake} \\
+Wake-up cycling & Conditioned ferroelectric response & TiN\slash HZO\slash TiN capacitors & $10^5$ cycles; 2.5 MV\slash cm & \nc & \cite{kim2020tin} \\
+Trapezoidal endurance cycling & Survival through $10^8$ cycles & TiN\slash HZO\slash TiN capacitors & 3 V; 1 $\mu$s ramp\slash hold & \nc & \cite{park2022chamber} \\
+Bipolar endurance waveform & Wake-up and endurance qualification & PEALD HZO capacitors & 10 kHz; 2 $\mu$s; 2.0 MV\slash cm & \nc & \cite{choi2025purge} \\
+Square-wave wake-up & Preconditioned PUND measurement & HZO; Zr-rich-layer stack & $10^3$ cycles; 1.5 V; 1 kHz & \nc & \cite{liu2025zrrich} \\
+DC breakdown sweep & Breakdown 7.15--4.08 MV\slash cm & Dual-seeded HZO nanolaminates & 0--15 V; 550--650 $^\circ$C & Excess crystallization creates leakage paths & \cite{park2023seed} \\
+Radial leakage mapping & Leakage versus bottom-TiN thickness & SS- and SL-HZO wafers & $\pm$3.0 V & Electrode thickness varies radially & \cite{kaatranen2026unif} \\
+TZDB & Time-zero breakdown behavior & HZO; Zr-rich-layer stack & Multiple annealing temperatures & \nc & \cite{liu2025zrrich} \\
+Elevated-temperature I-V & Leakage reduced 20-fold & W\slash HZO\slash W and W\slash Pt\slash HZO\slash W & 200 $^\circ$C Schottky analysis & Above 720 $^\circ$C causes shorts & \cite{kashir2021wake} \\
+PUND & Leakage-corrected switched polarization & Thin ferroelectric films & Positive-up negative-down pulse sequence & Depolarization fields cause underestimation & \cite{song2021ferro,schroeder2023road} \\
+P-E hysteresis & 2P$_r$ and E$_c$ & TiN\slash HZO\slash TiN capacitors & 10 kHz & \nc & \cite{kim2020tin} \\
+P-V hysteresis & Polarization before and after wake-up & HZO; Zr-rich-layer stack & 1.75 V operation & \nc & \cite{liu2025zrrich} \\
+Fatigue cycling & P$_r$ falls to 5 $\mu$C\slash cm$^2$ & Capped 25 nm HZO & 1 MHz; 8 V; 1000 ns & Inferior to SBT after $10^9$ cycles & \cite{kim2014inductive} \\
+Seed endurance cycling & Stable through $10^7$--$10^8$ cycles & Seeded HZO nanolaminates & 550 $^\circ$C; rectangular pulses & Fatigue follows $10^5$ cycles & \cite{park2023seed} \\
+Wafer-scale PUND & 2P$_r$ spans 27.6--31.5 $\mu$C\slash cm$^2$ & SS- and SL-HZO capacitors & 3.0 V; 150 mm wafer & RSD spans 2.2--7.0\% & \cite{kaatranen2026unif} \\
+Wake-up cycling & Wake-up-free 2P$_r$ near 64 $\mu$C\slash cm$^2$ & W\slash HZO\slash W capacitor & 3 MV\slash cm; 100 Hz; 1000 cycles & Short ozone pulses pinch loops & \cite{kashir2021wake} \\
+Pulse-switching measurement & Switching dynamics & HZO\slash Zr-rich-layer\slash HZO & Designed pulse-train sequence & \nc & \cite{liu2025zrrich} \\
+\end{longtable}
+\endgroup
+
+\section{Ontology Model and Communication}
+\subsection{Prot\'eg\'e Ontology Design}
+\subsection{Classes and Properties}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.79cm}P{2.87cm}P{3.68cm}P{4.81cm}@{}}
+\caption{ALD HfO$_2$ ontology classes and properties}\label{tab:ald-ontology}\\
+\toprule
+\textbf{Ontology element} & \textbf{Element type} & \textbf{Domain \slash parent} & \textbf{Range \slash definition} \\
+\midrule
+\endfirsthead
+\caption[]{ALD HfO$_2$ ontology classes and properties \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Ontology element} & \textbf{Element type} & \textbf{Domain \slash parent} & \textbf{Range \slash definition} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\subsection{Individuals and Example Records}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.51cm}P{2.77cm}P{4.35cm}P{4.52cm}@{}}
+\caption{ALD HfO$_2$ ontology individuals}\label{tab:ald-individuals}\\
+\toprule
+\textbf{Individual} & \textbf{Class} & \textbf{Key assertions} & \textbf{Source record} \\
+\midrule
+\endfirsthead
+\caption[]{ALD HfO$_2$ ontology individuals \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Individual} & \textbf{Class} & \textbf{Key assertions} & \textbf{Source record} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{Prot\'eg\'e / WebVOWL ontology visualization}
+  \caption{ALD HfO$_2$ ontology visualization}
+  \label{fig:ald-ontology}
+\end{figure}
+
+\subsection{Digital Reference Mapping}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.13cm}P{4.04cm}P{3.09cm}P{4.88cm}@{}}
+\caption{ALD HfO$_2$ Digital Reference mappings}\label{tab:ald-dr}\\
+\toprule
+\textbf{Local concept} & \textbf{Digital Reference IRI} & \textbf{Mapping relation} & \textbf{Evidence and rationale} \\
+\midrule
+\endfirsthead
+\caption[]{ALD HfO$_2$ Digital Reference mappings \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Local concept} & \textbf{Digital Reference IRI} & \textbf{Mapping relation} & \textbf{Evidence and rationale} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\subsection{Reasoner and Validation Results}
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{Reasoner output or competency-test results}
+  \caption{ALD HfO$_2$ ontology validation results}
+  \label{fig:ald-validation}
+\end{figure}
+
+\subsection{Ontology Limitations}
+
+%% ── Chapter 4: Backend / BEOL Integration (owner: Fatos Rama) ────────────────
+\setstudentheader{Fatos Rama}{Backend / BEOL Integration}
+
+\chapter{Backend / BEOL Integration}
+\label{chap:beol}
+
+\section{Module Purpose}
+
+\section{Input Condition}
+
+\section{Step-by-Step Flow}
+\subsection{Pre-Metal Dielectric and Planarization}
+\subsection{Contact Formation}
+\subsection{Metal 1 Formation}
+\subsection{Via Formation}
+\subsection{Repeated Interconnect Stack}
+\subsection{Upper-Level Global Routing}
+\subsection{Passivation and Pad Opening}
+\subsection{Wafer Probe and Test Handoff}
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{1.20cm}P{2.80cm}P{2.26cm}P{2.23cm}P{2.68cm}P{3.40cm}@{}}
+\caption{Ordered Backend / BEOL process steps}\label{tab:beol-steps}\\
+\toprule
+\textbf{Order} & \textbf{Process step} & \textbf{Purpose} & \textbf{Method} & \textbf{Equipment type} & \textbf{Output \slash next input} \\
+\midrule
+\endfirsthead
+\caption[]{Ordered Backend / BEOL process steps \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Order} & \textbf{Process step} & \textbf{Purpose} & \textbf{Method} & \textbf{Equipment type} & \textbf{Output \slash next input} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  &  &  \\
+\end{longtable}
+\endgroup
+
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{Backend / BEOL process-flow visualization}
+  \caption{Backend / BEOL module process flow}
+  \label{fig:beol-flow}
+\end{figure}
+
+\section{Key Materials and Equipment}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.35cm}P{3.93cm}P{4.41cm}P{4.47cm}@{}}
+\caption{Backend / BEOL materials and equipment}\label{tab:beol-materials}\\
+\toprule
+\textbf{Step} & \textbf{Material or chemical} & \textbf{Equipment or capability} & \textbf{Role in the module} \\
+\midrule
+\endfirsthead
+\caption[]{Backend / BEOL materials and equipment \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Step} & \textbf{Material or chemical} & \textbf{Equipment or capability} & \textbf{Role in the module} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\section{Critical Parameters}
+\subsection{Contact and Via Resistance}
+\subsection{Line Resistance and Capacitance}
+\subsection{Overlay and Critical Dimensions}
+\subsection{CMP Planarity}
+\subsection{Thermal Budget}
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{2.40cm}P{2.65cm}P{1.66cm}P{3.03cm}P{5.12cm}@{}}
+\caption{Backend / BEOL critical parameters}\label{tab:beol-params}\\
+\toprule
+\textbf{Step} & \textbf{Parameter} & \textbf{Unit} & \textbf{Value or range} & \textbf{Evidence status \slash source} \\
+\midrule
+\endfirsthead
+\caption[]{Backend / BEOL critical parameters \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Step} & \textbf{Parameter} & \textbf{Unit} & \textbf{Value or range} & \textbf{Evidence status \slash source} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  &  \\
+\end{longtable}
+\endgroup
+
+\section{Metrology and Electrical Tests}
+\subsection{Contact and Via-Chain Tests}
+\subsection{Line-Resistance and Defect Inspection}
+\subsection{CMP Thickness and Planarity Mapping}
+\subsection{RC and Signal-Integrity Tests}
+\subsection{Electromigration and Dielectric Reliability}
+\subsection{Final Wafer Test}
+
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.37cm}P{3.57cm}P{3.37cm}P{4.84cm}@{}}
+\caption{Backend / BEOL metrology and electrical tests}\label{tab:beol-tests}\\
+\toprule
+\textbf{Step or checkpoint} & \textbf{Measurement or test} & \textbf{Acceptance measure} & \textbf{Decision or process response} \\
+\midrule
+\endfirsthead
+\caption[]{Backend / BEOL metrology and electrical tests \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Step or checkpoint} & \textbf{Measurement or test} & \textbf{Acceptance measure} & \textbf{Decision or process response} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\section{Ontology Model and Communication}
+\subsection{Prot\'eg\'e Ontology Design}
+\subsection{Classes and Properties}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.79cm}P{2.87cm}P{3.68cm}P{4.81cm}@{}}
+\caption{Backend / BEOL ontology classes and properties}\label{tab:beol-ontology}\\
+\toprule
+\textbf{Ontology element} & \textbf{Element type} & \textbf{Domain \slash parent} & \textbf{Range \slash definition} \\
+\midrule
+\endfirsthead
+\caption[]{Backend / BEOL ontology classes and properties \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Ontology element} & \textbf{Element type} & \textbf{Domain \slash parent} & \textbf{Range \slash definition} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\subsection{Individuals and Example Records}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.51cm}P{2.77cm}P{4.35cm}P{4.52cm}@{}}
+\caption{Backend / BEOL ontology individuals}\label{tab:beol-individuals}\\
+\toprule
+\textbf{Individual} & \textbf{Class} & \textbf{Key assertions} & \textbf{Source record} \\
+\midrule
+\endfirsthead
+\caption[]{Backend / BEOL ontology individuals \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Individual} & \textbf{Class} & \textbf{Key assertions} & \textbf{Source record} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{Prot\'eg\'e / WebVOWL ontology visualization}
+  \caption{Backend / BEOL ontology visualization}
+  \label{fig:beol-ontology}
+\end{figure}
+
+\subsection{Digital Reference Mapping}
+\Needspace*{9\baselineskip}
+\begingroup\feramtablesetup
+\begin{longtable}{@{}P{3.13cm}P{4.04cm}P{3.09cm}P{4.88cm}@{}}
+\caption{Backend / BEOL Digital Reference mappings}\label{tab:beol-dr}\\
+\toprule
+\textbf{Local concept} & \textbf{Digital Reference IRI} & \textbf{Mapping relation} & \textbf{Evidence and rationale} \\
+\midrule
+\endfirsthead
+\caption[]{Backend / BEOL Digital Reference mappings \textnormal{\itshape(continued)}}\\
+\toprule
+\textbf{Local concept} & \textbf{Digital Reference IRI} & \textbf{Mapping relation} & \textbf{Evidence and rationale} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\contnote}\\
+\endfoot
+\bottomrule
+\endlastfoot
+ &  &  &  \\
+\end{longtable}
+\endgroup
+
+\subsection{Reasoner and Validation Results}
+\begin{figure}[htbp]
+  \centering
+  \diagramplaceholder{6cm}{Reasoner output or competency-test results}
+  \caption{Backend / BEOL ontology validation results}
+  \label{fig:beol-validation}
+\end{figure}
+
+\subsection{Ontology Limitations}
+
+%% ── Chapter 5 & 6 ────────────────────────────────────────────────────────────
+\setstudentheader{Ontologies Development}{HfO$_2$ FeRAM Production System}
+
+\chapter{Ontology and Digital Reference Method}
+\section{Ontology Engineering Method}
+\section{Digital Reference Alignment Method}
+
+\chapter{Evaluation and Conclusion}
+\section{Process and Ontology Coverage}
+\section{Limitations}
+
+\printbibliography[heading=bibintoc,title={References}]
+
+\end{document}

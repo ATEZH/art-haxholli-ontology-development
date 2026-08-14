@@ -1,0 +1,101 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{feram-style}[2026/08/14 FeRAM report style]
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage[margin=2.5cm]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}   % longtable + tabularx: page-breaking, auto-width tables
+\RequirePackage{ragged2e}    % \RaggedRight, hyphenation still allowed
+\RequirePackage{microtype}   % better line breaking in body text
+\RequirePackage{needspace}   % keeps a table head from being stranded at a page foot
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+% Numeric-compressed citations: \cite{a,b,c,d} -> [1-3, 7].
+% Author-year expanded to several lines inside a 2 cm table column, which is a
+% large part of why the tables overflowed. Revert to style=authoryear only if the
+% tables no longer carry per-cell citations.
+\RequirePackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+\RequirePackage[hidelinks]{hyperref}
+
+\definecolor{ifxblue}{RGB}{0,80,155}
+\definecolor{ifxlight}{RGB}{230,238,246}
+\definecolor{ifxgrey}{RGB}{120,120,120}
+
+\titleformat{\chapter}[display]
+  {\color{ifxblue}\huge\bfseries}
+  {\chaptername\ \thechapter}{12pt}{}
+\titleformat{\section}
+  {\color{ifxblue}\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\color{ifxblue}\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\color{ifxblue}\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\itshape Ontologies Development}
+\fancyhead[R]{\small\itshape HfO$_2$ FeRAM Production System}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\setstudentheader}[2]{%
+  \fancyhead[L]{\small\itshape #1}%
+  \fancyhead[R]{\small\itshape #2}%
+}
+
+%% -- Table machinery --------------------------------------------------------
+% Weighted auto-width column. The weights of the columns of one table add up to
+% the number of columns; the table then fills \textwidth exactly and no column can
+% spill into its neighbour.
+\newcolumntype{W}[1]{>{\hsize=#1\hsize\RaggedRight\arraybackslash}X}
+% Fixed-width, top-aligned, ragged-right cell. Ragged right is what stops the
+% word-spacing from exploding in 2 cm wide columns; ragged2e still hyphenates.
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+% Applied inside every data table.
+\newcommand{\feramtablesetup}{%
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}%
+  \renewcommand{\arraystretch}{1.18}%
+  \setlength{\emergencystretch}{2em}%
+  \hyphenpenalty=100
+  \tolerance=2000
+}
+
+\newcommand{\contnote}{\textit{\scriptsize continued on next page}}
+
+% Explicit "no evidence" marker. Set to the long phrase by default; swap the two
+% definitions to shrink every table by one column-width of repeated text (the
+% legend below the table then carries the meaning).
+\newcommand{\nc}{Not covered in sources}
+%\newcommand{\nc}{\textcolor{ifxgrey}{---}}   % + add: "--- = not covered in sources"
+
+
+\setlength{\LTcapwidth}{\textwidth}
+
+%% -- Body text line breaking ------------------------------------------------
+% Chemistry strings such as TiN/HZO/TiN have very few legal break points; a little
+% emergency stretch keeps them out of the margin.
+\setlength{\emergencystretch}{1.5em}
+\tolerance=1500
+
+% Shaded placeholder box for figures not yet available
+\newcommand{\diagramplaceholder}[2]{%
+  \setlength{\fboxsep}{0pt}%
+  \fcolorbox{ifxgrey}{ifxlight}{%
+    \begin{minipage}[c][#1][c]{0.9\textwidth}
+      \centering
+      \textcolor{ifxgrey}{\itshape [ FIGURE PLACEHOLDER ]}\\[4pt]
+      \textcolor{ifxgrey}{\small #2}
+    \end{minipage}%
+  }%
+}
