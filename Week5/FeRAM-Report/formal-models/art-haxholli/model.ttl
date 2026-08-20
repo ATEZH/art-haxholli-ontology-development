@@ -1,0 +1,5685 @@
+PREFIX ald: <https://github.com/OPXHS/Ontologies-Development/ontology/ald-hfo2#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+dcterms:created
+    a owl:AnnotationProperty ;
+.
+
+dcterms:creator
+    a owl:AnnotationProperty ;
+.
+
+dcterms:identifier
+    a owl:AnnotationProperty ;
+.
+
+dcterms:issued
+    a owl:AnnotationProperty ;
+.
+
+dcterms:source
+    a owl:AnnotationProperty ;
+.
+
+dcterms:title
+    a owl:AnnotationProperty ;
+.
+
+rdfs:comment
+    a owl:AnnotationProperty ;
+.
+
+rdfs:label
+    a owl:AnnotationProperty ;
+.
+
+skos:definition
+    a owl:AnnotationProperty ;
+.
+
+skos:scopeNote
+    a owl:AnnotationProperty ;
+.
+
+<https://github.com/OPXHS/Ontologies-Development/ontology/ald-hfo2>
+    a owl:Ontology ;
+    dcterms:created "2026-08-20"^^xsd:date ;
+    dcterms:source
+        ald:Ledger_Claim_Ledger ,
+        ald:Report_Chapter_3 ;
+    dcterms:title "ALD HfO2 Deposition ontology for HfO2-based FeRAM production"@en ;
+    ald:generationTimestamp "2026-08-20T22:24:09Z"^^xsd:dateTimeStamp ;
+    ald:ledgerRowCount 754 ;
+    ald:openWorldNote
+        "Domain and range axioms infer types under the open-world semantics and are not closed-world validation constraints."@en ,
+        "Literature windows are conditioned evidence summaries, not production windows, recommendations, or transferable recipes."@en ,
+        "Unreported values remain unknown; an evidence gap does not assert physical absence or a negative process fact."@en ;
+.
+
+ald:Breakdown_Test
+    a owl:Class ;
+    rdfs:label "Breakdown Test"@en ;
+    rdfs:subClassOf ald:Electrical_Test_Method ;
+    skos:definition "Breakdown Test is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Capacitor_Specimen
+    a owl:Class ;
+    rdfs:label "Capacitor Specimen"@en ;
+    rdfs:subClassOf ald:Specimen ;
+    skos:definition "Capacitor Specimen is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Capping_Layer_Formation
+    a owl:Class ;
+    rdfs:label "Capping Layer Formation"@en ;
+    rdfs:subClassOf ald:Electrode_Integration_Operation ;
+    skos:definition "Capping Layer Formation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Conformality_Uniformity
+    a owl:Class ;
+    rdfs:label "Conformality Uniformity"@en ;
+    rdfs:subClassOf ald:Process_Parameter ;
+    skos:definition "Conformality Uniformity is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Contact_Metallization
+    a owl:Class ;
+    rdfs:label "Contact Metallization"@en ;
+    rdfs:comment "Contact metallization is distinct from bottom- and top-electrode formation even when materials overlap."@en ;
+    rdfs:subClassOf ald:Electrode_Integration_Operation ;
+    owl:disjointWith
+        ald:Bottom_Electrode_Formation ,
+        ald:Top_Electrode_Formation ;
+    skos:definition "Contact Metallization is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Coverage_Assessment_Flow_Co_Reactant_Pulse
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/co-reactant-pulse"@en ;
+    ald:assessesTarget ald:Target_Flow_Co_Reactant_Pulse ;
+    ald:coverageRowCount "31"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "12"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Flow_Cycle_Repetition
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/cycle-repetition"@en ;
+    ald:assessesTarget ald:Target_Flow_Cycle_Repetition ;
+    ald:coverageRowCount "22"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "7"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Flow_Electrical_Qualification
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/electrical-qualification"@en ;
+    ald:assessesTarget ald:Target_Flow_Electrical_Qualification ;
+    ald:coverageRowCount "24"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "8"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Flow_Electrode_Integration
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/electrode-integration"@en ;
+    ald:assessesTarget ald:Target_Flow_Electrode_Integration ;
+    ald:coverageRowCount "84"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "14"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Flow_First_Purge
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/first-purge"@en ;
+    ald:assessesTarget ald:Target_Flow_First_Purge ;
+    ald:coverageRowCount "3"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "1"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Thin ;
+.
+
+ald:Coverage_Assessment_Flow_Hf_Precursor_Pulse
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/hf-precursor-pulse"@en ;
+    ald:assessesTarget ald:Target_Flow_Hf_Precursor_Pulse ;
+    ald:coverageRowCount "47"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "12"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Flow_Interface_Prep
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/interface-prep"@en ;
+    ald:assessesTarget ald:Target_Flow_Interface_Prep ;
+    ald:coverageRowCount "27"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "9"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Flow_Post_Deposition_Treatment
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/post-deposition-treatment"@en ;
+    ald:assessesTarget ald:Target_Flow_Post_Deposition_Treatment ;
+    ald:coverageRowCount "63"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "13"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Flow_Second_Purge
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/second-purge"@en ;
+    ald:assessesTarget ald:Target_Flow_Second_Purge ;
+    ald:coverageRowCount "1"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "1"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Bare ;
+.
+
+ald:Coverage_Assessment_Flow_Surface_Preclean
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for flow/surface-preclean"@en ;
+    ald:assessesTarget ald:Target_Flow_Surface_Preclean ;
+    ald:coverageRowCount "7"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "6"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Thin ;
+.
+
+ald:Coverage_Assessment_Input_Condition
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for input-condition"@en ;
+    ald:assessesTarget ald:Target_Input_Condition ;
+    ald:coverageRowCount "7"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "3"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Thin ;
+.
+
+ald:Coverage_Assessment_Materials_Equipment
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for materials-equipment"@en ;
+    ald:assessesTarget ald:Target_Materials_Equipment ;
+    ald:coverageRowCount "21"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "8"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Metrology_Crystalline_Phase
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for metrology/crystalline-phase"@en ;
+    ald:assessesTarget ald:Target_Metrology_Crystalline_Phase ;
+    ald:coverageRowCount "46"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "12"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Metrology_Film_Thickness_Uniformity
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for metrology/film-thickness-uniformity"@en ;
+    ald:assessesTarget ald:Target_Metrology_Film_Thickness_Uniformity ;
+    ald:coverageRowCount "33"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "7"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Metrology_Hysteresis_Reliability
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for metrology/hysteresis-reliability"@en ;
+    ald:assessesTarget ald:Target_Metrology_Hysteresis_Reliability ;
+    ald:coverageRowCount "85"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "13"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Metrology_Interface_Defect
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for metrology/interface-defect"@en ;
+    ald:assessesTarget ald:Target_Metrology_Interface_Defect ;
+    ald:coverageRowCount "54"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "9"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Metrology_Leakage_Breakdown
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for metrology/leakage-breakdown"@en ;
+    ald:assessesTarget ald:Target_Metrology_Leakage_Breakdown ;
+    ald:coverageRowCount "14"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "4"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Param_Conformality_Uniformity
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for param/conformality-uniformity"@en ;
+    ald:assessesTarget ald:Target_Param_Conformality_Uniformity ;
+    ald:coverageRowCount "13"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "3"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Param_Defect_Density_Reliability
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for param/defect-density-reliability"@en ;
+    ald:assessesTarget ald:Target_Param_Defect_Density_Reliability ;
+    ald:coverageRowCount "64"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "8"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Param_Leakage_Current
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for param/leakage-current"@en ;
+    ald:assessesTarget ald:Target_Param_Leakage_Current ;
+    ald:coverageRowCount "8"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "4"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Param_Polarization_Coercive_Field
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for param/polarization-coercive-field"@en ;
+    ald:assessesTarget ald:Target_Param_Polarization_Coercive_Field ;
+    ald:coverageRowCount "81"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "12"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Param_Thickness_Growth_Per_Cycle
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for param/thickness-growth-per-cycle"@en ;
+    ald:assessesTarget ald:Target_Param_Thickness_Growth_Per_Cycle ;
+    ald:coverageRowCount "11"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "7"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Well_Covered ;
+.
+
+ald:Coverage_Assessment_Unassigned
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Assessment ;
+    rdfs:label "Coverage assessment for unassigned"@en ;
+    ald:assessesTarget ald:Target_Unassigned ;
+    ald:coverageRowCount "8"^^xsd:nonNegativeInteger ;
+    ald:coverageSourceCount "2"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:hasCoverageGrade ald:Coverage_Thin ;
+.
+
+ald:Cross_Section_Lamella
+    a owl:Class ;
+    rdfs:label "Cross Section Lamella"@en ;
+    rdfs:subClassOf ald:Specimen ;
+    skos:definition "Cross Section Lamella is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Crossflow_Reactor
+    a owl:Class ;
+    rdfs:label "Crossflow Reactor"@en ;
+    rdfs:subClassOf ald:Deposition_Reactor ;
+    skos:definition "Crossflow Reactor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Defect_Density_Reliability
+    a owl:Class ;
+    rdfs:label "Defect Density Reliability"@en ;
+    rdfs:subClassOf ald:Device_Property ;
+    skos:definition "Defect Density Reliability is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Depth_Profiling_Method
+    a owl:Class ;
+    rdfs:label "Depth Profiling Method"@en ;
+    rdfs:subClassOf ald:Characterization_Method ;
+    skos:definition "Depth Profiling Method is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Diffraction_Method
+    a owl:Class ;
+    rdfs:label "Diffraction Method"@en ;
+    rdfs:subClassOf ald:Characterization_Method ;
+    skos:definition "Diffraction Method is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Electrical_Qualification_Operation
+    a owl:Class ;
+    rdfs:label "Electrical Qualification Operation"@en ;
+    rdfs:subClassOf ald:Process_Operation ;
+    skos:definition "Electrical Qualification Operation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Endurance_Cycling
+    a owl:Class ;
+    rdfs:label "Endurance Cycling"@en ;
+    rdfs:subClassOf ald:Electrical_Test_Method ;
+    skos:definition "Endurance Cycling is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Evidence_Limitation
+    a owl:Class ;
+    rdfs:label "Evidence Limitation"@en ;
+    rdfs:subClassOf ald:Limitation ;
+    skos:definition "Evidence Limitation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:FeFET_Gate_Stack
+    a owl:Class ;
+    rdfs:label "FeFET Gate Stack"@en ;
+    rdfs:subClassOf ald:Device_Stack ;
+    skos:definition "FeFET Gate Stack is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Field_Carrier_Gas
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "carrier gas"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Electrode_Method
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "electrode method"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Growth_Per_Cycle
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "growth per cycle"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Interface_Layer
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "interface layer"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Metrology_Technique
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "metrology technique"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Plasma_Power
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "plasma power"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Reactor_Type
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "reactor type"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Seed_Layer
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "seed layer"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Uniformity_Result
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "uniformity result"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Wafer_Size
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "wafer size"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:First_Purge
+    a owl:Class ;
+    rdfs:label "First Purge"@en ;
+    rdfs:subClassOf ald:ALD_Film_Formation ;
+    skos:definition "First Purge is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6.2" ;
+.
+
+ald:Forming_Gas_Anneal
+    a owl:Class ;
+    rdfs:label "Forming Gas Anneal"@en ;
+    rdfs:subClassOf ald:Thermal_Treatment_Operation ;
+    skos:definition "Forming Gas Anneal is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Furnace
+    a owl:Class ;
+    rdfs:label "Furnace"@en ;
+    rdfs:subClassOf ald:Annealing_Equipment ;
+    skos:definition "Furnace is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Gap_BS3_015
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap BS3 015"@en ;
+    ald:assertedBy ald:Claim_BS3_015 ;
+    ald:doNotInferNote "Berine evidence status: Open gap; confidence: Open. Berine note: Do not assume H2O for selected route. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:gapConcerns ald:Op_02c_Co_Reactant_Dose ;
+    ald:gapQuantityKind ald:Field_Co_Reactant ;
+    ald:gapStatement "oxidant not reported for this route" ;
+.
+
+ald:Gap_BS3_019
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap BS3 019"@en ;
+    ald:assertedBy ald:Claim_BS3_019 ;
+    ald:doNotInferNote "Berine evidence status: Open gap; confidence: Open. Berine note: Source reports photolithography but does not provide the detailed exposure recipe. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:gapConcerns ald:Op_04_Photolithography ;
+    ald:gapQuantityKind ald:Field_Limitation ;
+    ald:gapStatement "detailed lithography parameters not reported for this route" ;
+.
+
+ald:Gap_Report_Step_01_Tool_Identity
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 01 Tool Identity"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_01_Bottom_Electrode_Formation ;
+    ald:gapQuantityKind ald:Field_Tool_Name ;
+    ald:gapStatement "bottom-electrode tool identity unreported" ;
+.
+
+ald:Gap_Report_Step_02_Chamber_Pressure
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 02 Chamber Pressure"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_02_ALD_Film_Formation ;
+    ald:gapQuantityKind ald:Field_Chamber_Pressure ;
+    ald:gapStatement "ALD chamber pressure unreported" ;
+.
+
+ald:Gap_Report_Step_02_Co_Reactant_Pulse_Timing
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 02 Co Reactant Pulse Timing"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_02c_Co_Reactant_Dose ;
+    ald:gapQuantityKind ald:Field_Pulse_Time ;
+    ald:gapStatement "co-reactant pulse timing unreported" ;
+.
+
+ald:Gap_Report_Step_02_Cycle_Count
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 02 Cycle Count"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_02d_Cycle_Repetition ;
+    ald:gapQuantityKind ald:Field_Cycle_Structure ;
+    ald:gapStatement "ALD cycle count unreported" ;
+.
+
+ald:Gap_Report_Step_02_Delivery_Mode
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 02 Delivery Mode"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_02_ALD_Film_Formation ;
+    ald:gapQuantityKind ald:Field_Parameter_Value ;
+    ald:gapStatement "precursor delivery mode unreported" ;
+.
+
+ald:Gap_Report_Step_02_Line_Temperatures
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 02 Line Temperatures"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_02_ALD_Film_Formation ;
+    ald:gapQuantityKind ald:Field_Line_Temperature ;
+    ald:gapStatement "line temperatures unreported" ;
+.
+
+ald:Gap_Report_Step_02_Metal_Precursor_Pulse_Timings
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 02 Metal Precursor Pulse Timings"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_02_ALD_Film_Formation ;
+    ald:gapQuantityKind ald:Field_Pulse_Time ;
+    ald:gapStatement "Hf and Zr precursor pulse timings unreported" ;
+.
+
+ald:Gap_Report_Step_02_Purge_Operations_And_Timings
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 02 Purge Operations And Timings"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_02_ALD_Film_Formation ;
+    ald:gapQuantityKind ald:Field_Purge_Time ;
+    ald:gapStatement "first and second purge operations and timings not documented for this route" ;
+.
+
+ald:Gap_Report_Step_03_Sputter_Conditions
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 03 Sputter Conditions"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_03_Top_Electrode_Formation ;
+    ald:gapQuantityKind ald:Field_Parameter_Value ;
+    ald:gapStatement "position-specific top-electrode sputter conditions unreported" ;
+.
+
+ald:Gap_Report_Step_06_Ramp_Rate
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Gap ;
+    rdfs:label "Gap Report Step 06 Ramp Rate"@en ;
+    ald:derivedFromReport "Section 3.12, Table 3.7" ;
+    ald:doNotInferNote "Unreported in the worked-route summary; do not fill from another configuration." ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:gapConcerns ald:Op_06_Crystallization_Anneal ;
+    ald:gapQuantityKind ald:Field_Anneal_Sequence ;
+    ald:gapStatement "anneal ramp rate unreported" ;
+.
+
+ald:Hysteresis_Measurement
+    a owl:Class ;
+    rdfs:label "Hysteresis Measurement"@en ;
+    rdfs:subClassOf ald:Electrical_Test_Method ;
+    skos:definition "Hysteresis Measurement is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Instance_BS3_002
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 002"@en ;
+    ald:assertedBy ald:Claim_BS3_002 ;
+    ald:hasObservedValue ald:Qty_BS3_002 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Inside ;
+    ald:insideWindow ald:Window_Electrode_Thickness_Envelope ;
+    ald:observedAtStep ald:Step_01_Bottom_Electrode ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_003
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 003"@en ;
+    ald:assertedBy ald:Claim_BS3_003 ;
+    ald:hasObservedValue ald:Qty_BS3_003 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Inside ;
+    ald:insideWindow ald:Window_Sputter_Power_Envelope ;
+    ald:observedAtStep ald:Step_01_Bottom_Electrode ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_004
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 004"@en ;
+    ald:assertedBy ald:Claim_BS3_004 ;
+    ald:hasObservedValue ald:Qty_BS3_004 ;
+    ald:hasWindowAssessment ald:Window_Assessment_No_Window_Available ;
+    ald:observedAtStep ald:Step_01_Bottom_Electrode ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_005
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 005"@en ;
+    ald:assertedBy ald:Claim_BS3_005 ;
+    ald:hasObservedValue ald:Qty_BS3_005 ;
+    ald:hasWindowAssessment ald:Window_Assessment_No_Window_Available ;
+    ald:observedAtStep ald:Step_01_Bottom_Electrode ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_006
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 006"@en ;
+    ald:assertedBy ald:Claim_BS3_006 ;
+    ald:extendsWindow ald:Window_Sputter_Pressure_Envelope ;
+    ald:hasObservedValue ald:Qty_BS3_006 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Extends ;
+    ald:observedAtStep ald:Step_01_Bottom_Electrode ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_008
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 008"@en ;
+    ald:assertedBy ald:Claim_BS3_008 ;
+    ald:hasObservedValue ald:Qty_BS3_008 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Inside ;
+    ald:insideWindow ald:Window_Film_Thickness ;
+    ald:observedAtStep ald:Step_02_HZO_Deposition ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_009
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 009"@en ;
+    ald:assertedBy ald:Claim_BS3_009 ;
+    ald:hasObservedValue ald:Qty_BS3_009 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Inside ;
+    ald:insideWindow ald:Window_Deposition_Temperature ;
+    ald:observedAtStep ald:Step_02_HZO_Deposition ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_011
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 011"@en ;
+    ald:assertedBy ald:Claim_BS3_011 ;
+    ald:hasObservedValue ald:Qty_BS3_011 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Inside ;
+    ald:insideWindow ald:Window_Precursor_Source_Temperature ;
+    ald:observedAtStep ald:Step_02_HZO_Deposition ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_013
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 013"@en ;
+    ald:assertedBy ald:Claim_BS3_013 ;
+    ald:beyondWindow ald:Window_Precursor_Source_Temperature ;
+    ald:hasObservedValue ald:Qty_BS3_013 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Beyond ;
+    ald:observedAtStep ald:Step_02_HZO_Deposition ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+    ald:transferBlockedBy "delivery mode and line temperatures unreported" ;
+.
+
+ald:Instance_BS3_014
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 014"@en ;
+    ald:assertedBy ald:Claim_BS3_014 ;
+    ald:hasObservedValue ald:Qty_BS3_014 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Inside ;
+    ald:insideWindow ald:Window_Cycle_Ratio ;
+    ald:observedAtStep ald:Step_02_HZO_Deposition ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_017
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 017"@en ;
+    ald:assertedBy ald:Claim_BS3_017 ;
+    ald:hasObservedValue ald:Qty_BS3_017 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Inside ;
+    ald:insideWindow ald:Window_Electrode_Thickness_Envelope ;
+    ald:observedAtStep ald:Step_03_Top_Electrode ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_021
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 021"@en ;
+    ald:assertedBy ald:Claim_BS3_021 ;
+    ald:hasObservedValue ald:Qty_BS3_021 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Not_Assessed ;
+    ald:observedAtStep ald:Step_05_Wet_Etch ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Instance_BS3_022
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "Instance BS3 022"@en ;
+    ald:assertedBy ald:Claim_BS3_022 ;
+    ald:hasObservedValue ald:Qty_BS3_022 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Not_Assessed ;
+    ald:observedAtStep ald:Step_05_Wet_Etch ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Interfacial_Oxide_Layer
+    a owl:Class ;
+    rdfs:label "Interfacial Oxide Layer"@en ;
+    rdfs:subClassOf ald:Layer ;
+    skos:definition "Interfacial Oxide Layer is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Interlayer_Dielectric
+    a owl:Class ;
+    rdfs:label "Interlayer Dielectric"@en ;
+    rdfs:subClassOf ald:Layer ;
+    skos:definition "Interlayer Dielectric is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Interlayer_Formation
+    a owl:Class ;
+    rdfs:label "Interlayer Formation"@en ;
+    rdfs:subClassOf ald:Interface_Preparation ;
+    skos:definition "Interlayer Formation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Laminar_Flow_Reactor
+    a owl:Class ;
+    rdfs:label "Laminar Flow Reactor"@en ;
+    rdfs:subClassOf ald:Deposition_Reactor ;
+    skos:definition "Laminar Flow Reactor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Leakage_Current
+    a owl:Class ;
+    rdfs:label "Leakage Current"@en ;
+    rdfs:subClassOf ald:Device_Property ;
+    skos:definition "Leakage Current is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Leakage_Measurement
+    a owl:Class ;
+    rdfs:label "Leakage Measurement"@en ;
+    rdfs:subClassOf ald:Electrical_Test_Method ;
+    skos:definition "Leakage Measurement is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Metrology_Instrument
+    a owl:Class ;
+    rdfs:label "Metrology Instrument"@en ;
+    rdfs:subClassOf ald:Equipment ;
+    skos:definition "Metrology Instrument is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Microscopy_Method
+    a owl:Class ;
+    rdfs:label "Microscopy Method"@en ;
+    rdfs:subClassOf ald:Characterization_Method ;
+    skos:definition "Microscopy Method is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:PUND_Measurement
+    a owl:Class ;
+    rdfs:label "PUND Measurement"@en ;
+    rdfs:subClassOf ald:Electrical_Test_Method ;
+    skos:definition "PUND Measurement is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Plasma_Enhanced_ALD_Reactor
+    a owl:Class ;
+    rdfs:label "Plasma Enhanced ALD Reactor"@en ;
+    rdfs:subClassOf ald:Deposition_Reactor ;
+    skos:definition "Plasma Enhanced ALD Reactor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Plasma_Oxidant
+    a owl:Class ;
+    rdfs:label "Plasma Oxidant"@en ;
+    rdfs:subClassOf ald:Co_Reactant ;
+    skos:definition "Plasma Oxidant is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Polarization_Coercive_Field
+    a owl:Class ;
+    rdfs:label "Polarization Coercive Field"@en ;
+    rdfs:subClassOf ald:Device_Property ;
+    skos:definition "Polarization Coercive Field is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Post_Deposition_Anneal
+    a owl:Class ;
+    rdfs:label "Post Deposition Anneal"@en ;
+    rdfs:subClassOf ald:Thermal_Treatment_Operation ;
+    owl:disjointWith ald:Post_Metallization_Anneal ;
+    skos:definition "Post Deposition Anneal is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.7" ;
+.
+
+ald:Rapid_Thermal_Processor
+    a owl:Class ;
+    rdfs:label "Rapid Thermal Processor"@en ;
+    rdfs:subClassOf ald:Annealing_Equipment ;
+    skos:definition "Rapid Thermal Processor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Reference_Piece
+    a owl:Class ;
+    rdfs:label "Reference Piece"@en ;
+    rdfs:subClassOf ald:Specimen ;
+    skos:definition "Reference Piece is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Retention_Test
+    a owl:Class ;
+    rdfs:label "Retention Test"@en ;
+    rdfs:subClassOf ald:Electrical_Test_Method ;
+    skos:definition "Retention Test is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Second_Purge
+    a owl:Class ;
+    rdfs:label "Second Purge"@en ;
+    rdfs:subClassOf ald:ALD_Film_Formation ;
+    skos:definition "Second Purge is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6.4" ;
+.
+
+ald:Seed_Layer
+    a owl:Class ;
+    rdfs:label "Seed Layer"@en ;
+    rdfs:subClassOf ald:Layer ;
+    skos:definition "Seed Layer is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Seed_Layer_Formation
+    a owl:Class ;
+    rdfs:label "Seed Layer Formation"@en ;
+    rdfs:subClassOf ald:Interface_Preparation ;
+    skos:definition "Seed Layer Formation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Showerhead_Reactor
+    a owl:Class ;
+    rdfs:label "Showerhead Reactor"@en ;
+    rdfs:subClassOf ald:Deposition_Reactor ;
+    skos:definition "Showerhead Reactor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Source_S1
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S1"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "43"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S1" ;
+.
+
+ald:Source_S10
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S10"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "57"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S10" ;
+.
+
+ald:Source_S11
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S11"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "46"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S11" ;
+.
+
+ald:Source_S13
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S13"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "17"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S13" ;
+.
+
+ald:Source_S14
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S14"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "63"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S14" ;
+.
+
+ald:Source_S2
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S2"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "107"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S2" ;
+.
+
+ald:Source_S3
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S3"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "43"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S3" ;
+.
+
+ald:Source_S4
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S4"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "79"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S4" ;
+.
+
+ald:Source_S5
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S5"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "69"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S5" ;
+.
+
+ald:Source_S6
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S6"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "51"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S6" ;
+.
+
+ald:Source_S7
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S7"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "61"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S7" ;
+.
+
+ald:Source_S8
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S8"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "42"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S8" ;
+.
+
+ald:Source_S9
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "S9"@en ;
+    skos:scopeNote "Declared for source-registry completeness; claims are not instantiated in this build."@en ;
+    ald:claimCount "51"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "S9" ;
+.
+
+ald:Spectroscopy_Method
+    a owl:Class ;
+    rdfs:label "Spectroscopy Method"@en ;
+    rdfs:subClassOf ald:Characterization_Method ;
+    skos:definition "Spectroscopy Method is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Sputtering_System
+    a owl:Class ;
+    rdfs:label "Sputtering System"@en ;
+    rdfs:subClassOf ald:Deposition_Equipment ;
+    skos:definition "Sputtering System is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Stack_BS3_TiN_HZO_TiN
+    a
+        owl:NamedIndividual ,
+        ald:MFM_Capacitor ;
+    rdfs:label "BS3 TiN/HZO/TiN stack"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_001 ,
+        ald:Claim_BS3_007 ,
+        ald:Claim_BS3_016 ;
+    ald:hasBottomElectrode ald:Layer_BS3_Bottom_TiN ;
+    ald:hasFerroelectricLayer ald:Layer_BS3_HZO ;
+    ald:hasTopElectrode ald:Layer_BS3_Top_TiN ;
+.
+
+ald:Substrate
+    a owl:Class ;
+    rdfs:label "Substrate"@en ;
+    rdfs:subClassOf ald:Material ;
+    skos:definition "Substrate is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Superlattice_Stack
+    a owl:Class ;
+    rdfs:label "Superlattice Stack"@en ;
+    rdfs:subClassOf ald:Device_Stack ;
+    skos:definition "Superlattice Stack is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Surface_Preclean
+    a owl:Class ;
+    rdfs:label "Surface Preclean"@en ;
+    rdfs:subClassOf ald:Pre_Deposition_Operation ;
+    skos:definition "Surface Preclean is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.3" ;
+.
+
+ald:Thermal_ALD_Reactor
+    a owl:Class ;
+    rdfs:label "Thermal ALD Reactor"@en ;
+    rdfs:subClassOf ald:Deposition_Reactor ;
+    skos:definition "Thermal ALD Reactor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Thermal_Oxidant
+    a owl:Class ;
+    rdfs:label "Thermal Oxidant"@en ;
+    rdfs:subClassOf ald:Co_Reactant ;
+    skos:definition "Thermal Oxidant is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Thickness_Growth_Per_Cycle
+    a owl:Class ;
+    rdfs:label "Thickness Growth Per Cycle"@en ;
+    rdfs:subClassOf ald:Process_Parameter ;
+    skos:definition "Thickness Growth Per Cycle is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Thickness_Metrology
+    a owl:Class ;
+    rdfs:label "Thickness Metrology"@en ;
+    rdfs:subClassOf ald:Characterization_Method ;
+    skos:definition "Thickness Metrology is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Trilayer_Stack
+    a owl:Class ;
+    rdfs:label "Trilayer Stack"@en ;
+    rdfs:subClassOf ald:Device_Stack ;
+    skos:definition "Trilayer Stack is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Unit_A
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "A"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_A_cm2
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "A/cm2"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_A_cycle
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "A/cycle"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_C_s
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "C/s"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_GPa
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "GPa"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_Gbit
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "Gbit"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_Hz
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "Hz"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_K
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "K"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_MHz
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "MHz"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_MV_cm
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "MV/cm"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_V
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "V"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_W_cm2
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "W/cm2"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_cm2
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "cm2"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_cm_minus1
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "cm-1"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_cycles
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "cycles"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_dB
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "dB"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_deg
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "deg"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_eV
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "eV"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_eV_Angstrom
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "eV*Angstrom"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_fJ
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "fJ"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_fJ_bit
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "fJ/bit"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_fold
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "fold"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_g_Nm3
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "g/Nm3"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_g_m3
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "g/m3"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_kHz
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "kHz"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_kV
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "kV"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_kV_cm
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "kV/cm"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_mA
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "mA"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_meV
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "meV"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_min
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "min"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_mm
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "mm"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_ms
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "ms"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_nJ
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "nJ"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_ns
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "ns"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_ohm
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "ohm"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_ohm_sq
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "ohm/sq"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_orders_of_magnitude
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "orders of magnitude"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_percent
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "%"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_pm_V
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "pm/V"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_ps
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "ps"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_supercycles
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "supercycles"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_uC_cm2
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "uC/cm2"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_uC_m_minus2_K_minus1
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "uC m-2 K-1"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_um
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "um"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_um2
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "um2"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_us
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "us"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Variable_ALD_Chamber_Pressure
+    a
+        owl:NamedIndividual ,
+        ald:Second_Order_Variable ;
+    rdfs:label "Variable ALD Chamber Pressure"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report classifies ALD chamber pressure as a second-order reactor control." ;
+.
+
+ald:Variable_Anneal_Ambient_Independent
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Anneal Ambient Independent"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The supplied evidence does not isolate anneal ambient as an independent ordered variable." ;
+.
+
+ald:Variable_Anneal_Placement
+    a
+        owl:NamedIndividual ,
+        ald:First_Order_Variable ;
+    rdfs:label "Variable Anneal Placement"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report treats anneal placement relative to metallization as first-order context." ;
+.
+
+ald:Variable_Cycle_Or_Supercycle_Count
+    a
+        owl:NamedIndividual ,
+        ald:Second_Order_Variable ;
+    rdfs:label "Variable Cycle Or Supercycle Count"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report classifies cycle or supercycle count as a second-order architecture control." ;
+.
+
+ald:Variable_Electrode_Material_And_Oxygen_Affinity
+    a
+        owl:NamedIndividual ,
+        ald:First_Order_Variable ;
+    rdfs:label "Variable Electrode Material And Oxygen Affinity"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report treats electrode material and oxygen affinity as first-order interface controls." ;
+.
+
+ald:Variable_Oxidant_Exposure
+    a
+        owl:NamedIndividual ,
+        ald:First_Order_Variable ;
+    rdfs:label "Variable Oxidant Exposure"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report identifies oxidant exposure as a first-order chemistry control." ;
+.
+
+ald:Variable_Precursor_Delivery_Mode
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Precursor Delivery Mode"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The route does not report enough delivery detail for an ordered classification." ;
+.
+
+ald:Variable_Precursor_Purge_Duration
+    a
+        owl:NamedIndividual ,
+        ald:First_Order_Variable ;
+    rdfs:label "Variable Precursor Purge Duration"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report identifies precursor and purge duration as first-order exposure controls." ;
+.
+
+ald:Variable_Top_Electrode_Deposition_Pressure
+    a
+        owl:NamedIndividual ,
+        ald:First_Order_Variable ;
+    rdfs:label "Variable Top Electrode Deposition Pressure"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The first-order classification is specific to top-electrode deposition pressure." ;
+.
+
+ald:Wafer_Specimen
+    a owl:Class ;
+    rdfs:label "Wafer Specimen"@en ;
+    rdfs:subClassOf ald:Specimen ;
+    skos:definition "Wafer Specimen is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Wake_Up_Cycling
+    a owl:Class ;
+    rdfs:label "Wake Up Cycling"@en ;
+    rdfs:subClassOf ald:Electrical_Test_Method ;
+    skos:definition "Wake Up Cycling is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:anchorText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "anchor text"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the anchor text literal for its domain subject."@en ;
+.
+
+ald:assertionRationale
+    a owl:AnnotationProperty ;
+    rdfs:label "assertion rationale"@en ;
+    skos:definition "Annotates ontology resources with assertion rationale information."@en ;
+.
+
+ald:assertionSource
+    a owl:AnnotationProperty ;
+    rdfs:label "assertion source"@en ;
+    skos:definition "Annotates ontology resources with assertion source information."@en ;
+.
+
+ald:assessesTarget
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "assesses target"@en ;
+    rdfs:domain ald:Coverage_Assessment ;
+    rdfs:range ald:Target_Category ;
+    skos:definition "Relates its domain subject to the stated assesses target object."@en ;
+.
+
+ald:atWindowEdge
+    a owl:ObjectProperty ;
+    rdfs:label "at window edge"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Literature_Window ;
+    rdfs:subPropertyOf ald:comparedWithWindow ;
+    skos:definition "Relates its domain subject to the stated at window edge object."@en ;
+.
+
+ald:beyondWindow
+    a owl:ObjectProperty ;
+    rdfs:label "beyond window"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Literature_Window ;
+    rdfs:subPropertyOf ald:comparedWithWindow ;
+    skos:definition "Relates its domain subject to the stated beyond window object."@en ;
+.
+
+ald:claimCount
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "claim count"@en ;
+    rdfs:domain ald:Source_Record ;
+    rdfs:range xsd:nonNegativeInteger ;
+    skos:definition "Records the claim count literal for its domain subject."@en ;
+.
+
+ald:claimId
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "claim id"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the claim id literal for its domain subject."@en ;
+.
+
+ald:claimIdOriginal
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "claim id original"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the claim id original literal for its domain subject."@en ;
+.
+
+ald:concernsVariable
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "concerns variable"@en ;
+    rdfs:domain ald:Quantity_Value ;
+    rdfs:range ald:Process_Variable ;
+    skos:definition "Relates its domain subject to the stated concerns variable object."@en ;
+.
+
+ald:conditionText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "condition text"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the condition text literal for its domain subject."@en ;
+.
+
+ald:constrainedBy
+    a owl:ObjectProperty ;
+    rdfs:label "constrained by"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range ald:Limitation ;
+    skos:definition "Relates its domain subject to the stated constrained by object."@en ;
+.
+
+ald:contributingSourceCount
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "contributing source count"@en ;
+    rdfs:domain ald:Literature_Window ;
+    rdfs:range xsd:nonNegativeInteger ;
+    skos:definition "Records the contributing source count literal for its domain subject."@en ;
+.
+
+ald:coverageRowCount
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "coverage row count"@en ;
+    rdfs:domain ald:Coverage_Assessment ;
+    rdfs:range xsd:nonNegativeInteger ;
+    skos:definition "Records the coverage row count literal for its domain subject."@en ;
+.
+
+ald:coverageSourceCount
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "coverage source count"@en ;
+    rdfs:domain ald:Coverage_Assessment ;
+    rdfs:range xsd:nonNegativeInteger ;
+    skos:definition "Records the coverage source count literal for its domain subject."@en ;
+.
+
+ald:derivedFromReport
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "derived from report"@en ;
+    rdfs:domain ald:Evidence_Gap ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the derived from report literal for its domain subject."@en ;
+.
+
+ald:directlyPrecedes
+    a owl:ObjectProperty ;
+    rdfs:label "directly precedes"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range ald:Route_Step ;
+    rdfs:subPropertyOf ald:precedes ;
+    skos:definition "Relates its domain subject to the stated directly precedes object."@en ;
+.
+
+ald:doNotInferNote
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "do not infer note"@en ;
+    rdfs:domain ald:Evidence_Gap ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the do not infer note literal for its domain subject."@en ;
+.
+
+ald:documentedIn
+    a owl:ObjectProperty ;
+    rdfs:label "documented in"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range ald:Source_Document ;
+    skos:definition "Relates its domain subject to the stated documented in object."@en ;
+.
+
+ald:drMappingIRI
+    a owl:AnnotationProperty ;
+    rdfs:label "dr mapping i r i"@en ;
+    skos:definition "Annotates ontology resources with dr mapping i r i information."@en ;
+.
+
+ald:drMappingRationale
+    a owl:AnnotationProperty ;
+    rdfs:label "dr mapping rationale"@en ;
+    skos:definition "Annotates ontology resources with dr mapping rationale information."@en ;
+.
+
+ald:drMappingRelation
+    a owl:AnnotationProperty ;
+    rdfs:label "dr mapping relation"@en ;
+    skos:definition "Annotates ontology resources with dr mapping relation information."@en ;
+.
+
+ald:extendsWindow
+    a owl:ObjectProperty ;
+    rdfs:label "extends window"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Literature_Window ;
+    rdfs:subPropertyOf ald:comparedWithWindow ;
+    skos:definition "Relates its domain subject to the stated extends window object."@en ;
+.
+
+ald:extractionBatch
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "extraction batch"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:integer ;
+    skos:definition "Records the extraction batch literal for its domain subject."@en ;
+.
+
+ald:gapConcerns
+    a owl:ObjectProperty ;
+    rdfs:label "gap concerns"@en ;
+    rdfs:domain ald:Evidence_Gap ;
+    rdfs:range owl:Thing ;
+    skos:definition "Relates its domain subject to the stated gap concerns object."@en ;
+.
+
+ald:gapQuantityKind
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "gap quantity kind"@en ;
+    rdfs:domain ald:Evidence_Gap ;
+    rdfs:range ald:Quantity_Kind ;
+    skos:definition "Relates its domain subject to the stated gap quantity kind object."@en ;
+.
+
+ald:gapStatement
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "gap statement"@en ;
+    rdfs:domain ald:Evidence_Gap ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the gap statement literal for its domain subject."@en ;
+.
+
+ald:generationTimestamp
+    a owl:AnnotationProperty ;
+    rdfs:label "generation timestamp"@en ;
+    skos:definition "Annotates ontology resources with generation timestamp information."@en ;
+.
+
+ald:hasBottomElectrode
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has bottom electrode"@en ;
+    rdfs:domain ald:Device_Stack ;
+    rdfs:range ald:Electrode_Layer ;
+    rdfs:subPropertyOf ald:hasLayer ;
+    skos:definition "Relates its domain subject to the stated has bottom electrode object."@en ;
+.
+
+ald:hasClaimField
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has claim field"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range ald:Quantity_Kind ;
+    skos:definition "Relates its domain subject to the stated has claim field object."@en ;
+.
+
+ald:hasConfidence
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has confidence"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range ald:Confidence_Level ;
+    skos:definition "Relates its domain subject to the stated has confidence object."@en ;
+.
+
+ald:hasCoverageGrade
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has coverage grade"@en ;
+    rdfs:domain ald:Coverage_Assessment ;
+    rdfs:range ald:Coverage_Grade ;
+    skos:definition "Relates its domain subject to the stated has coverage grade object."@en ;
+.
+
+ald:hasEvidenceStatus
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has evidence status"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range ald:Evidence_Status ;
+    skos:definition "Relates its domain subject to the stated has evidence status object."@en ;
+.
+
+ald:hasFerroelectricLayer
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has ferroelectric layer"@en ;
+    rdfs:domain ald:Device_Stack ;
+    rdfs:range ald:Ferroelectric_Layer ;
+    rdfs:subPropertyOf ald:hasLayer ;
+    skos:definition "Relates its domain subject to the stated has ferroelectric layer object."@en ;
+.
+
+ald:hasInput
+    a owl:ObjectProperty ;
+    rdfs:label "has input"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Material ;
+    skos:definition "Relates its domain subject to the stated has input object."@en ;
+.
+
+ald:hasModuleScope
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has module scope"@en ;
+    rdfs:domain ald:Process_Element ;
+    rdfs:range ald:Module_Scope ;
+    skos:definition "Relates its domain subject to the stated has module scope object."@en ;
+.
+
+ald:hasObservedValue
+    a owl:ObjectProperty ;
+    rdfs:label "has observed value"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Quantity_Value ;
+    skos:definition "Relates its domain subject to the stated has observed value object."@en ;
+.
+
+ald:hasOutput
+    a owl:ObjectProperty ;
+    rdfs:label "has output"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Material ;
+    skos:definition "Relates its domain subject to the stated has output object."@en ;
+.
+
+ald:hasPhase
+    a owl:ObjectProperty ;
+    rdfs:label "has phase"@en ;
+    rdfs:domain ald:Material ;
+    rdfs:range ald:Crystalline_Phase ;
+    skos:definition "Relates its domain subject to the stated has phase object."@en ;
+.
+
+ald:hasProcessParameterValue
+    a owl:ObjectProperty ;
+    rdfs:label "has process parameter value"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Quantity_Value ;
+    rdfs:subPropertyOf ald:hasQuantity ;
+    skos:definition "Relates its domain subject to the stated has process parameter value object."@en ;
+.
+
+ald:hasSource
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has source"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range ald:Source_Record ;
+    skos:definition "Relates its domain subject to the stated has source object."@en ;
+.
+
+ald:hasStep
+    a owl:ObjectProperty ;
+    rdfs:label "has step"@en ;
+    rdfs:domain ald:Process_Route ;
+    rdfs:range ald:Route_Step ;
+    owl:inverseOf ald:stepOf ;
+    skos:definition "Relates its domain subject to the stated has step object."@en ;
+.
+
+ald:hasSubOperation
+    a owl:ObjectProperty ;
+    rdfs:label "has sub operation"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Process_Operation ;
+    owl:inverseOf ald:subOperationOf ;
+    skos:definition "Relates its domain subject to the stated has sub operation object."@en ;
+.
+
+ald:hasTargetCategory
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has target category"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range ald:Target_Category ;
+    skos:definition "Relates its domain subject to the stated has target category object."@en ;
+.
+
+ald:hasTopElectrode
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has top electrode"@en ;
+    rdfs:domain ald:Device_Stack ;
+    rdfs:range ald:Electrode_Layer ;
+    rdfs:subPropertyOf ald:hasLayer ;
+    skos:definition "Relates its domain subject to the stated has top electrode object."@en ;
+.
+
+ald:hasUnit
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has unit"@en ;
+    rdfs:domain ald:Quantity_Value ;
+    rdfs:range ald:Unit ;
+    skos:definition "Relates its domain subject to the stated has unit object."@en ;
+.
+
+ald:hasWindowAssessment
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has window assessment"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Window_Assessment_Status ;
+    skos:definition "Relates its domain subject to the stated has window assessment object."@en ;
+.
+
+ald:helperSourceText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "helper source text"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the helper source text literal for its domain subject."@en ;
+.
+
+ald:helperTargetText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "helper target text"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the helper target text literal for its domain subject."@en ;
+.
+
+ald:inputSheetName
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "input sheet name"@en ;
+    rdfs:domain ald:Source_Document ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the input sheet name literal for its domain subject."@en ;
+.
+
+ald:ledgerRowCount
+    a owl:AnnotationProperty ;
+    rdfs:label "ledger row count"@en ;
+    skos:definition "Annotates ontology resources with ledger row count information."@en ;
+.
+
+ald:locatorText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "locator text"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the locator text literal for its domain subject."@en ;
+.
+
+ald:madeOfChemical
+    a owl:ObjectProperty ;
+    rdfs:label "made of chemical"@en ;
+    rdfs:domain ald:Layer ;
+    rdfs:range ald:Chemical ;
+    skos:definition "Relates its domain subject to the stated made of chemical object."@en ;
+.
+
+ald:maxValue
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "max value"@en ;
+    rdfs:domain ald:Range_Value ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Records the max value literal for its domain subject."@en ;
+.
+
+ald:minValue
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "min value"@en ;
+    rdfs:domain ald:Range_Value ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Records the min value literal for its domain subject."@en ;
+.
+
+ald:noteText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "note text"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the note text literal for its domain subject."@en ;
+.
+
+ald:numericValue
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "numeric value"@en ;
+    rdfs:domain ald:Point_Value ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Records the numeric value literal for its domain subject."@en ;
+.
+
+ald:openWorldNote
+    a owl:AnnotationProperty ;
+    rdfs:label "open world note"@en ;
+    skos:definition "Annotates ontology resources with open world note information."@en ;
+.
+
+ald:performedWith
+    a owl:ObjectProperty ;
+    rdfs:label "performed with"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Equipment ;
+    skos:definition "Relates its domain subject to the stated performed with object."@en ;
+.
+
+ald:qualitativeStatement
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "qualitative statement"@en ;
+    rdfs:domain ald:Qualitative_Value ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the qualitative statement literal for its domain subject."@en ;
+.
+
+ald:quantityLabel
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "quantity label"@en ;
+    rdfs:domain ald:Quantity_Value ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the quantity label literal for its domain subject."@en ;
+.
+
+ald:ratioExpression
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "ratio expression"@en ;
+    rdfs:domain ald:Ratio_Value ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the ratio expression literal for its domain subject."@en ;
+.
+
+ald:rawUnitText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "raw unit text"@en ;
+    rdfs:domain ald:Quantity_Value ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the raw unit text literal for its domain subject."@en ;
+.
+
+ald:rawValueText
+    a owl:DatatypeProperty ;
+    rdfs:label "raw value text"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the raw value text literal for its domain subject."@en ;
+.
+
+ald:reportSection
+    a owl:AnnotationProperty ;
+    rdfs:label "report section"@en ;
+    skos:definition "Annotates ontology resources with report section information."@en ;
+.
+
+ald:reportTable
+    a owl:AnnotationProperty ;
+    rdfs:label "report table"@en ;
+    skos:definition "Annotates ontology resources with report table information."@en ;
+.
+
+ald:routeScopedPrecedes
+    a owl:ObjectProperty ;
+    rdfs:label "route scoped precedes"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range ald:Route_Step ;
+    rdfs:subPropertyOf ald:precedes ;
+    skos:definition "Relates its domain subject to the stated route scoped precedes object."@en ;
+.
+
+ald:scaffoldNote
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "scaffold note"@en ;
+    rdfs:domain ald:Literature_Window ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the scaffold note literal for its domain subject."@en ;
+.
+
+ald:secondHandTranscription
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "second hand transcription"@en ;
+    rdfs:domain ald:Claim ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Records the second hand transcription literal for its domain subject."@en ;
+.
+
+ald:sourceFileSha256
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "source file sha256"@en ;
+    rdfs:domain ald:Source_Document ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the source file sha256 literal for its domain subject."@en ;
+.
+
+ald:sourceId
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "source id"@en ;
+    rdfs:domain ald:Source_Record ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the source id literal for its domain subject."@en ;
+.
+
+ald:stepDescription
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "step description"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the step description literal for its domain subject."@en ;
+.
+
+ald:stepIndex
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "step index"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range xsd:positiveInteger ;
+    skos:definition "Records the step index literal for its domain subject."@en ;
+.
+
+ald:transcribesDocument
+    a owl:ObjectProperty ;
+    rdfs:label "transcribes document"@en ;
+    rdfs:domain ald:Source_Record ;
+    rdfs:range ald:Source_Document ;
+    skos:definition "Relates its domain subject to the stated transcribes document object."@en ;
+.
+
+ald:transferBlockedBy
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "transfer blocked by"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the transfer blocked by literal for its domain subject."@en ;
+.
+
+ald:usesCarrierGas
+    a owl:ObjectProperty ;
+    rdfs:label "uses carrier gas"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Carrier_Gas ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses carrier gas object."@en ;
+.
+
+ald:usesCleaningChemistry
+    a owl:ObjectProperty ;
+    rdfs:label "uses cleaning chemistry"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Cleaning_Chemistry ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses cleaning chemistry object."@en ;
+.
+
+ald:usesCoReactant
+    a owl:ObjectProperty ;
+    rdfs:label "uses co reactant"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Co_Reactant ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses co reactant object."@en ;
+.
+
+ald:usesEtchant
+    a owl:ObjectProperty ;
+    rdfs:label "uses etchant"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Etchant ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses etchant object."@en ;
+.
+
+ald:usesPurgeGas
+    a owl:ObjectProperty ;
+    rdfs:label "uses purge gas"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Purge_Gas ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses purge gas object."@en ;
+.
+
+ald:usesSputterGas
+    a owl:ObjectProperty ;
+    rdfs:label "uses sputter gas"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Sputter_Gas ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses sputter gas object."@en ;
+.
+
+ald:variableOrderRationale
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "variable order rationale"@en ;
+    rdfs:domain ald:Process_Variable ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the variable order rationale literal for its domain subject."@en ;
+.
+
+ald:windowConditionText
+    a
+        owl:DatatypeProperty ,
+        owl:FunctionalProperty ;
+    rdfs:label "window condition text"@en ;
+    rdfs:domain ald:Literature_Window ;
+    rdfs:range xsd:string ;
+    skos:definition "Records the window condition text literal for its domain subject."@en ;
+.
+
+ald:Amorphous_Phase
+    a owl:Class ;
+    rdfs:label "Amorphous Phase"@en ;
+    rdfs:subClassOf ald:Crystalline_Phase ;
+    skos:definition "Amorphous Phase is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Ar
+    a
+        owl:NamedIndividual ,
+        ald:Sputter_Gas ;
+    rdfs:label "Ar"@en ;
+    ald:assertedBy ald:Claim_BS3_004 ;
+.
+
+ald:Carrier_Gas
+    a owl:Class ;
+    rdfs:label "Carrier Gas"@en ;
+    rdfs:subClassOf ald:Process_Gas ;
+    skos:definition "Carrier Gas is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Cleaning_Chemistry
+    a owl:Class ;
+    rdfs:label "Cleaning Chemistry"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Cleaning Chemistry is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Co_Reactant_Dose
+    a owl:Class ;
+    rdfs:label "Co Reactant Dose"@en ;
+    rdfs:subClassOf ald:ALD_Film_Formation ;
+    skos:definition "Co Reactant Dose is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6.3" ;
+.
+
+ald:Cubic_Phase
+    a owl:Class ;
+    rdfs:label "Cubic Phase"@en ;
+    rdfs:subClassOf ald:Crystalline_Phase ;
+    skos:definition "Cubic Phase is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Cycle_Repetition
+    a owl:Class ;
+    rdfs:label "Cycle Repetition"@en ;
+    rdfs:subClassOf ald:ALD_Film_Formation ;
+    skos:definition "Cycle Repetition is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6.5" ;
+.
+
+ald:Document_Tsai_2022
+    a
+        owl:NamedIndividual ,
+        ald:Source_Document ;
+    rdfs:label "Tsai et al. 2022 publication"@en ;
+    dcterms:creator "Shih-Hao Tsai; Zihang Fang; Xinghua Wang; Umesh Chand; Chun-Kuei Chen; Sonu Hooda; Maheswari Sivan; Jieming Pan; Evgeny Zamburg; Aaron Voon-Yew Thean" ;
+    dcterms:identifier "10.1021/acsaelm.1c01321" ;
+    dcterms:issued "2022"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1021/acsaelm.1c01321> ;
+    dcterms:title "Stress-Memorized HZO for High-Performance Ferroelectric Field-Effect Memtransistor" ;
+    rdfs:comment "ACS Applied Electronic Materials, volume 4, issue 4, pages 1642–1650, 2022." ;
+.
+
+ald:Electrode_Material
+    a owl:Class ;
+    rdfs:label "Electrode Material"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Electrode Material is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Field_Anneal_Ambient
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "anneal ambient"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Anneal_Sequence
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "anneal sequence"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Chamber_Pressure
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "chamber pressure"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Composition
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "composition"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Line_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "line temperature"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Purge_Time
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "purge time"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Tool_Name
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "tool name"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Film_Material
+    a owl:Class ;
+    rdfs:label "Film Material"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Film Material is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:HZO_Hf05Zr05O2
+    a
+        owl:NamedIndividual ,
+        ald:Film_Material ;
+    rdfs:label "Hf0.5Zr0.5O2"@en ;
+    ald:assertedBy ald:Claim_BS3_007 ;
+.
+
+ald:Hf_Precursor_Dose
+    a owl:Class ;
+    rdfs:label "Hf Precursor Dose"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:usesPrecursor ;
+            owl:someValuesFrom ald:Hf_Precursor ;
+        ] ,
+        ald:Metal_Precursor_Dose ;
+    skos:definition "Hf Precursor Dose is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6.1" ;
+.
+
+ald:Instance_BS3_Thermal_Treatment_Tuple
+    a
+        owl:NamedIndividual ,
+        ald:Route_Instance ;
+    rdfs:label "BS3 thermal treatment tuple"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_023 ,
+        ald:Claim_BS3_024 ,
+        ald:Claim_BS3_025 ;
+    ald:exactIndependentMatch ald:Window_Thermal_Treatment_Tuple ;
+    ald:hasObservedValue
+        ald:Qty_BS3_023 ,
+        ald:Qty_BS3_024 ;
+    ald:hasWindowAssessment ald:Window_Assessment_Exact_Independent_Match ;
+    ald:observedAtStep ald:Step_06_Crystallization_Anneal ;
+    ald:observedInRoute ald:Route_BS3_Tsai2022 ;
+.
+
+ald:MFM_Capacitor
+    a owl:Class ;
+    rdfs:label "MFM Capacitor"@en ;
+    rdfs:subClassOf ald:Device_Stack ;
+    skos:definition "MFM Capacitor is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.12" ;
+.
+
+ald:Monoclinic_Phase
+    a owl:Class ;
+    rdfs:label "Monoclinic Phase"@en ;
+    rdfs:subClassOf ald:Crystalline_Phase ;
+    skos:definition "Monoclinic Phase is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:NH4OH_H2O2_H2O_Etchant
+    a
+        owl:NamedIndividual ,
+        ald:Etchant ;
+    rdfs:label "NH4OH:H2O2:H2O wet etchant"@en ;
+    ald:assertedBy ald:Claim_BS3_020 ;
+.
+
+ald:Orthorhombic_Phase
+    a owl:Class ;
+    rdfs:label "Orthorhombic Phase"@en ;
+    rdfs:subClassOf ald:Crystalline_Phase ;
+    skos:definition "Orthorhombic Phase is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Photolithography
+    a owl:Class ;
+    rdfs:label "Photolithography"@en ;
+    rdfs:subClassOf ald:Non_Module_Operation ;
+    skos:definition "Photolithography is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Process_Capability_Limitation
+    a owl:Class ;
+    rdfs:label "Process Capability Limitation"@en ;
+    rdfs:subClassOf ald:Limitation ;
+    skos:definition "Process Capability Limitation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Purge_Gas
+    a owl:Class ;
+    rdfs:label "Purge Gas"@en ;
+    rdfs:subClassOf ald:Process_Gas ;
+    skos:definition "Purge Gas is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Qualitative_Value
+    a owl:Class ;
+    rdfs:label "Qualitative Value"@en ;
+    rdfs:subClassOf ald:Quantity_Value ;
+    skos:definition "Qualitative Value is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:TEMAH
+    a
+        owl:NamedIndividual ,
+        ald:Hf_Precursor ;
+    rdfs:label "TEMAH"@en ;
+    ald:assertedBy ald:Claim_BS3_010 ;
+.
+
+ald:TEMAZ
+    a
+        owl:NamedIndividual ,
+        ald:Zr_Precursor ;
+    rdfs:label "TEMAZ"@en ;
+    ald:assertedBy ald:Claim_BS3_012 ;
+.
+
+ald:Target_Flow_Electrical_Qualification
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/electrical-qualification"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Flow_First_Purge
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/first-purge"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Flow_Interface_Prep
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/interface-prep"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Flow_Second_Purge
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/second-purge"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Flow_Surface_Preclean
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/surface-preclean"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Materials_Equipment
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "materials-equipment"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Metrology_Crystalline_Phase
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "metrology/crystalline-phase"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Metrology_Film_Thickness_Uniformity
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "metrology/film-thickness-uniformity"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Metrology_Hysteresis_Reliability
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "metrology/hysteresis-reliability"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Metrology_Interface_Defect
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "metrology/interface-defect"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Metrology_Leakage_Breakdown
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "metrology/leakage-breakdown"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Param_Conformality_Uniformity
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "param/conformality-uniformity"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Param_Defect_Density_Reliability
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "param/defect-density-reliability"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Param_Leakage_Current
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "param/leakage-current"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Param_Polarization_Coercive_Field
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "param/polarization-coercive-field"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Param_Thickness_Growth_Per_Cycle
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "param/thickness-growth-per-cycle"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Tetragonal_Phase
+    a owl:Class ;
+    rdfs:label "Tetragonal Phase"@en ;
+    rdfs:subClassOf ald:Crystalline_Phase ;
+    skos:definition "Tetragonal Phase is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Unit_W
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "W"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_mTorr
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "mTorr"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Unit_s
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "s"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Variable_Anneal_Duration
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Anneal Duration"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The supplied evidence does not justify an independent ordered classification for anneal duration." ;
+.
+
+ald:Variable_Anneal_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:First_Order_Variable ;
+    rdfs:label "Variable Anneal Temperature"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report identifies anneal temperature as a first-order crystallization control." ;
+.
+
+ald:Variable_Bottom_Electrode_Sputter_Pressure
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Bottom Electrode Sputter Pressure"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "Bottom-electrode pressure is not assigned the position-specific top-electrode classification." ;
+.
+
+ald:Variable_Cycle_Ratio
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Cycle Ratio"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The supplied evidence does not justify an ordered classification for cycle ratio." ;
+.
+
+ald:Variable_Deposition_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:First_Order_Variable ;
+    rdfs:label "Variable Deposition Temperature"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report identifies deposition temperature as a first-order film-formation control." ;
+.
+
+ald:Variable_Etchant_Ratio
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Etchant Ratio"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The out-of-module etchant ratio is retained without an ordered classification." ;
+.
+
+ald:Variable_Film_Thickness
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Film Thickness"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The supplied evidence does not justify an ordered classification for film thickness." ;
+.
+
+ald:Variable_Sputter_Power
+    a
+        owl:NamedIndividual ,
+        ald:Second_Order_Variable ;
+    rdfs:label "Variable Sputter Power"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report classifies sputter power as a second-order electrode-formation control." ;
+.
+
+ald:Variable_Wet_Etch_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Wet Etch Temperature"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The out-of-module wet-etch temperature is retained without an ordered classification." ;
+.
+
+ald:Wet_Etch
+    a owl:Class ;
+    rdfs:label "Wet Etch"@en ;
+    rdfs:subClassOf ald:Non_Module_Operation ;
+    skos:definition "Wet Etch is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Window_Cycle_Ratio
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Cycle ratio literature window"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature window for HfO2-to-ZrO2 cycle architecture." ;
+.
+
+ald:Window_Deposition_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Deposition temperature literature window"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature window for ALD deposition temperature." ;
+.
+
+ald:Window_Film_Thickness
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Film thickness literature window"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature window for HfO2-family ferroelectric film thickness." ;
+.
+
+ald:Window_Sputter_Power_Envelope
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Sputter power literature envelope"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature envelope for sputter power in electrode formation." ;
+.
+
+ald:Window_Sputter_Pressure_Envelope
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Sputter pressure literature envelope"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature envelope for reported electrode sputter pressures." ;
+.
+
+ald:Zr_Precursor_Dose
+    a owl:Class ;
+    rdfs:label "Zr Precursor Dose"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:usesPrecursor ;
+            owl:someValuesFrom ald:Zr_Precursor ;
+        ] ,
+        ald:Metal_Precursor_Dose ;
+    skos:definition "Zr Precursor Dose is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6.1" ;
+.
+
+ald:assertedBy
+    a owl:ObjectProperty ;
+    rdfs:label "asserted by"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range ald:Claim ;
+    skos:definition "Relates its domain subject to the stated asserted by object."@en ;
+.
+
+ald:correspondsToProcessVariable
+    a owl:ObjectProperty ;
+    rdfs:label "corresponds to process variable"@en ;
+    rdfs:domain ald:Measurand ;
+    rdfs:range ald:Process_Variable ;
+    skos:definition "Relates its domain subject to the stated corresponds to process variable object."@en ;
+.
+
+ald:exactIndependentMatch
+    a owl:ObjectProperty ;
+    rdfs:label "exact independent match"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Literature_Window ;
+    rdfs:subPropertyOf
+        ald:comparedWithWindow ,
+        ald:insideWindow ;
+    skos:definition "Relates its domain subject to the stated exact independent match object."@en ;
+.
+
+ald:hasMeasurand
+    a owl:ObjectProperty ;
+    rdfs:label "has measurand"@en ;
+    rdfs:domain ald:Measurement_Result ;
+    rdfs:range ald:Measurand ;
+    skos:definition "Relates its domain subject to the stated has measurand object."@en ;
+.
+
+ald:hasQuantity
+    a owl:ObjectProperty ;
+    rdfs:label "has quantity"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range ald:Quantity_Value ;
+    skos:definition "Relates its domain subject to the stated has quantity object."@en ;
+.
+
+ald:hasQuantityKind
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "has quantity kind"@en ;
+    rdfs:domain ald:Quantity_Value ;
+    rdfs:range ald:Quantity_Kind ;
+    skos:definition "Relates its domain subject to the stated has quantity kind object."@en ;
+.
+
+ald:hasResultValue
+    a owl:ObjectProperty ;
+    rdfs:label "has result value"@en ;
+    rdfs:domain ald:Measurement_Result ;
+    rdfs:range ald:Quantity_Value ;
+    skos:definition "Relates its domain subject to the stated has result value object."@en ;
+.
+
+ald:insideWindow
+    a owl:ObjectProperty ;
+    rdfs:label "inside window"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Literature_Window ;
+    rdfs:subPropertyOf ald:comparedWithWindow ;
+    skos:definition "Relates its domain subject to the stated inside window object."@en ;
+.
+
+ald:measuredBy
+    a owl:ObjectProperty ;
+    rdfs:label "measured by"@en ;
+    rdfs:domain ald:Measurement_Result ;
+    rdfs:range ald:Characterization_Method ;
+    skos:definition "Relates its domain subject to the stated measured by object."@en ;
+.
+
+ald:measuredOn
+    a owl:ObjectProperty ;
+    rdfs:label "measured on"@en ;
+    rdfs:domain ald:Measurement_Result ;
+    rdfs:range ald:Specimen ;
+    skos:definition "Relates its domain subject to the stated measured on object."@en ;
+.
+
+ald:necessarilyPrecedes
+    a owl:ObjectProperty ;
+    rdfs:label "necessarily precedes"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range ald:Route_Step ;
+    rdfs:subPropertyOf ald:precedes ;
+    skos:definition "Relates its domain subject to the stated necessarily precedes object."@en ;
+.
+
+ald:observedAtStep
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "observed at step"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Route_Step ;
+    skos:definition "Relates its domain subject to the stated observed at step object."@en ;
+.
+
+ald:observedInRoute
+    a
+        owl:FunctionalProperty ,
+        owl:ObjectProperty ;
+    rdfs:label "observed in route"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Process_Route ;
+    skos:definition "Relates its domain subject to the stated observed in route object."@en ;
+.
+
+ald:operationRealizedBy
+    a owl:ObjectProperty ;
+    rdfs:label "operation realized by"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Route_Step ;
+    skos:definition "Relates its domain subject to the stated operation realized by object."@en ;
+.
+
+ald:realizesOperation
+    a owl:ObjectProperty ;
+    rdfs:label "realizes operation"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range ald:Process_Operation ;
+    owl:inverseOf ald:operationRealizedBy ;
+    skos:definition "Relates its domain subject to the stated realizes operation object."@en ;
+.
+
+ald:representsStack
+    a owl:ObjectProperty ;
+    rdfs:label "represents stack"@en ;
+    rdfs:domain ald:Specimen ;
+    rdfs:range ald:Device_Stack ;
+    skos:definition "Relates its domain subject to the stated represents stack object."@en ;
+.
+
+ald:subOperationOf
+    a owl:ObjectProperty ;
+    rdfs:label "sub operation of"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Process_Operation ;
+    skos:definition "Relates its domain subject to the stated sub operation of object."@en ;
+.
+
+ald:usesAnnealAmbient
+    a owl:ObjectProperty ;
+    rdfs:label "uses anneal ambient"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Anneal_Ambient ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses anneal ambient object."@en ;
+.
+
+ald:Annealing_Equipment
+    a owl:Class ;
+    rdfs:label "Annealing Equipment"@en ;
+    rdfs:subClassOf ald:Equipment ;
+    skos:definition "Annealing Equipment is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Bottom_Electrode_Formation
+    a owl:Class ;
+    rdfs:label "Bottom Electrode Formation"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:producesLayer ;
+            owl:someValuesFrom ald:Electrode_Layer ;
+        ] ,
+        ald:Electrode_Integration_Operation ;
+    owl:disjointWith ald:Top_Electrode_Formation ;
+    skos:definition "Bottom Electrode Formation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Confidence_Low
+    a
+        owl:NamedIndividual ,
+        ald:Confidence_Level ;
+    rdfs:label "Confidence Low"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Confidence_Medium
+    a
+        owl:NamedIndividual ,
+        ald:Confidence_Level ;
+    rdfs:label "Confidence Medium"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Deposition_Equipment
+    a owl:Class ;
+    rdfs:label "Deposition Equipment"@en ;
+    rdfs:subClassOf ald:Equipment ;
+    skos:definition "Deposition Equipment is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Etchant
+    a owl:Class ;
+    rdfs:label "Etchant"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Etchant is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Evidence_Object
+    a owl:Class ;
+    rdfs:label "Evidence Object"@en ;
+    rdfs:subClassOf ald:Evidence_Item ;
+    skos:definition "Evidence Object is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Evidence_Status_Corroborated
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Status ;
+    rdfs:label "Evidence Status Corroborated"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Evidence_Status_Inferred
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Status ;
+    rdfs:label "Evidence Status Inferred"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Evidence_Status_Range
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Status ;
+    rdfs:label "Evidence Status Range"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Evidence_Status_Single_Source
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Status ;
+    rdfs:label "Evidence Status Single Source"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Field_Anneal_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "anneal temperature"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Anneal_Time
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "anneal time"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Co_Reactant
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "co reactant"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Deposition_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "deposition temperature"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Electrode_Material
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "electrode material"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Film_Thickness
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "film thickness"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Limitation
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "limitation"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Precursor
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "precursor"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Pulse_Time
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "pulse time"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Hf_Precursor
+    a owl:Class ;
+    rdfs:label "Hf Precursor"@en ;
+    rdfs:subClassOf ald:Metal_Precursor ;
+    skos:definition "Hf Precursor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Interface_Preparation
+    a owl:Class ;
+    rdfs:label "Interface Preparation"@en ;
+    rdfs:subClassOf ald:Pre_Deposition_Operation ;
+    skos:definition "Interface Preparation is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.4" ;
+.
+
+ald:Metal_Precursor_Dose
+    a owl:Class ;
+    rdfs:label "Metal Precursor Dose"@en ;
+    rdfs:subClassOf ald:ALD_Film_Formation ;
+    skos:definition "Metal Precursor Dose is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6.1" ;
+.
+
+ald:N2
+    a
+        owl:NamedIndividual ,
+        ald:Anneal_Ambient ,
+        ald:Sputter_Gas ;
+    rdfs:label "N2"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_005 ,
+        ald:Claim_BS3_025 ;
+.
+
+ald:Non_Module_Operation
+    a owl:Class ;
+    rdfs:label "Non Module Operation"@en ;
+    rdfs:subClassOf ald:Process_Operation ;
+    skos:definition "Non Module Operation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Op_02a_Hf_Precursor_Dose
+    a
+        owl:NamedIndividual ,
+        ald:Hf_Precursor_Dose ;
+    rdfs:label "Op 02a Hf Precursor Dose"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_010 ,
+        ald:Claim_BS3_011 ;
+    ald:hasProcessParameterValue ald:Qty_BS3_011 ;
+    ald:subOperationOf ald:Op_02_ALD_Film_Formation ;
+    ald:usesPrecursor ald:TEMAH ;
+.
+
+ald:Op_02b_Zr_Precursor_Dose
+    a
+        owl:NamedIndividual ,
+        ald:Zr_Precursor_Dose ;
+    rdfs:label "Op 02b Zr Precursor Dose"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_012 ,
+        ald:Claim_BS3_013 ;
+    ald:hasProcessParameterValue ald:Qty_BS3_013 ;
+    ald:subOperationOf ald:Op_02_ALD_Film_Formation ;
+    ald:usesPrecursor ald:TEMAZ ;
+.
+
+ald:Op_05_Wet_Etch
+    a
+        owl:NamedIndividual ,
+        ald:Wet_Etch ;
+    rdfs:label "Op 05 Wet Etch"@en ;
+    rdfs:comment "Retained only to preserve route order; patterning is not owned by this module or elsewhere in the report."@en ;
+    ald:assertedBy
+        ald:Claim_BS3_020 ,
+        ald:Claim_BS3_021 ,
+        ald:Claim_BS3_022 ;
+    ald:hasModuleScope ald:Scope_Out_Of_Module ;
+    ald:hasProcessParameterValue
+        ald:Qty_BS3_021 ,
+        ald:Qty_BS3_022 ;
+    ald:operationRealizedBy ald:Step_05_Wet_Etch ;
+    ald:usesEtchant ald:NH4OH_H2O2_H2O_Etchant ;
+.
+
+ald:Post_Metallization_Anneal
+    a owl:Class ;
+    rdfs:label "Post Metallization Anneal"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:usesAnnealAmbient ;
+            owl:someValuesFrom ald:Anneal_Ambient ;
+        ] ,
+        ald:Thermal_Treatment_Operation ;
+    skos:definition "Post Metallization Anneal is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.7" ;
+.
+
+ald:Pre_Deposition_Operation
+    a owl:Class ;
+    rdfs:label "Pre Deposition Operation"@en ;
+    rdfs:subClassOf ald:Process_Operation ;
+    skos:definition "Pre Deposition Operation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Process_Parameter
+    a owl:Class ;
+    rdfs:label "Process Parameter"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:correspondsToProcessVariable ;
+            owl:someValuesFrom ald:Process_Variable ;
+        ] ,
+        ald:Measurand ;
+    skos:definition "Process Parameter is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Qty_BS3_002
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "bottom TiN electrode thickness"@en ;
+    ald:assertedBy ald:Claim_BS3_002 ;
+    ald:concernsVariable ald:Variable_Electrode_Thickness ;
+    ald:hasQuantityKind ald:Field_Electrode_Thickness ;
+    ald:hasUnit ald:Unit_nm ;
+    ald:numericValue 15.0 ;
+    ald:quantityLabel "bottom TiN electrode thickness" ;
+    ald:rawUnitText "nm" ;
+    ald:rawValueText "bottom TiN electrode thickness 15" ;
+.
+
+ald:Qty_BS3_003
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "sputter power"@en ;
+    ald:assertedBy ald:Claim_BS3_003 ;
+    ald:concernsVariable ald:Variable_Sputter_Power ;
+    ald:hasQuantityKind ald:Field_Parameter_Value ;
+    ald:hasUnit ald:Unit_W ;
+    ald:numericValue 100.0 ;
+    ald:quantityLabel "sputter power" ;
+    ald:rawUnitText "W" ;
+    ald:rawValueText "sputter power 100" ;
+.
+
+ald:Qty_BS3_004
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "Ar flow"@en ;
+    ald:assertedBy ald:Claim_BS3_004 ;
+    ald:concernsVariable ald:Variable_Gas_Flow_Rate ;
+    ald:hasQuantityKind ald:Field_Parameter_Value ;
+    ald:hasUnit ald:Unit_sccm ;
+    ald:numericValue 50.0 ;
+    ald:quantityLabel "Ar flow" ;
+    ald:rawUnitText "sccm" ;
+    ald:rawValueText "Ar flow 50" ;
+.
+
+ald:Qty_BS3_005
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "N2 flow"@en ;
+    ald:assertedBy ald:Claim_BS3_005 ;
+    ald:concernsVariable ald:Variable_Gas_Flow_Rate ;
+    ald:hasQuantityKind ald:Field_Parameter_Value ;
+    ald:hasUnit ald:Unit_sccm ;
+    ald:numericValue 3.0 ;
+    ald:quantityLabel "N2 flow" ;
+    ald:rawUnitText "sccm" ;
+    ald:rawValueText "N2 flow 3" ;
+.
+
+ald:Qty_BS3_006
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "sputter chamber pressure"@en ;
+    ald:assertedBy ald:Claim_BS3_006 ;
+    ald:concernsVariable ald:Variable_Bottom_Electrode_Sputter_Pressure ;
+    ald:hasQuantityKind ald:Field_Parameter_Value ;
+    ald:hasUnit ald:Unit_mTorr ;
+    ald:numericValue 2.5 ;
+    ald:quantityLabel "sputter chamber pressure" ;
+    ald:rawUnitText "mTorr" ;
+    ald:rawValueText "sputter chamber pressure 2.5" ;
+.
+
+ald:Qty_BS3_008
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "HZO film thickness"@en ;
+    ald:assertedBy ald:Claim_BS3_008 ;
+    ald:concernsVariable ald:Variable_Film_Thickness ;
+    ald:hasQuantityKind ald:Field_Film_Thickness ;
+    ald:hasUnit ald:Unit_nm ;
+    ald:numericValue 10.0 ;
+    ald:quantityLabel "HZO film thickness" ;
+    ald:rawUnitText "nm" ;
+    ald:rawValueText "10" ;
+.
+
+ald:Qty_BS3_009
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "deposition temperature"@en ;
+    ald:assertedBy ald:Claim_BS3_009 ;
+    ald:concernsVariable ald:Variable_Deposition_Temperature ;
+    ald:hasQuantityKind ald:Field_Deposition_Temperature ;
+    ald:hasUnit ald:Unit_C ;
+    ald:numericValue 250.0 ;
+    ald:quantityLabel "deposition temperature" ;
+    ald:rawUnitText "C" ;
+    ald:rawValueText "250" ;
+.
+
+ald:Qty_BS3_011
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "TEMAH source temperature"@en ;
+    ald:assertedBy ald:Claim_BS3_011 ;
+    ald:concernsVariable ald:Variable_Precursor_Source_Temperature ;
+    ald:hasQuantityKind ald:Field_Precursor_Source_Temperature ;
+    ald:hasUnit ald:Unit_C ;
+    ald:numericValue 90.0 ;
+    ald:quantityLabel "TEMAH source temperature" ;
+    ald:rawUnitText "C" ;
+    ald:rawValueText "TEMAH source temperature 90" ;
+.
+
+ald:Qty_BS3_013
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "TEMAZ source temperature"@en ;
+    ald:assertedBy ald:Claim_BS3_013 ;
+    ald:concernsVariable ald:Variable_Precursor_Source_Temperature ;
+    ald:hasQuantityKind ald:Field_Precursor_Source_Temperature ;
+    ald:hasUnit ald:Unit_C ;
+    ald:numericValue 110.0 ;
+    ald:quantityLabel "TEMAZ source temperature" ;
+    ald:rawUnitText "C" ;
+    ald:rawValueText "TEMAZ source temperature 110" ;
+.
+
+ald:Qty_BS3_014
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Value ,
+        ald:Ratio_Value ;
+    rdfs:label "HfO2:ZrO2 cycle ratio"@en ;
+    ald:assertedBy ald:Claim_BS3_014 ;
+    ald:concernsVariable ald:Variable_Cycle_Ratio ;
+    ald:hasQuantityKind ald:Field_Cycle_Structure ;
+    ald:quantityLabel "HfO2:ZrO2 cycle ratio" ;
+    ald:ratioExpression "1:1" ;
+    ald:rawUnitText "" ;
+    ald:rawValueText "HfO2:ZrO2 cycle ratio 1:1" ;
+.
+
+ald:Qty_BS3_017
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "top TiN electrode thickness"@en ;
+    ald:assertedBy ald:Claim_BS3_017 ;
+    ald:concernsVariable ald:Variable_Electrode_Thickness ;
+    ald:hasQuantityKind ald:Field_Electrode_Thickness ;
+    ald:hasUnit ald:Unit_nm ;
+    ald:numericValue 15.0 ;
+    ald:quantityLabel "top TiN electrode thickness" ;
+    ald:rawUnitText "nm" ;
+    ald:rawValueText "top TiN electrode thickness 15" ;
+.
+
+ald:Qty_BS3_021
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Value ,
+        ald:Ratio_Value ;
+    rdfs:label "etchant ratio"@en ;
+    ald:assertedBy ald:Claim_BS3_021 ;
+    ald:concernsVariable ald:Variable_Etchant_Ratio ;
+    ald:hasQuantityKind ald:Field_Clean_Chemistry ;
+    ald:quantityLabel "etchant ratio" ;
+    ald:ratioExpression "1:1:5" ;
+    ald:rawUnitText "" ;
+    ald:rawValueText "NH4OH:H2O2:H2O etchant ratio 1:1:5" ;
+.
+
+ald:Qty_BS3_022
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "wet etch temperature"@en ;
+    ald:assertedBy ald:Claim_BS3_022 ;
+    ald:concernsVariable ald:Variable_Wet_Etch_Temperature ;
+    ald:hasQuantityKind ald:Field_Parameter_Value ;
+    ald:hasUnit ald:Unit_C ;
+    ald:numericValue 60.0 ;
+    ald:quantityLabel "wet etch temperature" ;
+    ald:rawUnitText "C" ;
+    ald:rawValueText "wet etch temperature 60" ;
+.
+
+ald:Qty_BS3_023
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "crystallization anneal temperature"@en ;
+    ald:assertedBy ald:Claim_BS3_023 ;
+    ald:concernsVariable ald:Variable_Anneal_Temperature ;
+    ald:hasQuantityKind ald:Field_Anneal_Temperature ;
+    ald:hasUnit ald:Unit_C ;
+    ald:numericValue 500.0 ;
+    ald:quantityLabel "crystallization anneal temperature" ;
+    ald:rawUnitText "C" ;
+    ald:rawValueText "crystallization anneal at 500" ;
+.
+
+ald:Qty_BS3_024
+    a
+        owl:NamedIndividual ,
+        ald:Point_Value ,
+        ald:Quantity_Value ;
+    rdfs:label "anneal duration"@en ;
+    ald:assertedBy ald:Claim_BS3_024 ;
+    ald:concernsVariable ald:Variable_Anneal_Duration ;
+    ald:hasQuantityKind ald:Field_Anneal_Time ;
+    ald:hasUnit ald:Unit_s ;
+    ald:numericValue 30.0 ;
+    ald:quantityLabel "anneal duration" ;
+    ald:rawUnitText "s" ;
+    ald:rawValueText "anneal duration 30" ;
+.
+
+ald:Range_Value
+    a owl:Class ;
+    rdfs:label "Range Value"@en ;
+    rdfs:subClassOf ald:Quantity_Value ;
+    skos:definition "Range Value is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Scope_Downstream_Boundary
+    a
+        owl:NamedIndividual ,
+        ald:Module_Scope ;
+    rdfs:label "Scope Downstream Boundary"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Scope_Upstream_Boundary
+    a
+        owl:NamedIndividual ,
+        ald:Module_Scope ;
+    rdfs:label "Scope Upstream Boundary"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Source
+    a owl:Class ;
+    rdfs:label "Source"@en ;
+    rdfs:subClassOf ald:Evidence_Item ;
+    skos:definition "Source is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Target_Flow_Co_Reactant_Pulse
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/co-reactant-pulse"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Flow_Cycle_Repetition
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/cycle-repetition"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:TiN
+    a
+        owl:NamedIndividual ,
+        ald:Electrode_Material ;
+    rdfs:label "TiN"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_001 ,
+        ald:Claim_BS3_016 ;
+.
+
+ald:Unit_sccm
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "sccm"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Variable_Electrode_Thickness
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Electrode Thickness"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The supplied evidence does not justify an ordered classification for electrode thickness." ;
+.
+
+ald:Variable_Gas_Flow_Rate
+    a
+        owl:NamedIndividual ,
+        ald:Unclassified_Variable ;
+    rdfs:label "Variable Gas Flow Rate"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The supplied evidence does not justify a first- or second-order classification for gas flow rate." ;
+.
+
+ald:Variable_Precursor_Source_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Second_Order_Variable ;
+    rdfs:label "Variable Precursor Source Temperature"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:variableOrderRationale "The report classifies precursor source temperature as a second-order delivery control." ;
+.
+
+ald:Window_Assessment_At_Edge
+    a
+        owl:NamedIndividual ,
+        ald:Window_Assessment_Status ;
+    rdfs:label "Window Assessment At Edge"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Window_Electrode_Thickness_Envelope
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Electrode thickness literature envelope"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature envelope for electrode thickness; configuration matching is required." ;
+.
+
+ald:Window_Precursor_Source_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Precursor source temperature literature window"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature window for precursor source temperature and delivery context." ;
+.
+
+ald:Window_Thermal_Treatment_Tuple
+    a
+        owl:NamedIndividual ,
+        ald:Literature_Window ;
+    rdfs:label "Thermal treatment tuple literature window"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+    ald:scaffoldNote "Window evidence derives from non-BS3 claims that are not instantiated in this build; no numeric bounds are asserted." ;
+    ald:windowConditionText "Conditioned literature comparison for anneal temperature, duration, ambient, and route placement." ;
+.
+
+ald:Zr_Precursor
+    a owl:Class ;
+    rdfs:label "Zr Precursor"@en ;
+    rdfs:subClassOf ald:Metal_Precursor ;
+    skos:definition "Zr Precursor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:stepOf
+    a owl:ObjectProperty ;
+    rdfs:label "step of"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range ald:Process_Route ;
+    skos:definition "Relates its domain subject to the stated step of object."@en ;
+.
+
+ald:usesPrecursor
+    a owl:ObjectProperty ;
+    rdfs:label "uses precursor"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Metal_Precursor ;
+    rdfs:subPropertyOf ald:usesChemical ;
+    skos:definition "Relates its domain subject to the stated uses precursor object."@en ;
+.
+
+ald:Anneal_Ambient
+    a owl:Class ;
+    rdfs:label "Anneal Ambient"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Anneal Ambient is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Claim_BS3_018
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-018"@en ;
+    ald:anchorText "Step 4 | Photolithography | Process | Pattern definition" ;
+    ald:claimId "BS3-018" ;
+    ald:claimIdOriginal "BS3-018" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 4 of 6; photolithography" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Parameter_Value ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Unassigned ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 22" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. Berine note: Equipment category inferred. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "photolithography used for capacitor pattern definition" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Co_Reactant
+    a owl:Class ;
+    rdfs:label "Co Reactant"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Co Reactant is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Coverage_Bare
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Grade ;
+    rdfs:label "Coverage Bare"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Device_Property
+    a owl:Class ;
+    rdfs:label "Device Property"@en ;
+    rdfs:subClassOf ald:Measurand ;
+    skos:definition "Device Property is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Field_Clean_Chemistry
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "clean chemistry"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Cycle_Structure
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "cycle structure"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Layer_BS3_Bottom_TiN
+    a
+        owl:NamedIndividual ,
+        ald:Electrode_Layer ;
+    rdfs:label "BS3 bottom TiN electrode"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_001 ,
+        ald:Claim_BS3_002 ;
+    ald:madeOfChemical ald:TiN ;
+.
+
+ald:Layer_BS3_HZO
+    a
+        owl:NamedIndividual ,
+        ald:Ferroelectric_Layer ;
+    rdfs:label "BS3 HZO ferroelectric layer"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_007 ,
+        ald:Claim_BS3_008 ;
+    ald:madeOfChemical ald:HZO_Hf05Zr05O2 ;
+.
+
+ald:Layer_BS3_Top_TiN
+    a
+        owl:NamedIndividual ,
+        ald:Electrode_Layer ;
+    rdfs:label "BS3 top TiN electrode"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_016 ,
+        ald:Claim_BS3_017 ;
+    ald:madeOfChemical ald:TiN ;
+.
+
+ald:Metal_Precursor
+    a owl:Class ;
+    rdfs:label "Metal Precursor"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Metal Precursor is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Op_01_Bottom_Electrode_Formation
+    a
+        owl:NamedIndividual ,
+        ald:Bottom_Electrode_Formation ;
+    rdfs:label "Op 01 Bottom Electrode Formation"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_001 ,
+        ald:Claim_BS3_002 ,
+        ald:Claim_BS3_003 ,
+        ald:Claim_BS3_004 ,
+        ald:Claim_BS3_005 ,
+        ald:Claim_BS3_006 ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:hasProcessParameterValue
+        ald:Qty_BS3_002 ,
+        ald:Qty_BS3_003 ,
+        ald:Qty_BS3_004 ,
+        ald:Qty_BS3_005 ,
+        ald:Qty_BS3_006 ;
+    ald:operationRealizedBy ald:Step_01_Bottom_Electrode ;
+    ald:producesLayer ald:Layer_BS3_Bottom_TiN ;
+    ald:usesSputterGas
+        ald:Ar ,
+        ald:N2 ;
+.
+
+ald:Op_02d_Cycle_Repetition
+    a
+        owl:NamedIndividual ,
+        ald:Cycle_Repetition ;
+    rdfs:label "Op 02d Cycle Repetition"@en ;
+    ald:assertedBy ald:Claim_BS3_014 ;
+    ald:hasProcessParameterValue ald:Qty_BS3_014 ;
+    ald:subOperationOf ald:Op_02_ALD_Film_Formation ;
+.
+
+ald:Op_03_Top_Electrode_Formation
+    a
+        owl:NamedIndividual ,
+        ald:Top_Electrode_Formation ;
+    rdfs:label "Op 03 Top Electrode Formation"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_016 ,
+        ald:Claim_BS3_017 ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:hasProcessParameterValue ald:Qty_BS3_017 ;
+    ald:operationRealizedBy ald:Step_03_Top_Electrode ;
+    ald:producesLayer ald:Layer_BS3_Top_TiN ;
+.
+
+ald:Op_04_Photolithography
+    a
+        owl:NamedIndividual ,
+        ald:Photolithography ;
+    rdfs:label "Op 04 Photolithography"@en ;
+    rdfs:comment "Retained only to preserve route order; patterning is not owned by this module or elsewhere in the report."@en ;
+    ald:assertedBy
+        ald:Claim_BS3_018 ,
+        ald:Claim_BS3_019 ;
+    ald:hasModuleScope ald:Scope_Out_Of_Module ;
+    ald:operationRealizedBy ald:Step_04_Photolithography ;
+.
+
+ald:Op_06_Crystallization_Anneal
+    a
+        owl:NamedIndividual ,
+        ald:Post_Metallization_Anneal ;
+    rdfs:label "Op 06 Crystallization Anneal"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_023 ,
+        ald:Claim_BS3_024 ,
+        ald:Claim_BS3_025 ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:hasProcessParameterValue
+        ald:Qty_BS3_023 ,
+        ald:Qty_BS3_024 ;
+    ald:operationRealizedBy ald:Step_06_Crystallization_Anneal ;
+    ald:usesAnnealAmbient ald:N2 ;
+.
+
+ald:Process_Gas
+    a owl:Class ;
+    rdfs:label "Process Gas"@en ;
+    rdfs:subClassOf ald:Chemical ;
+    skos:definition "Process Gas is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Ratio_Value
+    a owl:Class ;
+    rdfs:label "Ratio Value"@en ;
+    rdfs:subClassOf ald:Quantity_Value ;
+    skos:definition "Ratio Value is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Sputter_Gas
+    a owl:Class ;
+    rdfs:label "Sputter Gas"@en ;
+    rdfs:subClassOf ald:Process_Gas ;
+    skos:definition "Sputter Gas is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Target_Input_Condition
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "input-condition"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Thermal_Treatment_Operation
+    a owl:Class ;
+    rdfs:label "Thermal Treatment Operation"@en ;
+    rdfs:subClassOf ald:Process_Operation ;
+    skos:definition "Thermal Treatment Operation is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.7" ;
+.
+
+ald:Top_Electrode_Formation
+    a owl:Class ;
+    rdfs:label "Top Electrode Formation"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:producesLayer ;
+            owl:someValuesFrom ald:Electrode_Layer ;
+        ] ,
+        ald:Electrode_Integration_Operation ;
+    skos:definition "Top Electrode Formation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Unit_nm
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "nm"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Window_Assessment_Beyond
+    a
+        owl:NamedIndividual ,
+        ald:Window_Assessment_Status ;
+    rdfs:label "Window Assessment Beyond"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Window_Assessment_Exact_Independent_Match
+    a
+        owl:NamedIndividual ,
+        ald:Window_Assessment_Status ;
+    rdfs:label "Window Assessment Exact Independent Match"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Window_Assessment_Extends
+    a
+        owl:NamedIndividual ,
+        ald:Window_Assessment_Status ;
+    rdfs:label "Window Assessment Extends"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:hasLayer
+    a owl:ObjectProperty ;
+    rdfs:label "has layer"@en ;
+    rdfs:domain ald:Device_Stack ;
+    rdfs:range ald:Layer ;
+    skos:definition "Relates its domain subject to the stated has layer object."@en ;
+.
+
+ald:precedes
+    a
+        owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:label "precedes"@en ;
+    rdfs:domain ald:Route_Step ;
+    rdfs:range ald:Route_Step ;
+    skos:definition "Relates its domain subject to the stated precedes object."@en ;
+.
+
+ald:producesLayer
+    a owl:ObjectProperty ;
+    rdfs:label "produces layer"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Layer ;
+    skos:definition "Relates its domain subject to the stated produces layer object."@en ;
+.
+
+ald:Claim_BS3_019
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-019"@en ;
+    ald:anchorText "Step 4 | Photolithography | Detailed lithography parameters | Not reported" ;
+    ald:claimId "BS3-019" ;
+    ald:claimIdOriginal "BS3-019" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 4 of 6; photolithography" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Limitation ;
+    ald:hasConfidence ald:Confidence_Open ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Open_Gap ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Unassigned ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 23" ;
+    ald:noteText "Berine evidence status: Open gap; confidence: Open. Berine note: Source reports photolithography but does not provide the detailed exposure recipe. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "detailed lithography parameters not reported for this route" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_020
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-020"@en ;
+    ald:anchorText "Step 5 | Wet etching | Etchant | NH4OH:H2O2:H2O" ;
+    ald:claimId "BS3-020" ;
+    ald:claimIdOriginal "BS3-020" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 5 of 6; wet chemical etching" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Clean_Chemistry ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Unassigned ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 24" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "NH4OH:H2O2:H2O wet etchant" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Confidence_Open
+    a
+        owl:NamedIndividual ,
+        ald:Confidence_Level ;
+    rdfs:label "Confidence Open"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Coverage_Grade
+    a owl:Class ;
+    rdfs:label "Coverage Grade"@en ;
+    owl:equivalentClass
+        [
+            a owl:Class ;
+            owl:oneOf (
+                ald:Coverage_Well_Covered
+                ald:Coverage_Thin
+                ald:Coverage_Bare
+            ) ;
+        ] ;
+    skos:definition "Coverage Grade is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Electrode_Integration_Operation
+    a owl:Class ;
+    rdfs:label "Electrode Integration Operation"@en ;
+    rdfs:subClassOf ald:Process_Operation ;
+    skos:definition "Electrode Integration Operation is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.5" ;
+.
+
+ald:Evidence_Status_Open_Gap
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Status ;
+    rdfs:label "Evidence Status Open Gap"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Ferroelectric_Layer
+    a owl:Class ;
+    rdfs:label "Ferroelectric Layer"@en ;
+    rdfs:subClassOf ald:Layer ;
+    skos:definition "Ferroelectric Layer is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Field_Electrode_Thickness
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "electrode thickness"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Field_Precursor_Source_Temperature
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "precursor source temperature"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Limitation
+    a owl:Class ;
+    rdfs:label "Limitation"@en ;
+    skos:definition "Limitation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Op_02c_Co_Reactant_Dose
+    a
+        owl:NamedIndividual ,
+        ald:Co_Reactant_Dose ;
+    rdfs:label "Op 02c Co Reactant Dose"@en ;
+    ald:assertedBy ald:Claim_BS3_015 ;
+    ald:subOperationOf ald:Op_02_ALD_Film_Formation ;
+.
+
+ald:Process_Element
+    a owl:Class ;
+    rdfs:label "Process Element"@en ;
+    skos:definition "Process Element is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Target_Flow_Post_Deposition_Treatment
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/post-deposition-treatment"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Window_Assessment_No_Window_Available
+    a
+        owl:NamedIndividual ,
+        ald:Window_Assessment_Status ;
+    rdfs:label "Window Assessment No Window Available"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Window_Assessment_Not_Assessed
+    a
+        owl:NamedIndividual ,
+        ald:Window_Assessment_Status ;
+    rdfs:label "Window Assessment Not Assessed"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Claim_BS3_003
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-003"@en ;
+    ald:anchorText "Step 1 | Bottom electrode deposition | Sputter power | 100 W" ;
+    ald:claimId "BS3-003" ;
+    ald:claimIdOriginal "BS3-003" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 1 of 6; bottom electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Parameter_Value ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 7" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "sputter power 100" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_006
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-006"@en ;
+    ald:anchorText "Step 1 | Bottom electrode deposition | Pressure | 2.5 mTorr" ;
+    ald:claimId "BS3-006" ;
+    ald:claimIdOriginal "BS3-006" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 1 of 6; bottom electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Parameter_Value ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 10" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "sputter chamber pressure 2.5" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_009
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-009"@en ;
+    ald:anchorText "Step 2 | HZO deposition | Deposition temperature | 250 °C" ;
+    ald:claimId "BS3-009" ;
+    ald:claimIdOriginal "BS3-009" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Deposition_Temperature ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Hf_Precursor_Pulse ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 13" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "250" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_010
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-010"@en ;
+    ald:anchorText "Step 2 | HZO deposition | Hf precursor | TEMAH" ;
+    ald:claimId "BS3-010" ;
+    ald:claimIdOriginal "BS3-010" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD; Hf precursor" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Precursor ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Hf_Precursor_Pulse ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 14" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "TEMAH" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_012
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-012"@en ;
+    ald:anchorText "Step 2 | HZO deposition | Zr precursor | TEMAZ" ;
+    ald:claimId "BS3-012" ;
+    ald:claimIdOriginal "BS3-012" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD; Zr precursor" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Precursor ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Hf_Precursor_Pulse ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 16" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "TEMAZ" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_015
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-015"@en ;
+    ald:anchorText "Step 2 | HZO deposition | Oxidant | Not reported" ;
+    ald:claimId "BS3-015" ;
+    ald:claimIdOriginal "BS3-015" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Co_Reactant ;
+    ald:hasConfidence ald:Confidence_Open ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Open_Gap ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Co_Reactant_Pulse ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 19" ;
+    ald:noteText "Berine evidence status: Open gap; confidence: Open. Berine note: Do not assume H2O for selected route. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "oxidant not reported for this route" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_021
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-021"@en ;
+    ald:anchorText "Step 5 | Wet etching | Etchant ratio | 1:1:5" ;
+    ald:claimId "BS3-021" ;
+    ald:claimIdOriginal "BS3-021" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 5 of 6; wet chemical etching" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Clean_Chemistry ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Unassigned ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 25" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "NH4OH:H2O2:H2O etchant ratio 1:1:5" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_022
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-022"@en ;
+    ald:anchorText "Step 5 | Wet etching | Etch temperature | 60 °C" ;
+    ald:claimId "BS3-022" ;
+    ald:claimIdOriginal "BS3-022" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 5 of 6; wet chemical etching" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Parameter_Value ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Unassigned ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 26" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "wet etch temperature 60" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_023
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-023"@en ;
+    ald:anchorText "Step 6 | Crystallization anneal | Temperature | 500 °C" ;
+    ald:claimId "BS3-023" ;
+    ald:claimIdOriginal "BS3-023" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 6 of 6; crystallization anneal by RTP; 30 s, N2 ambient" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Anneal_Temperature ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Post_Deposition_Treatment ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 27" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. Berine note: Representative route value. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "crystallization anneal at 500" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_024
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-024"@en ;
+    ald:anchorText "Step 6 | Crystallization anneal | Duration | 30 s" ;
+    ald:claimId "BS3-024" ;
+    ald:claimIdOriginal "BS3-024" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 6 of 6; crystallization anneal by RTP; 500 C, N2 ambient" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Anneal_Time ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Post_Deposition_Treatment ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 28" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "anneal duration 30" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_025
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-025"@en ;
+    ald:anchorText "Step 6 | Crystallization anneal | Atmosphere | N2" ;
+    ald:claimId "BS3-025" ;
+    ald:claimIdOriginal "BS3-025" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 6 of 6; crystallization anneal by RTP; 500 C, 30 s" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Anneal_Ambient ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Post_Deposition_Treatment ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 29" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "N2" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Confidence_Level
+    a owl:Class ;
+    rdfs:label "Confidence Level"@en ;
+    owl:equivalentClass
+        [
+            a owl:Class ;
+            owl:oneOf (
+                ald:Confidence_High
+                ald:Confidence_Medium
+                ald:Confidence_Low
+                ald:Confidence_Open
+            ) ;
+        ] ;
+    skos:definition "Confidence Level is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Deposition_Reactor
+    a owl:Class ;
+    rdfs:label "Deposition Reactor"@en ;
+    rdfs:subClassOf ald:Deposition_Equipment ;
+    skos:definition "Deposition Reactor is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.8" ;
+.
+
+ald:Equipment
+    a owl:Class ;
+    rdfs:label "Equipment"@en ;
+    skos:definition "Equipment is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Measurement_Result
+    a owl:Class ;
+    rdfs:label "Measurement Result"@en ;
+    rdfs:comment "TBox-only scaffolding in the BS3 build; no measurement or electrical-test individuals are created because the BS3 ledger contains no measurement-result evidence."@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:measuredBy ;
+            owl:someValuesFrom ald:Characterization_Method ;
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:assertedBy ;
+            owl:someValuesFrom ald:Claim ;
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Measurand ;
+            owl:onProperty ald:hasMeasurand ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Specimen ;
+            owl:onProperty ald:measuredOn ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Quantity_Value ;
+            owl:onProperty ald:hasResultValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ;
+    skos:definition "Measurement Result is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Module_Scope
+    a owl:Class ;
+    rdfs:label "Module Scope"@en ;
+    owl:equivalentClass
+        [
+            a owl:Class ;
+            owl:oneOf (
+                ald:Scope_In_Module
+                ald:Scope_Out_Of_Module
+                ald:Scope_Upstream_Boundary
+                ald:Scope_Downstream_Boundary
+            ) ;
+        ] ;
+    skos:definition "Module Scope is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Step_04_Photolithography
+    a
+        owl:NamedIndividual ,
+        ald:Route_Step ;
+    rdfs:label "Photolithography"@en ;
+    rdfs:comment "Retained only to preserve route order; patterning is not owned by this module or elsewhere in the report."@en ;
+    ald:assertedBy
+        ald:Claim_BS3_018 ,
+        ald:Claim_BS3_019 ;
+    ald:directlyPrecedes ald:Step_05_Wet_Etch ;
+    ald:hasModuleScope ald:Scope_Out_Of_Module ;
+    ald:realizesOperation ald:Op_04_Photolithography ;
+    ald:routeScopedPrecedes ald:Step_05_Wet_Etch ;
+    ald:stepDescription "Photolithography retained only to preserve the reported route order." ;
+    ald:stepIndex "4"^^xsd:positiveInteger ;
+    ald:stepOf ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Unit_C
+    a
+        owl:NamedIndividual ,
+        ald:Unit ;
+    rdfs:label "C"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:comparedWithWindow
+    a owl:ObjectProperty ;
+    rdfs:label "compared with window"@en ;
+    rdfs:domain ald:Route_Instance ;
+    rdfs:range ald:Literature_Window ;
+    skos:definition "Relates its domain subject to the stated compared with window object."@en ;
+.
+
+ald:ALD_Film_Formation
+    a owl:Class ;
+    rdfs:label "ALD Film Formation"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:producesLayer ;
+            owl:someValuesFrom ald:Ferroelectric_Layer ;
+        ] ,
+        ald:Process_Operation ;
+    skos:definition "ALD Film Formation is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.6" ;
+.
+
+ald:Claim_BS3_001
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-001"@en ;
+    ald:anchorText "Step 1 | Bottom electrode deposition | Material | TiN" ;
+    ald:claimId "BS3-001" ;
+    ald:claimIdOriginal "BS3-001" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 1 of 6; bottom electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Electrode_Material ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 5" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. Berine note: Representative Type I-a route. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "TiN used as bottom electrode" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_002
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-002"@en ;
+    ald:anchorText "Step 1 | Bottom electrode deposition | Thickness | 15 nm" ;
+    ald:claimId "BS3-002" ;
+    ald:claimIdOriginal "BS3-002" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 1 of 6; bottom electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Electrode_Thickness ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 6" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "bottom TiN electrode thickness 15" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_004
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-004"@en ;
+    ald:anchorText "Step 1 | Bottom electrode deposition | Ar flow | 50 sccm" ;
+    ald:claimId "BS3-004" ;
+    ald:claimIdOriginal "BS3-004" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 1 of 6; bottom electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Parameter_Value ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 8" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "Ar flow 50" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_005
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-005"@en ;
+    ald:anchorText "Step 1 | Bottom electrode deposition | N2 flow | 3 sccm" ;
+    ald:claimId "BS3-005" ;
+    ald:claimIdOriginal "BS3-005" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 1 of 6; bottom electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Parameter_Value ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 9" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "N2 flow 3" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_007
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-007"@en ;
+    ald:anchorText "Step 2 | HZO deposition | Material | Hf0.5Zr0.5O2" ;
+    ald:claimId "BS3-007" ;
+    ald:claimIdOriginal "BS3-007" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Composition ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Input_Condition ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 11" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "Hf0.5Zr0.5O2" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_008
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-008"@en ;
+    ald:anchorText "Step 2 | HZO deposition | Thickness | 10 nm" ;
+    ald:claimId "BS3-008" ;
+    ald:claimIdOriginal "BS3-008" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Film_Thickness ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Input_Condition ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 12" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "10" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_011
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-011"@en ;
+    ald:anchorText "Step 2 | HZO deposition | TEMAH source temperature | 90 °C" ;
+    ald:claimId "BS3-011" ;
+    ald:claimIdOriginal "BS3-011" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD; Hf precursor source" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Precursor_Source_Temperature ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Hf_Precursor_Pulse ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 15" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "TEMAH source temperature 90" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_013
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-013"@en ;
+    ald:anchorText "Step 2 | HZO deposition | TEMAZ source temperature | 110 °C" ;
+    ald:claimId "BS3-013" ;
+    ald:claimIdOriginal "BS3-013" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD; Zr precursor source" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Precursor_Source_Temperature ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Hf_Precursor_Pulse ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 17" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "TEMAZ source temperature 110" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_014
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-014"@en ;
+    ald:anchorText "Step 2 | HZO deposition | HfO2:ZrO2 cycle ratio | 1:1" ;
+    ald:claimId "BS3-014" ;
+    ald:claimIdOriginal "BS3-014" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 2 of 6; HZO deposition by ALD" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Cycle_Structure ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Cycle_Repetition ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 18" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "HfO2:ZrO2 cycle ratio 1:1" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_016
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-016"@en ;
+    ald:anchorText "Step 3 | Top electrode deposition | Material | TiN" ;
+    ald:claimId "BS3-016" ;
+    ald:claimIdOriginal "BS3-016" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 3 of 6; top electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Electrode_Material ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 20" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "TiN used as top electrode" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Claim_BS3_017
+    a
+        owl:NamedIndividual ,
+        ald:Claim ;
+    rdfs:label "BS3-017"@en ;
+    ald:anchorText "Step 3 | Top electrode deposition | Thickness | 15 nm" ;
+    ald:claimId "BS3-017" ;
+    ald:claimIdOriginal "BS3-017" ;
+    ald:conditionText "TiN/HZO/TiN MFM capacitor; Berine representative route (Tsai 2022), step 3 of 6; top electrode, sputtering" ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:extractionBatch 1 ;
+    ald:hasClaimField ald:Field_Electrode_Thickness ;
+    ald:hasConfidence ald:Confidence_High ;
+    ald:hasEvidenceStatus ald:Evidence_Status_Directly_Reported ;
+    ald:hasSource ald:Source_BS3 ;
+    ald:hasTargetCategory ald:Target_Flow_Electrode_Integration ;
+    ald:helperSourceText "" ;
+    ald:helperTargetText "" ;
+    ald:locatorText "Berine process data, Process Data sheet, row 21" ;
+    ald:noteText "Berine evidence status: Directly reported; confidence: High. provenance: recorded in Berine dataset from Tsai 2022; not independently verified against the source" ;
+    ald:rawValueText "top TiN electrode thickness 15" ;
+    ald:secondHandTranscription true ;
+.
+
+ald:Coverage_Thin
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Grade ;
+    rdfs:label "Coverage Thin"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Electrode_Layer
+    a owl:Class ;
+    rdfs:label "Electrode Layer"@en ;
+    rdfs:subClassOf ald:Layer ;
+    owl:disjointWith ald:Ferroelectric_Layer ;
+    skos:definition "Electrode Layer is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Evidence_Item
+    a owl:Class ;
+    rdfs:label "Evidence Item"@en ;
+    skos:definition "Evidence Item is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Measurand
+    a owl:Class ;
+    rdfs:label "Measurand"@en ;
+    rdfs:comment "TBox-only scaffolding in the BS3 build; no measurement or electrical-test individuals are created because the BS3 ledger contains no measurement-result evidence."@en ;
+    skos:definition "Measurand is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Scope_Out_Of_Module
+    a
+        owl:NamedIndividual ,
+        ald:Module_Scope ;
+    rdfs:label "Scope Out Of Module"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Second_Order_Variable
+    a owl:Class ;
+    rdfs:label "Second Order Variable"@en ;
+    rdfs:subClassOf ald:Process_Variable ;
+    skos:definition "Second Order Variable is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Step_03_Top_Electrode
+    a
+        owl:NamedIndividual ,
+        ald:Route_Step ;
+    rdfs:label "Top TiN electrode formation by sputtering"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_016 ,
+        ald:Claim_BS3_017 ;
+    ald:directlyPrecedes ald:Step_04_Photolithography ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:realizesOperation ald:Op_03_Top_Electrode_Formation ;
+    ald:routeScopedPrecedes ald:Step_04_Photolithography ;
+    ald:stepDescription "Top TiN electrode formation by sputtering." ;
+    ald:stepIndex "3"^^xsd:positiveInteger ;
+    ald:stepOf ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Step_06_Crystallization_Anneal
+    a
+        owl:NamedIndividual ,
+        ald:Route_Step ;
+    rdfs:label "Crystallization RTP anneal after metallization"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_023 ,
+        ald:Claim_BS3_024 ,
+        ald:Claim_BS3_025 ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:realizesOperation ald:Op_06_Crystallization_Anneal ;
+    ald:stepDescription "Crystallization rapid thermal anneal after top-electrode metallization." ;
+    ald:stepIndex "6"^^xsd:positiveInteger ;
+    ald:stepOf ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Target_Flow_Hf_Precursor_Pulse
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/hf-precursor-pulse"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Target_Unassigned
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "unassigned"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Crystalline_Phase
+    a owl:Class ;
+    rdfs:label "Crystalline Phase"@en ;
+    skos:definition "Crystalline Phase is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Electrical_Test_Method
+    a owl:Class ;
+    rdfs:label "Electrical Test Method"@en ;
+    rdfs:comment "TBox-only scaffolding in the BS3 build; no measurement or electrical-test individuals are created because the BS3 ledger contains no measurement-result evidence."@en ;
+    rdfs:subClassOf ald:Characterization_Method ;
+    skos:definition "Electrical Test Method is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Evidence_Status
+    a owl:Class ;
+    rdfs:label "Evidence Status"@en ;
+    owl:equivalentClass
+        [
+            a owl:Class ;
+            owl:oneOf (
+                ald:Evidence_Status_Directly_Reported
+                ald:Evidence_Status_Open_Gap
+                ald:Evidence_Status_Corroborated
+                ald:Evidence_Status_Single_Source
+                ald:Evidence_Status_Range
+                ald:Evidence_Status_Inferred
+            ) ;
+        ] ;
+    skos:definition "Evidence Status is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Process_Route
+    a owl:Class ;
+    rdfs:label "Process Route"@en ;
+    skos:definition "Process Route is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Source_Document
+    a owl:Class ;
+    rdfs:label "Source Document"@en ;
+    rdfs:subClassOf ald:Source ;
+    skos:definition "Source Document is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Step_05_Wet_Etch
+    a
+        owl:NamedIndividual ,
+        ald:Route_Step ;
+    rdfs:label "Wet chemical etching"@en ;
+    rdfs:comment "Retained only to preserve route order; patterning is not owned by this module or elsewhere in the report."@en ;
+    ald:assertedBy
+        ald:Claim_BS3_020 ,
+        ald:Claim_BS3_021 ,
+        ald:Claim_BS3_022 ;
+    ald:directlyPrecedes ald:Step_06_Crystallization_Anneal ;
+    ald:hasModuleScope ald:Scope_Out_Of_Module ;
+    ald:realizesOperation ald:Op_05_Wet_Etch ;
+    ald:routeScopedPrecedes ald:Step_06_Crystallization_Anneal ;
+    ald:stepDescription "Wet chemical etching retained only to preserve the reported route order." ;
+    ald:stepIndex "5"^^xsd:positiveInteger ;
+    ald:stepOf ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Layer
+    a owl:Class ;
+    rdfs:label "Layer"@en ;
+    rdfs:subClassOf ald:Material ;
+    skos:definition "Layer is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Material
+    a owl:Class ;
+    rdfs:label "Material"@en ;
+    skos:definition "Material is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Process_Variable
+    a owl:Class ;
+    rdfs:label "Process Variable"@en ;
+    owl:equivalentClass
+        [
+            a owl:Class ;
+            owl:unionOf (
+                ald:First_Order_Variable
+                ald:Second_Order_Variable
+                ald:Unclassified_Variable
+            ) ;
+        ] ;
+    skos:definition "Process Variable is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.10" ;
+.
+
+ald:Specimen
+    a owl:Class ;
+    rdfs:label "Specimen"@en ;
+    rdfs:comment "TBox-only scaffolding in the BS3 build; no measurement or electrical-test individuals are created because the BS3 ledger contains no measurement-result evidence."@en ;
+    rdfs:subClassOf
+        [
+            a owl:Restriction ;
+            owl:onProperty ald:representsStack ;
+            owl:someValuesFrom ald:Device_Stack ;
+        ] ;
+    skos:definition "Specimen is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Window_Assessment_Status
+    a owl:Class ;
+    rdfs:label "Window Assessment Status"@en ;
+    owl:equivalentClass
+        [
+            a owl:Class ;
+            owl:oneOf (
+                ald:Window_Assessment_Inside
+                ald:Window_Assessment_At_Edge
+                ald:Window_Assessment_Extends
+                ald:Window_Assessment_Beyond
+                ald:Window_Assessment_Exact_Independent_Match
+                ald:Window_Assessment_No_Window_Available
+                ald:Window_Assessment_Not_Assessed
+            ) ;
+        ] ;
+    skos:definition "Window Assessment Status is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:usesChemical
+    a owl:ObjectProperty ;
+    rdfs:label "uses chemical"@en ;
+    rdfs:domain ald:Process_Operation ;
+    rdfs:range ald:Chemical ;
+    skos:definition "Relates its domain subject to the stated uses chemical object."@en ;
+.
+
+ald:Characterization_Method
+    a owl:Class ;
+    rdfs:label "Characterization Method"@en ;
+    rdfs:comment "TBox-only scaffolding in the BS3 build; no measurement or electrical-test individuals are created because the BS3 ledger contains no measurement-result evidence."@en ;
+    skos:definition "Characterization Method is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.11" ;
+.
+
+ald:First_Order_Variable
+    a owl:Class ;
+    rdfs:label "First Order Variable"@en ;
+    rdfs:subClassOf ald:Process_Variable ;
+    skos:definition "First Order Variable is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Step_01_Bottom_Electrode
+    a
+        owl:NamedIndividual ,
+        ald:Route_Step ;
+    rdfs:label "Bottom TiN electrode formation by sputtering"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_001 ,
+        ald:Claim_BS3_002 ,
+        ald:Claim_BS3_003 ,
+        ald:Claim_BS3_004 ,
+        ald:Claim_BS3_005 ,
+        ald:Claim_BS3_006 ;
+    ald:directlyPrecedes ald:Step_02_HZO_Deposition ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:necessarilyPrecedes ald:Step_02_HZO_Deposition ;
+    ald:realizesOperation ald:Op_01_Bottom_Electrode_Formation ;
+    ald:stepDescription "Bottom TiN electrode formation by sputtering." ;
+    ald:stepIndex "1"^^xsd:positiveInteger ;
+    ald:stepOf ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Target_Flow_Electrode_Integration
+    a
+        owl:NamedIndividual ,
+        ald:Target_Category ;
+    rdfs:label "flow/electrode-integration"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Window_Assessment_Inside
+    a
+        owl:NamedIndividual ,
+        ald:Window_Assessment_Status ;
+    rdfs:label "Window Assessment Inside"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Chemical
+    a owl:Class ;
+    rdfs:label "Chemical"@en ;
+    rdfs:subClassOf ald:Material ;
+    skos:definition "Chemical is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Device_Stack
+    a owl:Class ;
+    rdfs:label "Device Stack"@en ;
+    rdfs:subClassOf ald:Material ;
+    skos:definition "Device Stack is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Scope_In_Module
+    a
+        owl:NamedIndividual ,
+        ald:Module_Scope ;
+    rdfs:label "Scope In Module"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Op_02_ALD_Film_Formation
+    a
+        owl:NamedIndividual ,
+        ald:ALD_Film_Formation ;
+    rdfs:label "Op 02 ALD Film Formation"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_007 ,
+        ald:Claim_BS3_008 ,
+        ald:Claim_BS3_009 ,
+        ald:Claim_BS3_010 ,
+        ald:Claim_BS3_011 ,
+        ald:Claim_BS3_012 ,
+        ald:Claim_BS3_013 ,
+        ald:Claim_BS3_014 ,
+        ald:Claim_BS3_015 ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:hasProcessParameterValue
+        ald:Qty_BS3_008 ,
+        ald:Qty_BS3_009 ;
+    ald:hasSubOperation
+        ald:Op_02a_Hf_Precursor_Dose ,
+        ald:Op_02b_Zr_Precursor_Dose ,
+        ald:Op_02c_Co_Reactant_Dose ,
+        ald:Op_02d_Cycle_Repetition ;
+    ald:operationRealizedBy ald:Step_02_HZO_Deposition ;
+    ald:producesLayer ald:Layer_BS3_HZO ;
+.
+
+ald:Step_02_HZO_Deposition
+    a
+        owl:NamedIndividual ,
+        ald:Route_Step ;
+    rdfs:label "Composite HZO formation by ALD"@en ;
+    ald:assertedBy
+        ald:Claim_BS3_007 ,
+        ald:Claim_BS3_008 ,
+        ald:Claim_BS3_009 ,
+        ald:Claim_BS3_010 ,
+        ald:Claim_BS3_011 ,
+        ald:Claim_BS3_012 ,
+        ald:Claim_BS3_013 ,
+        ald:Claim_BS3_014 ,
+        ald:Claim_BS3_015 ;
+    ald:directlyPrecedes ald:Step_03_Top_Electrode ;
+    ald:hasModuleScope ald:Scope_In_Module ;
+    ald:realizesOperation ald:Op_02_ALD_Film_Formation ;
+    ald:routeScopedPrecedes ald:Step_03_Top_Electrode ;
+    ald:stepDescription "Composite HZO film formation by alternating Hf and Zr precursor doses." ;
+    ald:stepIndex "2"^^xsd:positiveInteger ;
+    ald:stepOf ald:Route_BS3_Tsai2022 ;
+.
+
+ald:Unclassified_Variable
+    a owl:Class ;
+    rdfs:label "Unclassified Variable"@en ;
+    rdfs:subClassOf ald:Process_Variable ;
+    skos:definition "Unclassified Variable is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Field_Parameter_Value
+    a
+        owl:NamedIndividual ,
+        ald:Quantity_Kind ;
+    rdfs:label "parameter value"@en ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+.
+
+ald:Point_Value
+    a owl:Class ;
+    rdfs:label "Point Value"@en ;
+    rdfs:subClassOf ald:Quantity_Value ;
+    skos:definition "Point Value is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Evidence_Gap
+    a owl:Class ;
+    rdfs:label "Evidence Gap"@en ;
+    rdfs:comment "An evidence gap records unavailable reporting and is distinct from a physical process-capability limitation."@en ;
+    rdfs:subClassOf ald:Evidence_Item ;
+    owl:disjointWith ald:Process_Capability_Limitation ;
+    skos:definition "Evidence Gap is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.13.3" ;
+.
+
+ald:Literature_Window
+    a owl:Class ;
+    rdfs:label "Literature Window"@en ;
+    rdfs:subClassOf ald:Evidence_Object ;
+    owl:disjointWith ald:Route_Instance ;
+    skos:definition "Literature Window is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Source_Record
+    a owl:Class ;
+    rdfs:label "Source Record"@en ;
+    rdfs:subClassOf ald:Source ;
+    skos:definition "Source Record is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Coverage_Well_Covered
+    a
+        owl:NamedIndividual ,
+        ald:Coverage_Grade ;
+    rdfs:label "Coverage Well Covered"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Route_BS3_Tsai2022
+    a
+        owl:NamedIndividual ,
+        ald:Process_Route ;
+    rdfs:label "TiN/HZO/TiN MFM capacitor route (Tsai et al. 2022)"@en ;
+    rdfs:comment "One literature-route instantiation; it is not a recommendation, reference flow, production recipe, or production process window."@en ;
+    ald:assertedBy
+        ald:Claim_BS3_001 ,
+        ald:Claim_BS3_002 ,
+        ald:Claim_BS3_003 ,
+        ald:Claim_BS3_004 ,
+        ald:Claim_BS3_005 ,
+        ald:Claim_BS3_006 ,
+        ald:Claim_BS3_007 ,
+        ald:Claim_BS3_008 ,
+        ald:Claim_BS3_009 ,
+        ald:Claim_BS3_010 ,
+        ald:Claim_BS3_011 ,
+        ald:Claim_BS3_012 ,
+        ald:Claim_BS3_013 ,
+        ald:Claim_BS3_014 ,
+        ald:Claim_BS3_015 ,
+        ald:Claim_BS3_016 ,
+        ald:Claim_BS3_017 ,
+        ald:Claim_BS3_018 ,
+        ald:Claim_BS3_019 ,
+        ald:Claim_BS3_020 ,
+        ald:Claim_BS3_021 ,
+        ald:Claim_BS3_022 ,
+        ald:Claim_BS3_023 ,
+        ald:Claim_BS3_024 ,
+        ald:Claim_BS3_025 ;
+    ald:hasStep
+        ald:Step_01_Bottom_Electrode ,
+        ald:Step_02_HZO_Deposition ,
+        ald:Step_03_Top_Electrode ,
+        ald:Step_04_Photolithography ,
+        ald:Step_05_Wet_Etch ,
+        ald:Step_06_Crystallization_Anneal ;
+    ald:reportSection "3.12" ;
+    ald:reportTable "3.7" ;
+.
+
+ald:Route_Step
+    a owl:Class ;
+    rdfs:label "Route Step"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Process_Operation ;
+            owl:onProperty ald:realizesOperation ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Process_Route ;
+            owl:onProperty ald:stepOf ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ,
+        ald:Process_Element ;
+    skos:definition "Route Step is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Confidence_High
+    a
+        owl:NamedIndividual ,
+        ald:Confidence_Level ;
+    rdfs:label "Confidence High"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Evidence_Status_Directly_Reported
+    a
+        owl:NamedIndividual ,
+        ald:Evidence_Status ;
+    rdfs:label "Evidence Status Directly Reported"@en ;
+    ald:documentedIn ald:Report_Chapter_3 ;
+.
+
+ald:Source_BS3
+    a
+        owl:NamedIndividual ,
+        ald:Source_Record ;
+    rdfs:label "BS3"@en ;
+    rdfs:comment "Ledger source record for BS3; the ontology build did not independently reverify the transcription against the publication."@en ;
+    ald:claimCount "25"^^xsd:nonNegativeInteger ;
+    ald:documentedIn ald:Ledger_Claim_Ledger ;
+    ald:sourceId "BS3" ;
+    ald:transcribesDocument ald:Document_Tsai_2022 ;
+.
+
+ald:Target_Category
+    a owl:Class ;
+    rdfs:label "Target Category"@en ;
+    skos:definition "Target Category is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Route_Instance
+    a owl:Class ;
+    rdfs:label "Route Instance"@en ;
+    rdfs:subClassOf 
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Process_Route ;
+            owl:onProperty ald:observedInRoute ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Route_Step ;
+            owl:onProperty ald:observedAtStep ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ,
+        ald:Evidence_Object ;
+    skos:definition "Route Instance is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Coverage_Assessment
+    a owl:Class ;
+    rdfs:label "Coverage Assessment"@en ;
+    rdfs:subClassOf ald:Evidence_Item ;
+    skos:definition "Coverage Assessment is a concept used in the ALD HfO2 deposition model."@en ;
+    ald:reportSection "3.13.3" ;
+.
+
+ald:Process_Operation
+    a owl:Class ;
+    rdfs:label "Process Operation"@en ;
+    rdfs:subClassOf ald:Process_Element ;
+    skos:definition "Process Operation is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Quantity_Value
+    a owl:Class ;
+    rdfs:label "Quantity Value"@en ;
+    rdfs:subClassOf
+        [
+            a owl:Restriction ;
+            owl:onClass ald:Quantity_Kind ;
+            owl:onProperty ald:hasQuantityKind ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        ] ;
+    skos:definition "Quantity Value is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Quantity_Kind
+    a owl:Class ;
+    rdfs:label "Quantity Kind"@en ;
+    skos:definition "Quantity Kind is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Claim
+    a owl:Class ;
+    rdfs:label "Claim"@en ;
+    rdfs:subClassOf ald:Evidence_Item ;
+    skos:definition "Claim is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Unit
+    a owl:Class ;
+    rdfs:label "Unit"@en ;
+    skos:definition "Unit is a concept used in the ALD HfO2 deposition model."@en ;
+.
+
+ald:Report_Chapter_3
+    a
+        owl:NamedIndividual ,
+        ald:Source_Document ;
+    rdfs:label "HfO2 FeRAM Production System Chapter 3"@en ;
+    dcterms:created "2026-08-20"^^xsd:date ;
+    dcterms:source <https://github.com/OPXHS/Ontologies-Development> ;
+    dcterms:title "HfO2 FeRAM Production System — Chapter 3: ALD HfO2 Deposition" ;
+.
+
+ald:Ledger_Claim_Ledger
+    a
+        owl:NamedIndividual ,
+        ald:Source_Document ;
+    rdfs:label "Claim ledger"@en ;
+    dcterms:title "claim_ledger.xlsx" ;
+    ald:inputSheetName "Corrected Ledger" ;
+    ald:sourceFileSha256 "39ad61b87617e697074eabede0e7b6aab10851d70baa75c9dfb5c20bd9917fbb" ;
+.
+
+[]    a owl:AllDisjointClasses ;
+    owl:members (
+        ald:First_Order_Variable
+        ald:Second_Order_Variable
+        ald:Unclassified_Variable
+    ) ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Window_Assessment_Inside
+        ald:Window_Assessment_At_Edge
+        ald:Window_Assessment_Extends
+        ald:Window_Assessment_Beyond
+        ald:Window_Assessment_Exact_Independent_Match
+        ald:Window_Assessment_No_Window_Available
+        ald:Window_Assessment_Not_Assessed
+    ) ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Coverage_Well_Covered
+        ald:Coverage_Thin
+        ald:Coverage_Bare
+    ) ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Evidence_Status_Directly_Reported
+        ald:Evidence_Status_Open_Gap
+        ald:Evidence_Status_Corroborated
+        ald:Evidence_Status_Single_Source
+        ald:Evidence_Status_Range
+        ald:Evidence_Status_Inferred
+    ) ;
+.
+
+[]    a owl:AllDisjointClasses ;
+    owl:members (
+        ald:Orthorhombic_Phase
+        ald:Monoclinic_Phase
+        ald:Tetragonal_Phase
+        ald:Cubic_Phase
+        ald:Amorphous_Phase
+    ) ;
+.
+
+[]    a owl:Axiom ;
+    owl:annotatedProperty ald:exactIndependentMatch ;
+    owl:annotatedSource ald:Instance_BS3_Thermal_Treatment_Tuple ;
+    owl:annotatedTarget ald:Window_Thermal_Treatment_Tuple ;
+    ald:assertionRationale "The 500 C, 30 s, N2 RTP tuple matches a non-BS3 TiN/HZO/TiN post-metallization route documented in report reference choi2022chamber; agreement is corroboration, not evidence of preference."@en ;
+    ald:assertionSource ald:Report_Chapter_3 ;
+.
+
+[]    a owl:Axiom ;
+    owl:annotatedProperty ald:necessarilyPrecedes ;
+    owl:annotatedSource ald:Step_01_Bottom_Electrode ;
+    owl:annotatedTarget ald:Step_02_HZO_Deposition ;
+    ald:assertionRationale "Bottom-electrode formation precedes HZO deposition in every ledger route that states this relation; no ledger claim reverses it."@en ;
+    ald:assertionSource ald:Report_Chapter_3 ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Step_01_Bottom_Electrode
+        ald:Step_02_HZO_Deposition
+        ald:Step_03_Top_Electrode
+        ald:Step_04_Photolithography
+        ald:Step_05_Wet_Etch
+        ald:Step_06_Crystallization_Anneal
+    ) ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Layer_BS3_Bottom_TiN
+        ald:Layer_BS3_HZO
+        ald:Layer_BS3_Top_TiN
+    ) ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Scope_In_Module
+        ald:Scope_Out_Of_Module
+        ald:Scope_Upstream_Boundary
+        ald:Scope_Downstream_Boundary
+    ) ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Op_01_Bottom_Electrode_Formation
+        ald:Op_02_ALD_Film_Formation
+        ald:Op_02a_Hf_Precursor_Dose
+        ald:Op_02b_Zr_Precursor_Dose
+        ald:Op_02c_Co_Reactant_Dose
+        ald:Op_02d_Cycle_Repetition
+        ald:Op_03_Top_Electrode_Formation
+        ald:Op_04_Photolithography
+        ald:Op_05_Wet_Etch
+        ald:Op_06_Crystallization_Anneal
+    ) ;
+.
+
+[]    a owl:AllDisjointClasses ;
+    owl:members (
+        ald:Process_Element
+        ald:Process_Route
+        ald:Material
+        ald:Crystalline_Phase
+        ald:Equipment
+        ald:Characterization_Method
+        ald:Evidence_Item
+        ald:Quantity_Value
+        ald:Measurement_Result
+        ald:Specimen
+        ald:Measurand
+        ald:Process_Variable
+        ald:Limitation
+    ) ;
+.
+
+[]    a owl:AllDifferent ;
+    owl:distinctMembers (
+        ald:Confidence_High
+        ald:Confidence_Medium
+        ald:Confidence_Low
+        ald:Confidence_Open
+    ) ;
+.
