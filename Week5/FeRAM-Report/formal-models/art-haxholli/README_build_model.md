@@ -1,26 +1,26 @@
-\# ALD HfO2 Ontology Builder
+# ALD HfO2 Ontology Builder
 
 
 
-`build\_model.py` builds and validates the fixed-BS3 ALD HfO2 Deposition ontology from `claim\_ledger.xlsx`. It writes deterministic Turtle and a validation report.
+`build_model.py` builds and validates the fixed-BS3 ALD HfO2 Deposition ontology from `claim_ledger.xlsx`. It writes deterministic Turtle and a validation report.
 
 
 
-\## Requirements
+## Requirements
 
 
 
-\- Python 3.11 or newer
+- Python 3.11 or newer
 
-\- `rdflib>=7.2`
+- `rdflib>=7.2`
 
-\- `pandas>=2.0`
+- `pandas>=2.0`
 
-\- `openpyxl>=3.1`
+- `openpyxl>=3.1`
 
-\- Java 11 or newer for running ROBOT
+- Java 11 or newer for running ROBOT
 
-\- ROBOT with the HermiT reasoner; required when using `--release` and optional for a standard run
+- ROBOT with the HermiT reasoner; required when using `--release` and optional for a standard run
 
 
 
@@ -38,9 +38,9 @@ The workbook must contain:
 
 
 
-\- `Corrected Ledger`
+- `Corrected Ledger`
 
-\- `Output 3 - Coverage`
+- `Output 3 - Coverage`
 
 
 
@@ -50,7 +50,7 @@ For a release run, install ROBOT separately and supply its executable through `-
 
 ```powershell
 
-\--robot "C:\\Tools\\robot\\robot.bat"
+--robot "C:Toolsrobotrobot.bat"
 
 ```
 
@@ -60,13 +60,13 @@ If ROBOT is already on the system `PATH`, `--robot robot` is sufficient. Verify 
 
 
 
-\## Standard run
+## Standard run
 
 
 
 ```bash
 
-python build\_model.py --ledger claim\_ledger.xlsx --sheet "Corrected Ledger" --out model.ttl --report-date 2026-08-20 --run-cq
+python build_model.py --ledger claim_ledger.xlsx --sheet "Corrected Ledger" --out model.ttl --report-date 2026-08-20 --run-cq
 
 ```
 
@@ -76,9 +76,9 @@ This produces:
 
 
 
-\- `model.ttl` — canonical Turtle ontology
+- `model.ttl` — canonical Turtle ontology
 
-\- `model.validation.txt` — structural-validation report
+- `model.validation.txt` — structural-validation report
 
 
 
@@ -86,7 +86,7 @@ Window scaffolding and report-derived gaps are enabled by default. Disable them 
 
 
 
-\## Release run
+## Release run
 
 
 
@@ -96,11 +96,11 @@ Release mode requires a ROBOT executable and automatically enables strict parsin
 
 ```bash
 
-python build\_model.py --ledger claim\_ledger.xlsx --sheet "Corrected Ledger" --out model.ttl --report-date 2026-08-20 --release --robot /path/to/robot
+python build_model.py --ledger claim_ledger.xlsx --sheet "Corrected Ledger" --out model.ttl --report-date 2026-08-20 --release --robot /path/to/robot
 
 ```
 
 
 
-Use `python build\_model.py --help` to see all options.
+Use `python build_model.py --help` to see all options.
 
