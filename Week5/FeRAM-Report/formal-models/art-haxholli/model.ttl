@@ -53,7 +53,7 @@ skos:scopeNote
         ald:Ledger_Claim_Ledger ,
         ald:Report_Chapter_3 ;
     dcterms:title "ALD HfO2 Deposition ontology for HfO2-based FeRAM production"@en ;
-    ald:generationTimestamp "2026-08-20T22:24:09Z"^^xsd:dateTimeStamp ;
+    ald:generationTimestamp "2026-08-20T22:37:56Z"^^xsd:dateTimeStamp ;
     ald:ledgerRowCount 754 ;
     ald:openWorldNote
         "Domain and range axioms infer types under the open-world semantics and are not closed-world validation constraints."@en ,

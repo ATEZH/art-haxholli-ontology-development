@@ -1,7 +1,7 @@
 ALD HfO2 ontology validation report
 
 Input ledger SHA-256: 39ad61b87617e697074eabede0e7b6aab10851d70baa75c9dfb5c20bd9917fbb
-Generated Turtle SHA-256: 259c9ef204d3bdae39e5d3f563e922ac6699731589eaac77f6f74525bd1a0140
+Generated Turtle SHA-256: 8db6607e851b2e8b2ee8721e0a24176ec44e7fba08ea31fa191306dbcd5ffc58
 Python version: 3.12.6
 RDFLib version: 7.6.0
 pandas version: 3.0.1
@@ -10,19 +10,19 @@ Structural validation: PASSED (3661 triples)
 Competency tests: PASSED
 OWL 2 DL profile and HermiT verification: PASSED
 
-OWL 2 DL profile command: C:\Robot\robot.BAT validate-profile --profile DL --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\owl2dl-profile.txt
+OWL 2 DL profile command: C:\Robot\robot.BAT validate-profile --profile DL --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\owl2dl-profile.txt
 OWL 2 DL profile exit status: 0
 OWL 2 DL profile stdout:
-C:\Users\Admin\Desktop\Infineon\Tasks\Week5\FeRAM-Report\formal-models\art-haxholli>java  -jar C:\Robot\robot.jar validate-profile --profile DL --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\owl2dl-profile.txt
+C:\Users\Admin\Desktop\Infineon\Tasks\Week5\FeRAM-Report\formal-models\art-haxholli>java  -jar C:\Robot\robot.jar validate-profile --profile DL --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\owl2dl-profile.txt
 OWL 2 DL profile stderr:
 
 OWL 2 DL profile output file:
 OWL 2 DL Profile Report: [Ontology and imports closure in profile]
 
-HermiT command: C:\Robot\robot.BAT reason --reasoner hermit --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\reasoned.owl
+HermiT command: C:\Robot\robot.BAT reason --reasoner hermit --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\reasoned.owl
 HermiT exit status: 0
 HermiT stdout:
-C:\Users\Admin\Desktop\Infineon\Tasks\Week5\FeRAM-Report\formal-models\art-haxholli>java  -jar C:\Robot\robot.jar reason --reasoner hermit --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_nefo1qq4\reasoned.owl
+C:\Users\Admin\Desktop\Infineon\Tasks\Week5\FeRAM-Report\formal-models\art-haxholli>java  -jar C:\Robot\robot.jar reason --reasoner hermit --input C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\ald_hfo2.ttl --output C:\Users\Admin\AppData\Local\Temp\ald_hfo2_robot_b6fisp0f\reasoned.owl
 HermiT stderr:
 
 Zero inconsistency/unsatisfiable-class failures were reported.
